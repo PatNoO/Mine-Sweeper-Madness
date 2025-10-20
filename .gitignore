@@ -1,5 +1,6 @@
 .idea/
 MineSweeperMadness.iml
+Mine-Sweeper-Madness.iml
 ### IntelliJ IDEA ###
 out/
 !**/src/main/**/out/
