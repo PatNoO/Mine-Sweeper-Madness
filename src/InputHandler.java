@@ -27,4 +27,28 @@ public class InputHandler {
         }
     }
 
+    public static int getInt(String text) {
+        while(!scanner.hasNextInt()) {
+            System.out.println(text);
+            scanner.nextLine();
+        }
+
+        int result = scanner.nextInt();
+        scanner.nextLine();
+        return result;
+    }
+
+    public static int getInt(int min, int max, String text) {
+
+
+        while (true) {
+            int input = getInt(text + " " + min + "-" + max);
+
+            if (input >= min && input <= max) {
+                return input;
+            }
+
+            System.out.println(text + " " + min + "-" + max);
+        }
+    }
 }
