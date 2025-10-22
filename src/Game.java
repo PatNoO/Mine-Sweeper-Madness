@@ -6,6 +6,5 @@ public class Game {
 
     public void run() {
         // Run Method
-
     }
 }
