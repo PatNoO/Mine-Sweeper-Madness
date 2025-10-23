@@ -4,12 +4,4 @@ public class Main {
         Game game = new Game();
         game.run();
     }
-
-
-    /// Run GameJ
-//    public static void main(String[] args) {
-//
-//        GameJ game = new GameJ();
-//        game.run();
-//    }
 }
