@@ -1,19 +1,19 @@
 public class Game {
 
     static Board board;
+
     public Game() {
         // Init variables
     }
 
     public void run() {
         // Run Method
-        board = new Board(13, 13, 100);
+        board = new Board(10, 10, 20);
 
         System.out.println(Color.BOLD+"""
                             
                             SWEEP FOR MINES, BUT DO NOT HIT ONE!
-                            """);
-
+                            """ + Color.RESET);
 
         while (true) {
             printBoard();

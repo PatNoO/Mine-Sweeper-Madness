@@ -41,16 +41,20 @@ public class Cell {
 
         if (this.hasMine() && this.isVisible()) {
             return Color.BOLD + Color.RED_BG + Color.BLACK + "  X  " + Color.RESET;
+
         } else if (!this.hasMine() && this.isVisible()) {
+
             return switch (this.getMinesNearby()) {
-                case 0 -> Color.BOLD + Color.CHARCOAL_GRAY + "  " + this.getMinesNearby() + "  " + Color.RESET;
-                case 1 -> Color.BOLD + Color.GREEN + "  " + this.getMinesNearby() + "  " + Color.RESET;
-                case 2 -> Color.BOLD + Color.BLUE + "  " + this.getMinesNearby() + "  " + Color.RESET;
-                case 3 -> Color.BOLD + Color.RED + "  " + this.getMinesNearby() + "  " + Color.RESET;
-                case 4 -> Color.BOLD + Color.PURPLE + "  " + this.getMinesNearby() + "  " + Color.RESET;
-                case 5 -> Color.BOLD + Color.CYAN + "  " + this.getMinesNearby() + "  " + Color.RESET;
-                case 6 -> Color.BOLD + Color.ORANGE + "  " + this.getMinesNearby() + "  " + Color.RESET;
-                default -> Color.BOLD + Color.HOT_PINK + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 0 -> Color.CHARCOAL_GRAY   + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 1 -> Color.GREEN           + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 2 -> Color.BLUE            + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 3 -> Color.RED             + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 4 -> Color.PURPLE          + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 5 -> Color.CYAN            + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 6 -> Color.ORANGE          + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 7 -> Color.HOT_PINK        + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 8 -> Color.BRIGHT_YELLOW   + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                default -> throw new IllegalStateException("Unexpected value: " + this.getMinesNearby());
             };
 
         } else {
