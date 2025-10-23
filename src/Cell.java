@@ -1,40 +1,63 @@
 public class Cell {
 
-    private boolean mine;
-
-    private boolean visible;
-
+    private boolean hasMine;
+    private boolean isVisible;
     private int minesNearby;
 
-    public Cell (boolean mine, boolean visible, int minesNearby) {
-        this.mine = mine;
-        this.visible = visible;
-        this.minesNearby = minesNearby;
-
-    }
-
-    public void setMine(boolean mine) {
-        this.mine = mine;
-    }
-
-    public void setVisible(boolean visible) {
-        this.visible = visible;
-    }
-
-    public void setMinesNearby(int minesNearby) {
-        this.minesNearby = minesNearby;
-    }
 
     public boolean hasMine() {
-        return mine;
+        return hasMine;
+    }
+
+    public void hasMine(boolean hasMine) {
+        this.hasMine = hasMine;
     }
 
     public boolean isVisible() {
-        return visible;
+        return isVisible;
     }
 
-    public int getMinesNearby() {
+    public void visible(boolean visible) {
+        isVisible = visible;
+    }
+
+    public int minesNearby() {
         return minesNearby;
     }
 
+    public void minesNearby(int minesNearby) {
+        this.minesNearby = minesNearby;
+    }
+
+    public Cell(boolean hasMine, boolean isVisible, int minesNearby) {
+        this.hasMine = hasMine;
+        this.isVisible = isVisible;
+        this.minesNearby = minesNearby;
+    }
+
+    public String textAt(int row, int col) {
+
+        char rowChar = (char) ('A' + col);
+
+        if (this.hasMine() && this.isVisible()) {
+            return Color.BOLD + Color.RED_BG + Color.BLACK + "  X  " + Color.RESET;
+        } else if (!this.hasMine() && this.isVisible()) {
+            if (this.minesNearby() == 0) {
+                return Color.BOLD + Color.GRAY + "  " + this.minesNearby() + "  " + Color.RESET;
+            } else if (this.minesNearby() == 1) {
+                return Color.BOLD + Color.GREEN + "  " + this.minesNearby() + "  " + Color.RESET;
+            } else if (this.minesNearby() == 2) {
+                return Color.BOLD + Color.BLUE + "  " + this.minesNearby() + "  " + Color.RESET;
+            } else if (this.minesNearby() == 3) {
+                return Color.BOLD + Color.RED + "  " + this.minesNearby() + "  " + Color.RESET;
+            } else if (this.minesNearby() == 4) {
+                return Color.BOLD + Color.PURPLE + "  " + this.minesNearby() + "  " + Color.RESET;
+            } else if (this.minesNearby() >= 5) {
+                return Color.BOLD + Color.CYAN + "  " + this.minesNearby() + "  " + Color.RESET;
+            }
+        } else {
+            return Color.BOLD + Color.GRAY_BG + " " + rowChar + ((row>8) ? ("") : ("-")) + (row + 1) + " " + Color.RESET;
+        }
+        return "";
+    }
 }

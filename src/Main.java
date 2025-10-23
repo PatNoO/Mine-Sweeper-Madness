@@ -11,6 +11,5 @@ public class Main {
 
         GameJ game = new GameJ();
         game.run();
-
     }
 }
