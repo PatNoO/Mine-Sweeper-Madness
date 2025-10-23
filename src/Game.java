@@ -31,8 +31,7 @@ public class Game {
             System.out.println();
             System.out.println("Enter a coordinate e.g., 'A1':");
             String choice = InputHandler.getMove();
-
-            // Print A-1 if A1
+            
 
             for (int i = 0; i < grid.length; i++) {
                 char charInGrid = (char) ('A' + i);
