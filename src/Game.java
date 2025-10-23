@@ -7,8 +7,58 @@ public class Game {
 
     public void run() {
         // Run Method
-        board = new Board(10, 8, 10);
-        printBoard();
+        board = new Board(13, 13, 50);
+
+        System.out.println(Color.BOLD+"""
+                            
+                            SWEEP FOR MINES, BUT DO NOT HIT ONE!
+                            """);
+
+
+        while (true) {
+            printBoard();
+            openCell(board.grid);
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+        }
+    }
+
+    public static void openCell(Cell[][] grid) {
+        while (true) {
+            int a = -1;
+            int b = -1;
+
+            System.out.println();
+            System.out.println("Enter a coordinate e.g., 'A1':");
+            String choice = InputHandler.getMove();
+
+            // Print A-1 if A1
+
+            for (int i = 0; i < grid.length; i++) {
+                char charInGrid = (char) ('A' + i);
+                if (charInGrid == choice.charAt(0)) {
+                    a = i;
+                    break;
+                }
+            }
+
+            for (int i = 0; i < grid.length; i++) {
+                String nrInGrid = String.valueOf(i + 1);
+                if (choice.substring(2).equals(nrInGrid)) {
+                    b = i;
+                    break;
+                }
+            }
+
+            if (a != -1 && b != -1) {
+                Cell cell = grid[b][a];
+
+                cell.visible(true);
+                break;
+            } else {
+                System.out.println("Wrong input");
+            }
+        }
     }
 
     public static void printBoard() {
