@@ -82,7 +82,7 @@ public class InputHandler {
             }
 
             if (validCol && validRow) {
-                return input; // Ex: "B3"
+                return input.charAt(0) + "-" + input.charAt(1); // Ex: "B3"
             }
 
             System.out.println("Invalid input");
