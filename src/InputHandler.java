@@ -59,7 +59,7 @@ public class InputHandler {
             // Takes input and make it to upper case if it's not, to match the cases in the switch
             input = scanner.nextLine().toUpperCase();
 
-            if (input.length() != 2) {
+            if (input.length() != 2 && input.length() != 3) {
                 System.out.println("Wrong input, enter example A1..B2..C5..");
                 continue;
             }
