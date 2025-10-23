@@ -1,4 +1,4 @@
-public  class Cell {
+public class Cell {
 
     private boolean hasMine;
     private boolean isVisible;

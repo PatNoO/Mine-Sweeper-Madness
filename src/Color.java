@@ -26,6 +26,7 @@ public class Color {
     public static final String WHITE_BG = "\u001B[47m";
     public static final String GRAY_BG = "\u001B[100m";
 
+  
     public static final String SANE = "\u001B[0m";
 
     public static final String BOLD = "\u001B[1m";
