@@ -6,7 +6,7 @@ public class Main {
     }
 
 
-//    /// Run GameJ
+    /// Run GameJ
 //    public static void main(String[] args) {
 //
 //        GameJ game = new GameJ();
