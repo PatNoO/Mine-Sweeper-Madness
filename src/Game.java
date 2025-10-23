@@ -7,7 +7,7 @@ public class Game {
 
     public void run() {
         // Run Method
-        board = new Board(13, 13, 50);
+        board = new Board(13, 13, 100);
 
         System.out.println(Color.BOLD+"""
                             
