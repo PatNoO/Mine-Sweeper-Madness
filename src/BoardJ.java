@@ -27,8 +27,9 @@ public class BoardJ {
             safeSpots.add(cell);
         }
     }
+
     ///  Creates grid from two Arrays - mines and safe spots
-    public static Cell[][] getAllCells() {
+    public static Cell[][] createGrid() {
 
         createMines();
         createSafeSpots();
