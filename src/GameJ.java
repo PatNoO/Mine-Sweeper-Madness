@@ -199,8 +199,8 @@ public static void checkAround(Cell[][] grid) {
 
 public static void openCell(Cell[][] grid) {
 
-    int a = 7;
-    int b = 7;
+    int a = 0;
+    int b = 0;
 
     System.out.println();
     System.out.println("Enter a coordinate e.g., 'A1':");
@@ -208,19 +208,27 @@ public static void openCell(Cell[][] grid) {
 
     // Print A-1 if A1
 
-    if (choice.charAt(0) == 'A') {
-        a = 0;
-    } else if (choice.charAt(0) == 'B') {
-        a = 1;
-    } else if (choice.charAt(0) == 'C') {
-        a = 2;
-    } else if (choice.charAt(0) == 'D') {
-        a = 3;
-    } else if (choice.charAt(0) == 'E') {
-        a = 4;
-    } else if (choice.charAt(0) == 'F') {
-        a = 5;
+    for (int i = 0; i < grid.length; i++) {
+        char charInGrid = (char)('A' + i );
+        if (charInGrid == choice.charAt(0)) {
+            a = i;
+            break;
+        }
     }
+
+//    if (choice.charAt(0) == 'A') {
+//        a = 0;
+//    } else if (choice.charAt(0) == 'B') {
+//        a = 1;
+//    } else if (choice.charAt(0) == 'C') {
+//        a = 2;
+//    } else if (choice.charAt(0) == 'D') {
+//        a = 3;
+//    } else if (choice.charAt(0) == 'E') {
+//        a = 4;
+//    } else if (choice.charAt(0) == 'F') {
+//        a = 5;
+//    }
 
     if (choice.charAt(2) == '1') {
         b = 0;
