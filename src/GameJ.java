@@ -238,7 +238,7 @@ public static void openCell(Cell[][] grid) {
 
     Cell cell = grid[b][a];
 
-    cell.setVisible(true);
+    cell.visible(true);
 
 }
 

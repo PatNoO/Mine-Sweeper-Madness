@@ -21,11 +21,11 @@ public class Cell {
         isVisible = visible;
     }
 
-    public int minesNearby() {
+    public int getMinesNearby() {
         return minesNearby;
     }
 
-    public void minesNearby(int minesNearby) {
+    public void setMinesNearby(int minesNearby) {
         this.minesNearby = minesNearby;
     }
 
@@ -42,18 +42,18 @@ public class Cell {
         if (this.hasMine() && this.isVisible()) {
             return Color.BOLD + Color.RED_BG + Color.BLACK + "  X  " + Color.RESET;
         } else if (!this.hasMine() && this.isVisible()) {
-            if (this.minesNearby() == 0) {
-                return Color.BOLD + Color.GRAY + "  " + this.minesNearby() + "  " + Color.RESET;
-            } else if (this.minesNearby() == 1) {
-                return Color.BOLD + Color.GREEN + "  " + this.minesNearby() + "  " + Color.RESET;
-            } else if (this.minesNearby() == 2) {
-                return Color.BOLD + Color.BLUE + "  " + this.minesNearby() + "  " + Color.RESET;
-            } else if (this.minesNearby() == 3) {
-                return Color.BOLD + Color.RED + "  " + this.minesNearby() + "  " + Color.RESET;
-            } else if (this.minesNearby() == 4) {
-                return Color.BOLD + Color.PURPLE + "  " + this.minesNearby() + "  " + Color.RESET;
-            } else if (this.minesNearby() >= 5) {
-                return Color.BOLD + Color.CYAN + "  " + this.minesNearby() + "  " + Color.RESET;
+            if (this.getMinesNearby() == 0) {
+                return Color.BOLD + Color.GRAY + "  " + this.getMinesNearby() + "  " + Color.RESET;
+            } else if (this.getMinesNearby() == 1) {
+                return Color.BOLD + Color.GREEN + "  " + this.getMinesNearby() + "  " + Color.RESET;
+            } else if (this.getMinesNearby() == 2) {
+                return Color.BOLD + Color.BLUE + "  " + this.getMinesNearby() + "  " + Color.RESET;
+            } else if (this.getMinesNearby() == 3) {
+                return Color.BOLD + Color.RED + "  " + this.getMinesNearby() + "  " + Color.RESET;
+            } else if (this.getMinesNearby() == 4) {
+                return Color.BOLD + Color.PURPLE + "  " + this.getMinesNearby() + "  " + Color.RESET;
+            } else if (this.getMinesNearby() >= 5) {
+                return Color.BOLD + Color.CYAN + "  " + this.getMinesNearby() + "  " + Color.RESET;
             }
         } else {
             return Color.BOLD + Color.GRAY_BG + " " + rowChar + ((row>8) ? ("") : ("-")) + (row + 1) + " " + Color.RESET;
