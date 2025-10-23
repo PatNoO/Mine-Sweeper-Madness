@@ -199,8 +199,8 @@ public static void checkAround(Cell[][] grid) {
 
 public static void openCell(Cell[][] grid) {
 
-    int a = 7;
-    int b = 7;
+    int a = 0;
+    int b = 0;
 
     System.out.println();
     System.out.println("Enter a coordinate e.g., 'A1':");
@@ -208,33 +208,49 @@ public static void openCell(Cell[][] grid) {
 
     // Print A-1 if A1
 
-    if (choice.charAt(0) == 'A') {
-        a = 0;
-    } else if (choice.charAt(0) == 'B') {
-        a = 1;
-    } else if (choice.charAt(0) == 'C') {
-        a = 2;
-    } else if (choice.charAt(0) == 'D') {
-        a = 3;
-    } else if (choice.charAt(0) == 'E') {
-        a = 4;
-    } else if (choice.charAt(0) == 'F') {
-        a = 5;
+    for (int i = 0; i < grid.length; i++) {
+        char charInGrid = (char) ('A' + i);
+        if (charInGrid == choice.charAt(0)) {
+            a = i;
+            break;
+        }
     }
 
-    if (choice.charAt(2) == '1') {
-        b = 0;
-    } else if (choice.charAt(2) == '2') {
-        b = 1;
-    } else if (choice.charAt(2) == '3') {
-        b = 2;
-    } else if (choice.charAt(2) == '4') {
-        b = 3;
-    } else if (choice.charAt(2) == '5') {
-        b = 4;
-    } else if (choice.charAt(2) == '6') {
-        b = 5;
+//    if (choice.charAt(0) == 'A') {
+//        a = 0;
+//    } else if (choice.charAt(0) == 'B') {
+//        a = 1;
+//    } else if (choice.charAt(0) == 'C') {
+//        a = 2;
+//    } else if (choice.charAt(0) == 'D') {
+//        a = 3;
+//    } else if (choice.charAt(0) == 'E') {
+//        a = 4;
+//    } else if (choice.charAt(0) == 'F') {
+//        a = 5;
+//    }
+
+    for (int i = 0; i < grid.length; i++) {
+        String nrInGrid = String.valueOf(i + 1);
+        if (choice.substring(2).equals(nrInGrid)) {
+            b = i;
+            break;
+        }
     }
+
+//    if (choice.charAt(2) == '1') {
+//        b = 0;
+//    } else if (choice.charAt(2) == '2') {
+//        b = 1;
+//    } else if (choice.charAt(2) == '3') {
+//        b = 2;
+//    } else if (choice.charAt(2) == '4') {
+//        b = 3;
+//    } else if (choice.charAt(2) == '5') {
+//        b = 4;
+//    } else if (choice.charAt(2) == '6') {
+//        b = 5;
+//    }
 
     Cell cell = grid[b][a];
 
