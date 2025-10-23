@@ -7,7 +7,7 @@ public class Game {
 
     public void run() {
         // Run Method
-        board = new Board(10, 5, 10);
+        board = new Board(10, 8, 10);
         printBoard();
     }
 

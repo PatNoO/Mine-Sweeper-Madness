@@ -42,22 +42,19 @@ public class Cell {
         if (this.hasMine() && this.isVisible()) {
             return Color.BOLD + Color.RED_BG + Color.BLACK + "  X  " + Color.RESET;
         } else if (!this.hasMine() && this.isVisible()) {
-            if (this.getMinesNearby() == 0) {
-                return Color.BOLD + Color.GRAY + "  " + this.getMinesNearby() + "  " + Color.RESET;
-            } else if (this.getMinesNearby() == 1) {
-                return Color.BOLD + Color.GREEN + "  " + this.getMinesNearby() + "  " + Color.RESET;
-            } else if (this.getMinesNearby() == 2) {
-                return Color.BOLD + Color.BLUE + "  " + this.getMinesNearby() + "  " + Color.RESET;
-            } else if (this.getMinesNearby() == 3) {
-                return Color.BOLD + Color.RED + "  " + this.getMinesNearby() + "  " + Color.RESET;
-            } else if (this.getMinesNearby() == 4) {
-                return Color.BOLD + Color.PURPLE + "  " + this.getMinesNearby() + "  " + Color.RESET;
-            } else if (this.getMinesNearby() >= 5) {
-                return Color.BOLD + Color.CYAN + "  " + this.getMinesNearby() + "  " + Color.RESET;
-            }
+            return switch (this.getMinesNearby()) {
+                case 0 -> Color.BOLD + Color.GRAY + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 1 -> Color.BOLD + Color.GREEN + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 2 -> Color.BOLD + Color.BLUE + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 3 -> Color.BOLD + Color.RED + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 4 -> Color.BOLD + Color.PURPLE + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 5 -> Color.BOLD + Color.CYAN + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 6 -> Color.BOLD + Color.YELLOW + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                default -> Color.BOLD + Color.WHITE + "  " + this.getMinesNearby() + "  " + Color.RESET;
+            };
+
         } else {
             return Color.BOLD + Color.GRAY_BG + " " + rowChar + ((row>8) ? ("") : ("-")) + (row + 1) + " " + Color.RESET;
         }
-        return "";
     }
 }
