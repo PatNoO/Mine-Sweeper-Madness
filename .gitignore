@@ -1,6 +1,14 @@
 .idea/
 MineSweeperMadness.iml
 Mine-Sweeper-Madness.iml
+/src/Board.class
+/src/Cell.class
+/src/Color.class
+/src/Game.class
+/src/InputHandler.class
+/src/Main.class
+/src/Position.class
+
 ### IntelliJ IDEA ###
 out/
 !**/src/main/**/out/

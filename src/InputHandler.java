@@ -52,55 +52,15 @@ public class InputHandler {
         }
     }
 
-    public static String getMove() {
+    public static Position getPosition() {
 
-        String input;
-        while (true) {
-            // Takes input and make it to upper case if it's not
-            input = scanner.nextLine().toUpperCase();
+        // Takes input and make it to upper case if it's not
+        String input = scanner.nextLine().toUpperCase();
 
-            if (input.length() != 2 && input.length() != 3) {
-                System.out.println("Wrong input, enter example A1..B2..C5..");
-                continue;
-            }
+        int col = input.charAt(0) - 'A';
+        int row = Integer.parseInt(input.substring(1)) - 1;
 
-            boolean validCol = false;
-            boolean validRow = false;
+        return (new Position(row, col));
 
-            for (int i = 0; i < input.length(); i++) {
-                if (Character.isLetter(input.charAt(i))) {
-                    validCol = true;
-                    break;
-                }
-            }
-
-            for (int i = 0; i < input.length(); i++) {
-                if (Character.isDigit(input.charAt(i))) {
-                    validRow = true;
-                    break;
-                }
-            }
-
-
-            if (input.length() == 2 && validCol && validRow) {
-                return input.charAt(0) + "-" + input.charAt(1); // Ex: "B3"
-            } else if (validCol && validRow) {
-                return input.charAt(0) + " " + input.charAt(1) + input.charAt(2); // Ex: "B3"
-            }
-            System.out.println("Invalid input");
-
-//            if (input.length() == 2 &&
-//                    (input.charAt(0) == 'A' || input.charAt(0) == 'B' || input.charAt(0) == 'C' || input.charAt(0) == 'D' || input.charAt(0) == 'E' || input.charAt(0) == 'F') &&
-//                    (input.charAt(1) == '1' || input.charAt(1) == '2' || input.charAt(1) == '3' || input.charAt(1) == '4' || input.charAt(1) == '5' || input.charAt(1) == '6')) {
-//
-//                return input.charAt(0) + "-" + input.charAt(1);
-//
-//            } else {
-//                System.out.println("""
-//                        Wrong input.
-//                        Enter a coordinate e.g., 'A1':""");
-//            }
-//        }
-        }
     }
 }

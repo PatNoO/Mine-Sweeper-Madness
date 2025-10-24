@@ -17,8 +17,8 @@ public class Cell {
         return isVisible;
     }
 
-    public void visible(boolean visible) {
-        isVisible = visible;
+    public void isVisible(boolean visible) {
+        this.isVisible = visible;
     }
 
     public int getMinesNearby() {
