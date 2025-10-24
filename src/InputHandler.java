@@ -56,7 +56,7 @@ public class InputHandler {
 
         String input;
         while (true) {
-            // Takes input and make it to upper case if it's not, to match the cases in the switch
+            // Takes input and make it to upper case if it's not
             input = scanner.nextLine().toUpperCase();
 
             if (input.length() != 2 && input.length() != 3) {
@@ -81,12 +81,12 @@ public class InputHandler {
                 }
             }
 
+
             if (input.length() == 2 && validCol && validRow) {
                 return input.charAt(0) + "-" + input.charAt(1); // Ex: "B3"
             } else if (validCol && validRow) {
-                return input.charAt(0) + "-" + input.charAt(1) + input.charAt(2); // Ex: "B3"
+                return input.charAt(0) + input.charAt(1) + input.charAt(2); // Ex: "B3"
             }
-
             System.out.println("Invalid input");
 
 //            if (input.length() == 2 &&
