@@ -23,7 +23,7 @@ public class Game {
             System.out.println("Press 4 to quit ");
 
             int userInputMenu = InputHandler.getInt(1, 4, TextOutput.ERROR_PLAYER_INT_INPUT);
-            System.out.println(userInputMenu);
+//            System.out.println(userInputMenu);
 
             switch (userInputMenu) {
                 // Startar spelet
@@ -37,6 +37,7 @@ public class Game {
                     TextOutput.showHelp();
                     break;
                 case 4:
+                    TextOutput.thanksForPlayingOutput();
                     System.exit(0);
                     break;
 
@@ -112,7 +113,7 @@ public class Game {
                     if (cell.hasMine()) {
                         openMines(board);
                         printBoard();
-                        TextOutput.GameOverOutput();
+                        TextOutput. gameOverOutput();
 
                         break;
 
