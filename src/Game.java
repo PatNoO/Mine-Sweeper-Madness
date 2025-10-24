@@ -8,7 +8,10 @@ public class Game {
 
     public void run() {
         // Run Method
-        board = new Board(10, 10, 15);
+        int boardWidth = 10;
+        int boardHeight = 10;
+        int boardNumOfMines = 15;
+        board = new Board(boardWidth, boardHeight, boardNumOfMines);
 
         System.out.println(Color.BOLD+"""
                             
@@ -24,10 +27,15 @@ public class Game {
 
             if (pos != null) {
                 Cell cell = board.cellAtPosition(pos);
-                board.openCellAtPosition(pos.row(), pos.col());
                 if (cell != null) {
+                    board.openCellAtPosition(pos.row(), pos.col());
+                    int openedCells = checkOpenedCells(board);
+                    int totalCells = boardWidth * boardHeight;
+                    if (openedCells == totalCells - boardNumOfMines) {
+                        System.out.println(TextOutput.PLAYER_WIN);
+                    }
                     if (cell.hasMine()) {
-                        openBoard(board);
+                        openMines(board);
                         printBoard();
                         System.out.println();
                         System.out.println((Color.BOLD + Color.RED + "*" + Color.ORANGE + "*").repeat(15));
@@ -47,7 +55,20 @@ public class Game {
         System.out.flush();
     }
 
-    public void openBoard(Board board) {
+    public int checkOpenedCells(Board board) {
+        int numOfOpenedCells = 0;
+        for (int row = 0; row < board.grid.length; row++) {
+            for (int col = 0; col < board.grid[row].length; col++) {
+                if (board.grid[row][col].isVisible()) {
+                    numOfOpenedCells++;
+                    System.out.println(numOfOpenedCells);
+                }
+            }
+        }
+        return numOfOpenedCells;
+    }
+
+    public void openMines(Board board) {
         for (int row = 0; row < board.grid.length; row++) {
             for (int col = 0; col < board.grid[row].length; col++) {
                 if (board.grid[row][col].hasMine()) {
