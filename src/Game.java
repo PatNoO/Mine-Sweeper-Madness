@@ -1,3 +1,5 @@
+import org.w3c.dom.Text;
+
 public class Game {
 
     static Board board;
@@ -7,7 +9,18 @@ public class Game {
     }
 
     public void homeMenu() {
-        
+        Player player = new Player("");
+        System.out.println(TextOutput.WELCOME_TEXT);
+        System.out.println(TextOutput.PLAYER_NAME);
+        player.setName(InputHandler.getStringName(TextOutput.ERROR_PLAYER_INPUT_NAME));
+
+        while (true) {
+            System.out.println("Press 1 to play game ");
+            System.out.println("Press 2 choose difficulty ");
+            System.out.println("Press 3 to for help ");
+            System.out.println("Press 4 to quit ");
+            
+        }
 
     }
 
