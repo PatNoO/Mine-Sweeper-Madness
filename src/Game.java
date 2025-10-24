@@ -8,7 +8,10 @@ public class Game {
 
     public void run() {
         // Run Method
-        board = new Board(10, 10, 15);
+        int boardWidth = 10;
+        int boardHeight = 10;
+        int boardNumOfMines = 15;
+        board = new Board(boardWidth, boardHeight, boardNumOfMines);
 
         System.out.println(Color.BOLD+"""
                             
@@ -25,8 +28,20 @@ public class Game {
             if (pos != null) {
                 Cell cell = board.cellAtPosition(pos);
                 if (cell != null) {
-                    if (board.openCellAtPosition(pos.row(), pos.col())) {
-                        System.out.println("You hit a Mine!!!!");
+                    board.openCellAtPosition(pos.row(), pos.col());
+                    int openedCells = checkOpenedCells(board);
+                    int totalCells = boardWidth * boardHeight;
+                    if (openedCells == totalCells - boardNumOfMines) {
+                        System.out.println(TextOutput.PLAYER_WIN);
+                    }
+                    if (cell.hasMine()) {
+                        openMines(board);
+                        printBoard();
+                        System.out.println();
+                        System.out.println((Color.BOLD + Color.RED + "*" + Color.ORANGE + "*").repeat(15));
+                        System.out.println(Color.BOLD + Color.ORANGE + "* " + Color.RED + "You hit a mine, GAME OVER! *");
+                        System.out.println((Color.BOLD + Color.RED + "*" + Color.ORANGE + "*").repeat(15));
+                        break;
 
                     }
                 }
@@ -38,6 +53,29 @@ public class Game {
     public void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
+    }
+
+    public int checkOpenedCells(Board board) {
+        int numOfOpenedCells = 0;
+        for (int row = 0; row < board.grid.length; row++) {
+            for (int col = 0; col < board.grid[row].length; col++) {
+                if (board.grid[row][col].isVisible()) {
+                    numOfOpenedCells++;
+                    System.out.println(numOfOpenedCells);
+                }
+            }
+        }
+        return numOfOpenedCells;
+    }
+
+    public void openMines(Board board) {
+        for (int row = 0; row < board.grid.length; row++) {
+            for (int col = 0; col < board.grid[row].length; col++) {
+                if (board.grid[row][col].hasMine()) {
+                    board.grid[row][col].isVisible(true);
+                }
+            }
+        }
     }
 
     public static void printBoard() {
