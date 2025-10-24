@@ -31,10 +31,15 @@ public class TextOutput {
             
             """ + Color.RESET;
 
-    public static final String GAME_OVER = "\n" +
-            Color.BOLD + Color.RED + "*" + Color.ORANGE + "*".repeat(15) + "\n" +
-            Color.BOLD + Color.ORANGE + "* " + Color.RED + "You hit a mine, GAME OVER! *" + "\n" +
-            Color.BOLD + Color.RED + "*" + Color.ORANGE + "*".repeat(15) + Color.RESET + "\n";
+
+    public static void GameOverOutput() {
+        System.out.println();
+        System.out.println((Color.BOLD + Color.RED + "*" + Color.ORANGE + "*").repeat(10) + Color.RED + "*");
+        System.out.println(Color.BOLD + Color.ORANGE + "* " + Color.RED + " YOU HIT A MINE! " + Color.RESET + Color.ORANGE + " *");
+        System.out.println(Color.BOLD + Color.RED + "*    " + Color.RED + " GAME OVER! " + Color.RESET + Color.RED + "   *");
+        System.out.println((Color.BOLD + Color.ORANGE + "*" + Color.RED + "*").repeat(10) + Color.ORANGE + "*" + Color.RESET);
+        System.out.println();
+    }
 
 
     //------------------------------------//

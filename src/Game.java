@@ -112,11 +112,8 @@ public class Game {
                     if (cell.hasMine()) {
                         openMines(board);
                         printBoard();
-                        System.out.println(TextOutput.GAME_OVER);
-//                        System.out.println();
-//                        System.out.println((Color.BOLD + Color.RED + "*" + Color.ORANGE + "*").repeat(15));
-//                        System.out.println(Color.BOLD + Color.ORANGE + "* " + Color.RED + "You hit a mine, GAME OVER! *");
-//                        System.out.println((Color.BOLD + Color.RED + "*" + Color.ORANGE + "*").repeat(15) + Color.RESET);
+                        TextOutput.GameOverOutput();
+
                         break;
 
                     }
