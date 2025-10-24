@@ -5,21 +5,23 @@ public class Board {
 
 
     public Cell cellAtPosition(Position pos) {
-        try {
+        if (pos.row()>=0 && pos.row()<grid.length && pos.col()>=0 && pos.col()<grid[0].length) {
             return grid[pos.row()][pos.col()];
-        } catch (Exception e) {
+        } else {
             return null;
         }
     }
 
-    public void openCellAtPosition(int row, int col) {
+    public boolean openCellAtPosition(int row, int col) {
 
         if (row>=0 && row<grid.length && col>=0 && col<grid[0].length) {
 
             Cell cell = grid[row][col];
             if (!cell.isVisible()) {
                 cell.isVisible(true);
-                if (cell.getMinesNearby() == 0) {
+                if (cell.hasMine()) {
+                    return true;
+                } else if (cell.getMinesNearby() == 0) {
 
                     openCellAtPosition(row, col - 1);
                     openCellAtPosition(row, col + 1);
@@ -35,6 +37,7 @@ public class Board {
                 }
             }
         }
+        return false;
     }
 
 

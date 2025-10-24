@@ -25,7 +25,10 @@ public class Game {
             if (pos != null) {
                 Cell cell = board.cellAtPosition(pos);
                 if (cell != null) {
-                    board.openCellAtPosition(pos.row(), pos.col());
+                    if (board.openCellAtPosition(pos.row(), pos.col())) {
+                        System.out.println("You hit a Mine!!!!");
+
+                    }
                 }
             }
 

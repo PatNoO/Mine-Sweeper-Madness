@@ -57,10 +57,14 @@ public class InputHandler {
         // Takes input and make it to upper case if it's not
         String input = scanner.nextLine().toUpperCase();
 
-        int col = input.charAt(0) - 'A';
-        int row = Integer.parseInt(input.substring(1)) - 1;
+        try {
+            int col = input.charAt(0) - 'A';
+            int row = Integer.parseInt(input.substring(1)) - 1;
+            return new Position(row, col);
+        } catch (Exception e) {
+            return null;
+        }
 
-        return (new Position(row, col));
 
     }
 }
