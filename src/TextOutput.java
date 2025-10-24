@@ -28,6 +28,56 @@ public class TextOutput {
     public static final String BOARD_TITEL = Color.BOLD+"""
                             
                             SWEEP FOR MINES, BUT DO NOT HIT ONE!
-                            """ + Color.RESET;
+                    
+                           """ + Color.RESET;
+
+    //------------------------------------//
+
+    public static void showHelp() {
+        System.out.println(Color.BOLD+ """
+                
+                📜 HOW TO PLAY MINESWEEPER 📜
+                ----------------------------------
+                
+                🧩 GOAL:
+                Find and clear all SAFE cells on the board.
+                Avoid hidden mines 💣 or the game will end!
+                
+                🕹 CONTROLS:
+                - Type coordinates to open a cell.
+                  Example: A1, B3,..
+                
+                💡 TIP:
+                - The number on a revealed cell shows how many mines
+                  are hidden around it (in 8 directions).
+                
+                - Use logic to avoid mines and find safe paths.
+                - You can play carefully or take risks — up to you!
+                
+                🏁 WIN CONDITION:
+                - You win when all safe cells have been revealed!
+                
+                ☠️ LOSE CONDITION:
+                - You lose if you open a cell that has a mine.
+                
+                Example round:
+                -------------------------
+                Input:  A1
+                Output: Shows number of nearby mines or 💣 if you hit one.
+                
+                -------------------------
+                Press 1 to return to the game.
+                """ + Color.RESET);
+        int userHelpInput ;
+        do {
+            userHelpInput = InputHandler.getInt(TextOutput.ERROR_PLAYER_INVALID_INPUT);
+            if (userHelpInput == 1) {
+                return;
+            } else {
+                System.out.println(TextOutput.ERROR_PLAYER_INVALID_INPUT);
+            }
+        } while (true);
+
+    }
 }
 // public static

@@ -18,7 +18,7 @@ public class Game {
             System.out.println("Welcome to the home menu!");
 
             System.out.println("Press 1 to play game ");
-            System.out.println("Press 2 choose difficulty ");
+            System.out.println("Press 2 change difficulty ");
             System.out.println("Press 3 to for help ");
             System.out.println("Press 4 to quit ");
 
@@ -30,10 +30,19 @@ public class Game {
                 case 1:
                     run();
                     break;
-
                 case 2:
                     difficultyMenu(player);
+                    break;
+                case 3:
+                    TextOutput.showHelp();
+                    break;
+                    case 4:
+                        System.exit(0);
+                        break;
 
+                        default:
+                            System.out.println(TextOutput.ERROR_PLAYER_INVALID_INPUT);
+                            break;
             }
 
         }
@@ -106,7 +115,7 @@ public class Game {
                         System.out.println();
                         System.out.println((Color.BOLD + Color.RED + "*" + Color.ORANGE + "*").repeat(15));
                         System.out.println(Color.BOLD + Color.ORANGE + "* " + Color.RED + "You hit a mine, GAME OVER! *");
-                        System.out.println((Color.BOLD + Color.RED + "*" + Color.ORANGE + "*").repeat(15));
+                        System.out.println((Color.BOLD + Color.RED + "*" + Color.ORANGE + "*").repeat(15) + Color.RESET);
                         break;
 
                     }
