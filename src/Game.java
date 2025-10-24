@@ -6,6 +6,12 @@ public class Game {
         // Init variables
     }
 
+    public void homeMenu() {
+        
+
+    }
+
+
     public void run() {
         // Run Method
         int boardWidth = 10;
