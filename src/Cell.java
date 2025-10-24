@@ -40,20 +40,23 @@ public class Cell {
         char rowChar = (char) ('A' + col);
 
         if (this.hasMine() && this.isVisible()) {
+//            if (.hasMine() && !.isVisible()) {
+//                return Color.BOLD + Color.DARK_GRAY_BG + Color.RED + "  X  " + Color.RESET;
+//            }
             return Color.BOLD + Color.RED_BG + Color.BLACK + "  X  " + Color.RESET;
 
         } else if (!this.hasMine() && this.isVisible()) {
 
             return switch (this.getMinesNearby()) {
-                case 0 -> Color.CHARCOAL_GRAY   + "  " + this.getMinesNearby() + "  " + Color.RESET;
-                case 1 -> Color.GREEN           + "  " + this.getMinesNearby() + "  " + Color.RESET;
-                case 2 -> Color.BLUE            + "  " + this.getMinesNearby() + "  " + Color.RESET;
-                case 3 -> Color.RED             + "  " + this.getMinesNearby() + "  " + Color.RESET;
-                case 4 -> Color.PURPLE          + "  " + this.getMinesNearby() + "  " + Color.RESET;
-                case 5 -> Color.CYAN            + "  " + this.getMinesNearby() + "  " + Color.RESET;
-                case 6 -> Color.ORANGE          + "  " + this.getMinesNearby() + "  " + Color.RESET;
-                case 7 -> Color.HOT_PINK        + "  " + this.getMinesNearby() + "  " + Color.RESET;
-                case 8 -> Color.BRIGHT_YELLOW   + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 0 -> Color.DARK_GRAY_BG + Color.CHARCOAL_GRAY   + "     " + Color.RESET;
+                case 1 -> Color.DARK_GRAY_BG + Color.GREEN           + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 2 -> Color.DARK_GRAY_BG + Color.BLUE            + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 3 -> Color.DARK_GRAY_BG + Color.RED             + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 4 -> Color.DARK_GRAY_BG + Color.PURPLE          + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 5 -> Color.DARK_GRAY_BG + Color.CYAN            + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 6 -> Color.DARK_GRAY_BG + Color.ORANGE          + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 7 -> Color.DARK_GRAY_BG + Color.HOT_PINK        + "  " + this.getMinesNearby() + "  " + Color.RESET;
+                case 8 -> Color.DARK_GRAY_BG + Color.BRIGHT_YELLOW   + "  " + this.getMinesNearby() + "  " + Color.RESET;
                 default -> throw new IllegalStateException("Unexpected value: " + this.getMinesNearby());
             };
 

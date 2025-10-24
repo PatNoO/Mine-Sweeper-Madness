@@ -24,9 +24,16 @@ public class Game {
 
             if (pos != null) {
                 Cell cell = board.cellAtPosition(pos);
+                board.openCellAtPosition(pos.row(), pos.col());
                 if (cell != null) {
-                    if (board.openCellAtPosition(pos.row(), pos.col())) {
-                        System.out.println("You hit a Mine!!!!");
+                    if (cell.hasMine()) {
+                        openBoard(board);
+                        printBoard();
+                        System.out.println();
+                        System.out.println((Color.BOLD + Color.RED + "*" + Color.ORANGE + "*").repeat(15));
+                        System.out.println(Color.BOLD + Color.ORANGE + "* " + Color.RED + "You hit a mine, GAME OVER! *");
+                        System.out.println((Color.BOLD + Color.RED + "*" + Color.ORANGE + "*").repeat(15));
+                        break;
 
                     }
                 }
@@ -38,6 +45,16 @@ public class Game {
     public void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
+    }
+
+    public void openBoard(Board board) {
+        for (int row = 0; row < board.grid.length; row++) {
+            for (int col = 0; col < board.grid[row].length; col++) {
+                if (board.grid[row][col].hasMine()) {
+                    board.grid[row][col].isVisible(true);
+                }
+            }
+        }
     }
 
     public static void printBoard() {
