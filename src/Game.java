@@ -15,12 +15,55 @@ public class Game {
         player.setName(InputHandler.getStringName(TextOutput.ERROR_PLAYER_INPUT_NAME));
 
         while (true) {
+            System.out.println("Welcome to the home menu!");
+
             System.out.println("Press 1 to play game ");
             System.out.println("Press 2 choose difficulty ");
             System.out.println("Press 3 to for help ");
             System.out.println("Press 4 to quit ");
-            
+
+            int userInputMenu = InputHandler.getInt(1, 4, TextOutput.ERROR_PLAYER_INT_INPUT);
+            System.out.println(userInputMenu);
+
+            switch (userInputMenu) {
+                // Startar spelet
+                case 1:
+                    run();
+                    break;
+
+                case 2:
+                    difficultyMenu(player);
+
+            }
+
         }
+
+    }
+
+    public void difficultyMenu(Player player) {
+
+        System.out.println(player.getName() + " Choose difficulty :");
+        System.out.println("Press 1 for : EASY ");
+        System.out.println("Press 2 for : MEDIUM ");
+        System.out.println("Press 3 for : HARD ");
+
+        int playerDifficulty = InputHandler.getInt(1, 4, TextOutput.ERROR_PLAYER_INT_INPUT);
+        switch (playerDifficulty) {
+            case 1:
+                System.out.println("Easy");
+                break;
+            case 2:
+                System.out.println("Medium");
+                break;
+            case 3:
+                System.out.println("Hard");
+                break;
+            default:
+                System.out.println(TextOutput.ERROR_PLAYER_INVALID_INPUT);
+                homeMenu();
+
+        }
+
 
     }
 
@@ -31,11 +74,13 @@ public class Game {
         int boardHeight = 10;
         int boardNumOfMines = 15;
         board = new Board(boardWidth, boardHeight, boardNumOfMines);
+        /// todo kanske starta på homeMenu istället för run ?
+        homeMenu();
 
-        System.out.println(Color.BOLD+"""
-                            
-                            SWEEP FOR MINES, BUT DO NOT HIT ONE!
-                            """ + Color.RESET);
+        System.out.println(Color.BOLD + """
+                
+                SWEEP FOR MINES, BUT DO NOT HIT ONE!
+                """ + Color.RESET);
 
         while (true) {
             clearScreen();
