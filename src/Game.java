@@ -8,7 +8,7 @@ public class Game {
 
     public void run() {
         // Run Method
-        board = new Board(20, 10, 15);
+        board = new Board(10, 10, 15);
 
         System.out.println(Color.BOLD+"""
                             
@@ -21,7 +21,7 @@ public class Game {
 
 
             Position pos = InputHandler.getPosition();
-            System.out.println(pos.row() + "," + pos.col());
+
             if (pos != null) {
                 Cell cell = board.cellAtPosition(pos);
                 if (cell != null) {

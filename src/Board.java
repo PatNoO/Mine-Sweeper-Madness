@@ -74,55 +74,31 @@ public class Board {
             for (int row = 0; row < rowHeight; row++) {
 
                 count = 0;
+                if (col > 0) {
+                    count += ((grid[row][col - 1].hasMine()) ? 1 : 0);
+                }
+                if (col < colWidth - 1) {
+                    count += ((grid[row][col + 1].hasMine()) ? 1 : 0);
+                }
+                if (row < rowHeight - 1) {
+                    count += ((grid[row + 1][col].hasMine()) ? 1 : 0);
+                }
+                if (row > 0) {
+                    count += ((grid[row - 1][col].hasMine()) ? 1 : 0);
+                }
+                if (row < rowHeight - 1 && col < colWidth - 1) {
+                    count += ((grid[row + 1][col + 1].hasMine()) ? 1 : 0);
+                }
+                if (row > 0 && col > 0) {
+                    count += ((grid[row - 1][col - 1].hasMine()) ?  1 : 0);
+                }
+                if (row < rowHeight - 1 && col > 0) {
+                    count += ((grid[row + 1][col - 1].hasMine()) ? 1 : 0);
+                }
+                if (row > 0 && col < colWidth - 1) {
+                    count += ((grid[row - 1][col + 1].hasMine()) ? 1 : 0);
+                }
 
-                try {
-                    if (grid[row][col - 1].hasMine()) {
-                        count++;
-                    }
-                } catch (Exception ignored) {
-                }
-                try {
-                    if (grid[row][col + 1].hasMine()) {
-                        count++;
-                    }
-                } catch (Exception ignored) {
-                }
-                try {
-                    if (grid[row - 1][col].hasMine()) {
-                        count++;
-                    }
-                } catch (Exception ignored) {
-                }
-                try {
-                    if (grid[row + 1][col].hasMine()) {
-                        count++;
-                    }
-                } catch (Exception ignored) {
-                }
-                try {
-                    if (grid[row + 1][col - 1].hasMine()) {
-                        count++;
-                    }
-                } catch (Exception ignored) {
-                }
-                try {
-                    if (grid[row + 1][col + 1].hasMine()) {
-                        count++;
-                    }
-                } catch (Exception ignored) {
-                }
-                try {
-                    if (grid[row - 1][col + 1].hasMine()) {
-                        count++;
-                    }
-                } catch (Exception ignored) {
-                }
-                try {
-                    if (grid[row - 1][col - 1].hasMine()) {
-                        count++;
-                    }
-                } catch (Exception ignored) {
-                }
 
                 grid[row][col].setMinesNearby(count);
             }
