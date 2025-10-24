@@ -3,6 +3,41 @@ import java.util.*;
 public class Board {
     Cell[][] grid;
 
+
+    public Cell cellAtPosition(Position pos) {
+        try {
+            return grid[pos.row()][pos.col()];
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public void openCellAtPosition(int row, int col) {
+
+        if (row>=0 && row<grid.length && col>=0 && col<grid[0].length) {
+
+            Cell cell = grid[row][col];
+            if (!cell.isVisible()) {
+                cell.isVisible(true);
+                if (cell.getMinesNearby() == 0) {
+
+                    openCellAtPosition(row, col - 1);
+                    openCellAtPosition(row, col + 1);
+
+                    openCellAtPosition(row - 1, col - 1);
+                    openCellAtPosition(row - 1, col);
+                    openCellAtPosition(row - 1, col + 1);
+
+                    openCellAtPosition(row + 1, col - 1);
+                    openCellAtPosition(row + 1, col);
+                    openCellAtPosition(row + 1, col + 1);
+
+                }
+            }
+        }
+    }
+
+
     Board(int width, int height, int numberOfMines) {
         createCells(width, height);
         createMines(width, height, numberOfMines);
