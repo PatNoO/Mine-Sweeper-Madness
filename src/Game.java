@@ -36,13 +36,13 @@ public class Game {
                 case 3:
                     TextOutput.showHelp();
                     break;
-                    case 4:
-                        System.exit(0);
-                        break;
+                case 4:
+                    System.exit(0);
+                    break;
 
-                        default:
-                            System.out.println(TextOutput.ERROR_PLAYER_INVALID_INPUT);
-                            break;
+                default:
+                    System.out.println(TextOutput.ERROR_PLAYER_INVALID_INPUT);
+                    break;
             }
 
         }
@@ -52,20 +52,20 @@ public class Game {
     public void difficultyMenu(Player player) {
 
         System.out.println(player.getName() + " Choose difficulty :");
-        System.out.println("Press 1 for : EASY ");
-        System.out.println("Press 2 for : MEDIUM ");
-        System.out.println("Press 3 for : HARD ");
+        System.out.println("Press 1 for : " + Color.GREEN + "EASY" + Color.RESET);
+        System.out.println("Press 2 for : " + Color.BLUE + "MEDIUM" + Color.RESET);
+        System.out.println("Press 3 for : " + Color.RED + "HARD" + Color.RESET);
 
         int playerDifficulty = InputHandler.getInt(1, 4, TextOutput.ERROR_PLAYER_INT_INPUT);
         switch (playerDifficulty) {
             case 1:
-                System.out.println("Easy");
+                System.out.println(Color.GREEN + "EASY" + Color.RESET);
                 break;
             case 2:
-                System.out.println("Medium");
+                System.out.println(Color.BLUE + "MEDIUM" + Color.RESET);
                 break;
             case 3:
-                System.out.println("Hard");
+                System.out.println(Color.RED + "HARD" + Color.RESET);
                 break;
             default:
                 System.out.println(TextOutput.ERROR_PLAYER_INVALID_INPUT);
