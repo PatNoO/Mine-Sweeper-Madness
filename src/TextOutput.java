@@ -21,7 +21,6 @@ public class TextOutput {
 
     public static final String PLAYER_MAKE_MOVE_INFO = "Enter a coordinate e.g., 'A1':";
     public static final String PLAYER_STEPPS_ON_MINE = "💣 Boom..! You hit a mine. " ;
-    public static final String PLAYER_GAME_OVER = "☠️ Game Over ! ";
     public static final String PLAYER_STEPPS_ON_SAFE_CELL = "Phew... Safe for now!";
     public static final String PLAYER_WIN = "🥳 You win !! The minefield is cleared! ";
     public static final String PLAYER_RETRY = "Would you like to try again? (Y/N)";
@@ -30,6 +29,12 @@ public class TextOutput {
                             SWEEP FOR MINES, BUT DO NOT HIT ONE!
                     
                            """ + Color.RESET;
+
+    public static final String GAME_OVER = "\n" +
+            Color.BOLD + Color.RED + "*" + Color.ORANGE + "*".repeat(15) + "\n" +
+                    Color.BOLD + Color.ORANGE + "* " + Color.RED + "You hit a mine, GAME OVER! *" + "\n" +
+                    Color.BOLD + Color.RED + "*" + Color.ORANGE + "*".repeat(15) + Color.RESET + "\n";
+
 
     //------------------------------------//
 
