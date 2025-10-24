@@ -85,7 +85,7 @@ public class InputHandler {
             if (input.length() == 2 && validCol && validRow) {
                 return input.charAt(0) + "-" + input.charAt(1); // Ex: "B3"
             } else if (validCol && validRow) {
-                return input.charAt(0) + input.charAt(1) + input.charAt(2); // Ex: "B3"
+                return input.charAt(0) + " " + input.charAt(1) + input.charAt(2); // Ex: "B3"
             }
             System.out.println("Invalid input");
 
