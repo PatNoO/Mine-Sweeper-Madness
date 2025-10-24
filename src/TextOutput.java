@@ -32,12 +32,21 @@ public class TextOutput {
             """ + Color.RESET;
 
 
-    public static void GameOverOutput() {
+    public static void gameOverOutput() {
         System.out.println();
         System.out.println((Color.BOLD + Color.RED + "*" + Color.ORANGE + "*").repeat(10) + Color.RED + "*");
-        System.out.println(Color.BOLD + Color.ORANGE + "* " + Color.RED + " YOU HIT A MINE! " + Color.RESET + Color.ORANGE + " *");
-        System.out.println(Color.BOLD + Color.RED + "*    " + Color.RED + " GAME OVER! " + Color.RESET + Color.RED + "   *");
+        System.out.println(Color.BOLD + Color.ORANGE + "*  " + Color.RED + "YOU HIT A MINE!" + Color.RESET + Color.ORANGE + "  *");
+        System.out.println(Color.BOLD + Color.RED + "*     " + Color.ORANGE + "GAME OVER" + Color.RESET + Color.RED + "     *");
         System.out.println((Color.BOLD + Color.ORANGE + "*" + Color.RED + "*").repeat(10) + Color.ORANGE + "*" + Color.RESET);
+        System.out.println();
+    }
+
+    public static void thanksForPlayingOutput() {
+        System.out.println();
+        System.out.println((Color.BOLD + Color.BRIGHT_YELLOW + "*" + Color.BRIGHT_BLUE + "*").repeat(12) + Color.BRIGHT_YELLOW + "*");
+        System.out.println(Color.BOLD + Color.BRIGHT_BLUE + "*  " + Color.BRIGHT_YELLOW + "THANKS FOR PLAYING!" + Color.RESET + Color.BRIGHT_BLUE + "  *");
+        System.out.println(Color.BOLD + Color.BRIGHT_YELLOW + "*       " + Color.BRIGHT_BLUE + "GOOD BYE!" + Color.RESET + Color.BRIGHT_YELLOW + "       *");
+        System.out.println((Color.BOLD + Color.BRIGHT_BLUE + "*" + Color.BRIGHT_YELLOW + "*").repeat(12) + Color.BRIGHT_BLUE + "*" + Color.RESET);
         System.out.println();
     }
 
