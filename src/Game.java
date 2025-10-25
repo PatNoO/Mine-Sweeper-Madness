@@ -103,7 +103,7 @@ public class Game {
                 Cell cell = board.cellAtPosition(pos);
                 if (cell != null) {
                     board.openCellAtPosition(pos.row(), pos.col());
-                    int openedCells = checkOpenedCells(board);
+                    int openedCells = checkOpenedCells();
                     int totalCells = boardWidth * boardHeight;
                     if (openedCells == totalCells - boardNumOfMines) {
                         printBoard();
@@ -111,7 +111,8 @@ public class Game {
                         break;
                     }
                     if (cell.hasMine()) {
-                        openMines(board);
+                        cell.setMineHit(true);
+                        openMines();
                         printBoard();
                         TextOutput. gameOverOutput();
 
@@ -129,11 +130,12 @@ public class Game {
         System.out.flush();
     }
 
-    public int checkOpenedCells(Board board) {
+    public int checkOpenedCells() {
         int numOfOpenedCells = 0;
         for (int row = 0; row < board.grid.length; row++) {
             for (int col = 0; col < board.grid[row].length; col++) {
-                if (board.grid[row][col].isVisible()) {
+                Cell cell = board.grid[row][col];
+                if (cell.isVisible()) {
                     numOfOpenedCells++;
                 }
             }
@@ -141,11 +143,12 @@ public class Game {
         return numOfOpenedCells;
     }
 
-    public void openMines(Board board) {
+    public void openMines() {
         for (int row = 0; row < board.grid.length; row++) {
             for (int col = 0; col < board.grid[row].length; col++) {
-                if (board.grid[row][col].hasMine()) {
-                    board.grid[row][col].isVisible(true);
+                Cell cell = board.grid[row][col];
+                if (cell.hasMine()) {
+                    cell.isVisible(true);
                 }
             }
         }

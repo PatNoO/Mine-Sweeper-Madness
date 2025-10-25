@@ -35,15 +35,25 @@ public class Cell {
         this.minesNearby = minesNearby;
     }
 
+    private boolean mineHit;
+
+    public boolean isMineHit() {
+        return mineHit;
+    }
+
+    public void setMineHit(boolean mineHit) {
+        this.mineHit = mineHit;
+    }
+
     public String textAt(int row, int col) {
 
         char rowChar = (char) ('A' + col);
 
         if (this.hasMine() && this.isVisible()) {
-//            if (.hasMine() && !.isVisible()) {
-//                return Color.BOLD + Color.DARK_GRAY_BG + Color.RED + "  X  " + Color.RESET;
-//            }
-            return Color.BOLD + Color.RED_BG + Color.BLACK + "  X  " + Color.RESET;
+            if (this.isMineHit()) {
+                return Color.BOLD + Color.RED_BG + Color.BLACK + "  X  " + Color.RESET;
+            }
+            return Color.BOLD + Color.ORANGE_BG + Color.BLACK + "  X  " + Color.RESET;
 
         } else if (!this.hasMine() && this.isVisible()) {
 
