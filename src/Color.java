@@ -42,7 +42,8 @@ public class Color {
     public static final String CYAN_BG          = "\u001B[46m";
     public static final String WHITE_BG         = "\u001B[47m";
     public static final String GRAY_BG          = "\u001B[100m";
-    public static final String DARK_GRAY_BG      = "\u001B[48;5;235m";
+    public static final String DARK_GRAY_BG     = "\u001B[48;5;235m";
+    public static final String ORANGE_BG        = "\u001B[48;5;208m";
 
     ///  Font styles
 
