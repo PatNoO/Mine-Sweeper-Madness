@@ -3,7 +3,9 @@ import org.w3c.dom.Text;
 public class Game {
 
     static Board board;
-    private int boardSize = 10;
+    private int boardSizeWidth = 10;
+    private int boardSizeHeight = 10;
+    private double boardMinePercentage = 0.15;
 
     public Game() {
         // Init variables
@@ -62,15 +64,21 @@ public class Game {
         switch (playerDifficulty) {
             case 1:
                 System.out.println(Color.GREEN + "EASY" + Color.RESET);
-                boardSize = 10;
+                boardSizeWidth = 10;
+                boardSizeHeight = 10;
+                boardMinePercentage = 0.15;
                 break;
             case 2:
                 System.out.println(Color.BLUE + "MEDIUM" + Color.RESET);
-                boardSize = 18;
+                boardSizeWidth = 18;
+                boardSizeHeight = 18;
+                boardMinePercentage = 0.15;
                 break;
             case 3:
                 System.out.println(Color.RED + "HARD" + Color.RESET);
-                boardSize = 26;
+                boardSizeWidth = 26;
+                boardSizeHeight = 26;
+                boardMinePercentage = 0.15;
                 break;
             default:
                 System.out.println(TextOutput.ERROR_PLAYER_INVALID_INPUT);
@@ -84,9 +92,9 @@ public class Game {
 
     public void run() {
         // Run Method
-        int boardWidth = boardSize;
-        int boardHeight = boardSize;
-        int boardNumOfMines = (int)(boardWidth * boardHeight * 0.15);
+        int boardWidth = boardSizeWidth;
+        int boardHeight = boardSizeHeight;
+        int boardNumOfMines = (int)Math.round(boardWidth * boardHeight * boardMinePercentage);
         board = new Board(boardWidth, boardHeight, boardNumOfMines);
         /// todo kanske starta på homeMenu istället för run ?
         //homeMenu();
