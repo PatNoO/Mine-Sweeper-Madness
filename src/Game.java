@@ -106,6 +106,7 @@ public class Game {
                     int openedCells = checkOpenedCells();
                     int totalCells = boardWidth * boardHeight;
                     if (openedCells == totalCells - boardNumOfMines) {
+                        openMinesAsFlags();
                         printBoard();
                         System.out.println(TextOutput.PLAYER_WIN);
                         break;
@@ -141,6 +142,18 @@ public class Game {
             }
         }
         return numOfOpenedCells;
+    }
+
+    public void openMinesAsFlags() {
+        for (int row = 0; row < board.grid.length; row++) {
+            for (int col = 0; col < board.grid[row].length; col++) {
+                Cell cell = board.grid[row][col];
+                if (cell.hasMine()) {
+                    cell.isVisible(true);
+                    cell.setMineAsFlag(true);
+                }
+            }
+        }
     }
 
     public void openMines() {

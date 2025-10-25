@@ -2,6 +2,8 @@ public class Cell {
 
     private boolean hasMine;
     private boolean isVisible;
+    private boolean mineHit;
+    private boolean mineAsFlag;
     private int minesNearby;
 
 
@@ -29,20 +31,26 @@ public class Cell {
         this.minesNearby = minesNearby;
     }
 
-    public Cell(boolean hasMine, boolean isVisible, int minesNearby) {
-        this.hasMine = hasMine;
-        this.isVisible = isVisible;
-        this.minesNearby = minesNearby;
-    }
-
-    private boolean mineHit;
-
     public boolean isMineHit() {
         return mineHit;
     }
 
     public void setMineHit(boolean mineHit) {
         this.mineHit = mineHit;
+    }
+
+    public boolean showMineAsFlag() {
+        return mineAsFlag;
+    }
+
+    public void setMineAsFlag(boolean mineAsFlag) {
+        this.mineAsFlag = mineAsFlag;
+    }
+
+    public Cell(boolean hasMine, boolean isVisible, int minesNearby) {
+        this.hasMine = hasMine;
+        this.isVisible = isVisible;
+        this.minesNearby = minesNearby;
     }
 
     public String textAt(int row, int col) {
@@ -52,6 +60,8 @@ public class Cell {
         if (this.hasMine() && this.isVisible()) {
             if (this.isMineHit()) {
                 return Color.BOLD + Color.RED_BG + Color.BLACK + "  X  " + Color.RESET;
+            } else if (this.showMineAsFlag()) {
+                return Color.BOLD + Color.GREEN_BG + Color.BLACK + "  F  " + Color.RESET;
             }
             return Color.BOLD + Color.ORANGE_BG + Color.BLACK + "  X  " + Color.RESET;
 
