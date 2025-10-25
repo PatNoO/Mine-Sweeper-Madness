@@ -3,6 +3,7 @@ import org.w3c.dom.Text;
 public class Game {
 
     static Board board;
+    private int boardSize = 10;
 
     public Game() {
         // Init variables
@@ -17,9 +18,9 @@ public class Game {
         while (true) {
             System.out.println("Welcome to the home menu!");
 
-            System.out.println("Press 1 to play game ");
+            System.out.println("Press 1 to play the game ");
             System.out.println("Press 2 change difficulty ");
-            System.out.println("Press 3 to for help ");
+            System.out.println("Press 3 for help ");
             System.out.println("Press 4 to quit ");
 
             int userInputMenu = InputHandler.getInt(1, 4, TextOutput.ERROR_PLAYER_INT_INPUT);
@@ -61,12 +62,15 @@ public class Game {
         switch (playerDifficulty) {
             case 1:
                 System.out.println(Color.GREEN + "EASY" + Color.RESET);
+                boardSize = 10;
                 break;
             case 2:
                 System.out.println(Color.BLUE + "MEDIUM" + Color.RESET);
+                boardSize = 18;
                 break;
             case 3:
                 System.out.println(Color.RED + "HARD" + Color.RESET);
+                boardSize = 26;
                 break;
             default:
                 System.out.println(TextOutput.ERROR_PLAYER_INVALID_INPUT);
@@ -80,9 +84,9 @@ public class Game {
 
     public void run() {
         // Run Method
-        int boardWidth = 10;
-        int boardHeight = 10;
-        int boardNumOfMines = 15;
+        int boardWidth = boardSize;
+        int boardHeight = boardSize;
+        int boardNumOfMines = (int)(boardWidth * boardHeight * 0.15);
         board = new Board(boardWidth, boardHeight, boardNumOfMines);
         /// todo kanske starta på homeMenu istället för run ?
         //homeMenu();
