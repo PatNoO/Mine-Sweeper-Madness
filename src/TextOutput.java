@@ -20,8 +20,10 @@ public class TextOutput {
     public static final String ERROR_CELL_ALREADY_OPENED = "That cell is already open — choose another!";
     //-------------------------------//
 
-    public static final String PLAYER_MAKE_MOVE_INFO = "Enter a coordinate e.g., 'A1':";
-    public static final String PLAYER_STEPPS_ON_MINE = "💣 Boom..! You hit a mine. ";
+    public static final String PLAYER_MAKE_MOVE_INFO = "Open coordinate: ";
+    public static final String PLAYER_MAKE_MOVE_INFO_2 = " (Type \"flag\" to place flags)";
+    public static final String PLAYER_SET_FLAG_INFO = "Place a flag at coordinate: ";
+    public static final String PLAYER_SET_FLAG_INFO_2 = " (Type \"open\" to switch back to open cells)";
     public static final String PLAYER_STEPPS_ON_SAFE_CELL = "Phew... Safe for now!";
     public static final String PLAYER_WIN = "🥳 You win !! The minefield is cleared! ";
     public static final String PLAYER_RETRY = "Would you like to try again? (Y/N)";
@@ -32,12 +34,28 @@ public class TextOutput {
             """ + Color.RESET;
 
 
+    public static void gameStartOutput() {
+        System.out.println();
+        System.out.println(Color.BOLD + Color.BOX + Color.BRIGHT_WHITE +
+                " SWEEP FOR MINES, BUT DO NOT HIT ONE! " + Color.RESET);
+        System.out.println();
+    }
+
     public static void gameOverOutput() {
         System.out.println();
-        System.out.println((Color.BOLD + Color.ORANGE + "*" + Color.RED + "*").repeat(10) + Color.ORANGE + "*");
-        System.out.println(Color.BOLD + Color.RED + "*  " + Color.ORANGE + "YOU HIT A MINE!" + Color.RESET + Color.RED + "  *");
-        System.out.println(Color.BOLD + Color.ORANGE + "*     " + Color.RED + "GAME OVER" + Color.RESET + Color.ORANGE + "     *");
-        System.out.println((Color.BOLD + Color.RED + "*" + Color.ORANGE + "*").repeat(10) + Color.RED + "*" + Color.RESET);
+        System.out.println((Color.BOLD + Color.ORANGE + "*" + Color.RED + "*").repeat(12) + Color.ORANGE + "*");
+        System.out.println(Color.BOLD + Color.RED + "*    " + Color.ORANGE + "YOU HIT A MINE!" + Color.RESET + Color.RED + "    *");
+        System.out.println(Color.BOLD + Color.ORANGE + "*      " + Color.RED + "GAME OVER!!" + Color.RESET + Color.ORANGE + "      *");
+        System.out.println((Color.BOLD + Color.RED + "*" + Color.ORANGE + "*").repeat(12) + Color.RED + "*" + Color.RESET);
+        System.out.println();
+    }
+
+    public static void gameWinOutput() {
+        System.out.println();
+        System.out.println((Color.BOLD + Color.BRIGHT_CYAN + "*" + Color.BRIGHT_GREEN + "*").repeat(12) + Color.BRIGHT_CYAN + "*");
+        System.out.println(Color.BOLD + Color.BRIGHT_GREEN + "*  " + Color.BRIGHT_CYAN + "ALL MINES CLEARED!!" + Color.BRIGHT_GREEN + "  *");
+        System.out.println(Color.BOLD + Color.BRIGHT_CYAN + "*   " + Color.BRIGHT_GREEN + "CONGRATULATIONS!!" + Color.BRIGHT_CYAN + "   *");
+        System.out.println((Color.BOLD + Color.BRIGHT_GREEN + "*" + Color.BRIGHT_CYAN + "*").repeat(12) + Color.BRIGHT_GREEN + "*" + Color.RESET);
         System.out.println();
     }
 
@@ -45,17 +63,8 @@ public class TextOutput {
         System.out.println();
         System.out.println((Color.BOLD + Color.BRIGHT_YELLOW + "*" + Color.BRIGHT_BLUE + "*").repeat(12) + Color.BRIGHT_YELLOW + "*");
         System.out.println(Color.BOLD + Color.BRIGHT_BLUE + "*  " + Color.BRIGHT_YELLOW + "THANKS FOR PLAYING!" + Color.RESET + Color.BRIGHT_BLUE + "  *");
-        System.out.println(Color.BOLD + Color.BRIGHT_YELLOW + "*       " + Color.BRIGHT_BLUE + "GOOD BYE!" + Color.RESET + Color.BRIGHT_YELLOW + "       *");
+        System.out.println(Color.BOLD + Color.BRIGHT_YELLOW + "*     " + Color.BRIGHT_BLUE + "SEE YOU SOON!" + Color.RESET + Color.BRIGHT_YELLOW + "     *");
         System.out.println((Color.BOLD + Color.BRIGHT_BLUE + "*" + Color.BRIGHT_YELLOW + "*").repeat(12) + Color.BRIGHT_BLUE + "*" + Color.RESET);
-        System.out.println();
-    }
-
-    public static void gameWinOutput() {
-        System.out.println();
-        System.out.println((Color.BOLD + Color.BRIGHT_GREEN + "*" + Color.BRIGHT_CYAN + "*").repeat(11) + Color.BRIGHT_GREEN + "*");
-        System.out.println(Color.BOLD + Color.BRIGHT_CYAN + "*  " + Color.BRIGHT_GREEN + "ALL MINES CLEARED" + Color.RESET + Color.BRIGHT_CYAN + "  *");
-        System.out.println(Color.BOLD + Color.BRIGHT_GREEN + "*   " + Color.BRIGHT_CYAN + "CONGRATULATIONS" + Color.RESET + Color.BRIGHT_GREEN + "   *");
-        System.out.println((Color.BOLD + Color.BRIGHT_CYAN + "*" + Color.BRIGHT_GREEN + "*").repeat(11) + Color.BRIGHT_CYAN + "*" + Color.RESET);
         System.out.println();
     }
 

@@ -37,6 +37,17 @@ public class Board {
         }
     }
 
+    public void setCellAsFlag(int row, int col) {
+
+        if (row>=0 && row<grid.length && col>=0 && col<grid[0].length) {
+            Cell cell = grid[row][col];
+
+            if (!cell.isVisible()) {
+                cell.setMineAsFlag(true);
+                cell.isVisible(true);
+            }
+        }
+    }
 
     Board(int width, int height, int numberOfMines) {
         createCells(width, height);
