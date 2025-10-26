@@ -34,10 +34,10 @@ public class TextOutput {
 
     public static void gameOverOutput() {
         System.out.println();
-        System.out.println((Color.BOLD + Color.RED + "*" + Color.ORANGE + "*").repeat(10) + Color.RED + "*");
-        System.out.println(Color.BOLD + Color.ORANGE + "*  " + Color.RED + "YOU HIT A MINE!" + Color.RESET + Color.ORANGE + "  *");
-        System.out.println(Color.BOLD + Color.RED + "*     " + Color.ORANGE + "GAME OVER" + Color.RESET + Color.RED + "     *");
-        System.out.println((Color.BOLD + Color.ORANGE + "*" + Color.RED + "*").repeat(10) + Color.ORANGE + "*" + Color.RESET);
+        System.out.println((Color.BOLD + Color.ORANGE + "*" + Color.RED + "*").repeat(10) + Color.ORANGE + "*");
+        System.out.println(Color.BOLD + Color.RED + "*  " + Color.ORANGE + "YOU HIT A MINE!" + Color.RESET + Color.RED + "  *");
+        System.out.println(Color.BOLD + Color.ORANGE + "*     " + Color.RED + "GAME OVER" + Color.RESET + Color.ORANGE + "     *");
+        System.out.println((Color.BOLD + Color.RED + "*" + Color.ORANGE + "*").repeat(10) + Color.RED + "*" + Color.RESET);
         System.out.println();
     }
 
@@ -47,6 +47,15 @@ public class TextOutput {
         System.out.println(Color.BOLD + Color.BRIGHT_BLUE + "*  " + Color.BRIGHT_YELLOW + "THANKS FOR PLAYING!" + Color.RESET + Color.BRIGHT_BLUE + "  *");
         System.out.println(Color.BOLD + Color.BRIGHT_YELLOW + "*       " + Color.BRIGHT_BLUE + "GOOD BYE!" + Color.RESET + Color.BRIGHT_YELLOW + "       *");
         System.out.println((Color.BOLD + Color.BRIGHT_BLUE + "*" + Color.BRIGHT_YELLOW + "*").repeat(12) + Color.BRIGHT_BLUE + "*" + Color.RESET);
+        System.out.println();
+    }
+
+    public static void gameWinOutput() {
+        System.out.println();
+        System.out.println((Color.BOLD + Color.BRIGHT_GREEN + "*" + Color.BRIGHT_CYAN + "*").repeat(11) + Color.BRIGHT_GREEN + "*");
+        System.out.println(Color.BOLD + Color.BRIGHT_CYAN + "*  " + Color.BRIGHT_GREEN + "ALL MINES CLEARED" + Color.RESET + Color.BRIGHT_CYAN + "  *");
+        System.out.println(Color.BOLD + Color.BRIGHT_GREEN + "*   " + Color.BRIGHT_CYAN + "CONGRATULATIONS" + Color.RESET + Color.BRIGHT_GREEN + "   *");
+        System.out.println((Color.BOLD + Color.BRIGHT_CYAN + "*" + Color.BRIGHT_GREEN + "*").repeat(11) + Color.BRIGHT_CYAN + "*" + Color.RESET);
         System.out.println();
     }
 

@@ -120,7 +120,8 @@ public class Game {
                     if (openedCells == totalCells - boardNumOfMines) {
                         openMinesAsFlags();
                         printBoard();
-                        System.out.println(TextOutput.PLAYER_WIN);
+//                        System.out.println(TextOutput.PLAYER_WIN);
+                        TextOutput.gameWinOutput();
                         break;
                     }
                     if (cell.hasMine()) {
