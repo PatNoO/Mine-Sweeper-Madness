@@ -1,5 +1,3 @@
-import org.w3c.dom.Text;
-
 public class Game {
 
     static Board board;
@@ -13,17 +11,11 @@ public class Game {
 
     public void homeMenu() {
         Player player = new Player("");
-        System.out.println(TextOutput.WELCOME_TEXT);
-        System.out.println(TextOutput.PLAYER_NAME);
+        TextOutput.welcomeText();
         player.setName(InputHandler.getStringName(TextOutput.ERROR_PLAYER_INPUT_NAME));
 
         while (true) {
-            System.out.println("Welcome to the home menu!");
-
-            System.out.println("Press 1 to play the game ");
-            System.out.println("Press 2 change difficulty ");
-            System.out.println("Press 3 for help ");
-            System.out.println("Press 4 to quit ");
+            TextOutput.homeMenuOutput(player);
 
             int userInputMenu = InputHandler.getInt(1, 4, TextOutput.ERROR_PLAYER_INT_INPUT);
 //            System.out.println(userInputMenu);
@@ -37,7 +29,7 @@ public class Game {
                     difficultyMenu(player);
                     break;
                 case 3:
-                    TextOutput.showHelp();
+                    TextOutput.showHelpOutput();
                     break;
                 case 4:
                     TextOutput.thanksForPlayingOutput();
@@ -55,10 +47,7 @@ public class Game {
 
     public void difficultyMenu(Player player) {
 
-        System.out.println(player.getName() + " Choose difficulty :");
-        System.out.println("Press 1 for : " + Color.GREEN + "EASY" + Color.RESET);
-        System.out.println("Press 2 for : " + Color.BLUE + "MEDIUM" + Color.RESET);
-        System.out.println("Press 3 for : " + Color.RED + "HARD" + Color.RESET);
+        TextOutput.difficultyMenuOutput(player);
 
         int playerDifficulty = InputHandler.getInt(1, 4, TextOutput.ERROR_PLAYER_INT_INPUT);
         switch (playerDifficulty) {
@@ -96,8 +85,6 @@ public class Game {
         int boardHeight = boardSizeHeight;
         int boardNumOfMines = (int)Math.round(boardWidth * boardHeight * boardMinePercentage);
         board = new Board(boardWidth, boardHeight, boardNumOfMines);
-        /// todo kanske starta på homeMenu istället för run ?
-        //homeMenu();
 
         TextOutput.gameStartOutput();
 

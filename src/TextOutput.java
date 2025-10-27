@@ -27,12 +27,43 @@ public class TextOutput {
     public static final String PLAYER_STEPPS_ON_SAFE_CELL = "Phew... Safe for now!";
     public static final String PLAYER_WIN = "🥳 You win !! The minefield is cleared! ";
     public static final String PLAYER_RETRY = "Would you like to try again? (Y/N)";
-    public static final String BOARD_TITEL = Color.BOLD + """
-            
-             SWEEP FOR MINES, BUT DO NOT HIT ONE!
-            
-            """ + Color.RESET;
 
+    public static void welcomeText() {
+        System.out.println();
+        System.out.println((Color.BOLD + Color.BRIGHT_BLUE + "*" + Color.BRIGHT_RED + "*").repeat(18) + Color.BRIGHT_BLUE + "*");
+        System.out.println(Color.BOLD + Color.BRIGHT_RED + "*  " + Color.BRIGHT_RED + "WELCOME TO MINESWEEPER MADNESS" + Color.BRIGHT_RED + "   *");
+        System.out.println(Color.BOLD + Color.BRIGHT_BLUE + "*   " + Color.BRIGHT_BLUE + "   PLEASE ENTER YOUR NAME" + Color.BRIGHT_BLUE + "       *");
+        System.out.println((Color.BOLD + Color.BLUE + "*" + Color.BRIGHT_RED + "*").repeat(18) + Color.BRIGHT_BLUE + "*" + Color.RESET);
+        System.out.println();
+    }
+
+
+    public static void difficultyMenuOutput(Player player) {
+        System.out.println(Color.BOLD + Color.BOX + Color.BLINK +
+                " " + player.getName() + " Choose difficulty " + Color.RESET);
+        System.out.println();
+
+        System.out.println(Color.BOLD + Color.BOX + Color.BLINK +
+                " Press 1 for :  EASY  \n" +
+                " Press 2 for : MEDIUM \n" +
+                " Press 3 for : HARD     " + Color.RESET);
+        System.out.println();
+    }
+
+    public static void homeMenuOutput(Player player) {
+        System.out.println();
+        System.out.println(Color.BOLD + Color.BOX + Color.BLINK +
+                " Welcome " + player.getName() + " to the home menu! " + Color.RESET);
+        System.out.println();
+
+        System.out.println(Color.BOLD + Color.BOX + Color.BLINK +
+                " Press 1 to play the game \n " +
+                "Press 2 change difficulty \n " +
+                "Press 3 for help \n " +
+                "Press 4 to quit              " + Color.RESET);
+        System.out.println();
+
+    }
 
     public static void gameStartOutput() {
         System.out.println();
@@ -71,7 +102,7 @@ public class TextOutput {
 
     //------------------------------------//
 
-    public static void showHelp() {
+    public static void showHelpOutput() {
         System.out.println(Color.BOLD + """
                 
                 📜 HOW TO PLAY MINESWEEPER 📜
@@ -84,6 +115,10 @@ public class TextOutput {
                 🕹 CONTROLS:
                 - Type coordinates to open a cell.
                   Example: A1, B3,..
+                
+                ⛳️ FLAG:
+                - Type flag and then coordinates to place flag on cell.
+                  Example: flag (enter) A1, B3,..
                 
                 💡 TIP:
                 - The number on a revealed cell shows how many mines
