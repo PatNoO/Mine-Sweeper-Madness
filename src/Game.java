@@ -5,21 +5,29 @@ public class Game {
     private int boardSizeHeight = 8;
     private double boardMinePercentage = 0.15; // 10 mines
 
+    Player player = new Player("", "EASY");
+
+
     public Game() {
-        // Init variables
+        clearScreen();
+        TextOutput.welcomeText();
+
+        TextOutput.enterNameText();
+        player.setName(InputHandler.getStringName(TextOutput.ERROR_PLAYER_INPUT_NAME));
     }
 
     public void homeMenu() {
         clearScreen();
-        Player player = new Player("","EASY");
-        TextOutput.welcomeText();
-        player.setName(InputHandler.getStringName(TextOutput.ERROR_PLAYER_INPUT_NAME));
-        clearScreen();
+//        Player player = new Player("", "EASY");
+
+//        TextOutput.enterNameText();
+//        player.setName(InputHandler.getStringName(TextOutput.ERROR_PLAYER_INPUT_NAME));
+//        clearScreen();
 
         while (true) {
             TextOutput.homeMenuOutput(player);
 
-            int userInputMenu = InputHandler.getInt(1, 4, TextOutput.ERROR_PLAYER_INT_INPUT);
+            int userInputMenu = InputHandler.getInt(1, 5, TextOutput.ERROR_PLAYER_INT_INPUT);
 
             switch (userInputMenu) {
                 // Startar spelet
@@ -30,9 +38,12 @@ public class Game {
                     difficultyMenu(player);
                     break;
                 case 3:
-                    TextOutput.showHelpOutput();
+                    changePlayerName(player);
                     break;
                 case 4:
+                    TextOutput.showHelpOutput();
+                    break;
+                case 5:
                     TextOutput.thanksForPlayingOutput();
                     System.exit(0);
                     break;
@@ -45,31 +56,35 @@ public class Game {
     }
 
     public void difficultyMenu(Player player) {
-
+        clearScreen();
         TextOutput.difficultyMenuOutput(player);
 
-        int playerDifficulty = InputHandler.getInt(1, 4, TextOutput.ERROR_PLAYER_INT_INPUT);
+        int playerDifficulty = InputHandler.getInt(1, 3, TextOutput.ERROR_PLAYER_INT_INPUT);
         switch (playerDifficulty) {
             case 1:
                 player.setDifficulty("EASY");
                 boardSizeWidth = 8;
                 boardSizeHeight = 8;
                 boardMinePercentage = 0.15; // 10 mines
+                clearScreen();
                 break;
             case 2:
                 player.setDifficulty("MEDIUM");
                 boardSizeWidth = 12;
                 boardSizeHeight = 12;
                 boardMinePercentage = 0.15; // 22 mines
+                clearScreen();
                 break;
             case 3:
                 player.setDifficulty("HARD");
                 boardSizeWidth = 20;
                 boardSizeHeight = 20;
                 boardMinePercentage = 0.20; // 80 mines
+                clearScreen();
                 break;
             default:
                 System.out.println(TextOutput.ERROR_PLAYER_INVALID_INPUT);
+                clearScreen();
                 homeMenu();
         }
     }
@@ -79,10 +94,10 @@ public class Game {
         // Run Method
         int boardWidth = boardSizeWidth;
         int boardHeight = boardSizeHeight;
-        int boardNumOfMines = (int)Math.round(boardWidth * boardHeight * boardMinePercentage);
+        int boardNumOfMines = (int) Math.round(boardWidth * boardHeight * boardMinePercentage);
         board = new Board(boardWidth, boardHeight, boardNumOfMines);
 
-        TextOutput.gameStartOutput();
+//        TextOutput.gameStartOutput();
 
         while (true) {
             clearScreen();
@@ -96,7 +111,7 @@ public class Game {
             if (pos != null) {
                 Cell cell = board.cellAtPosition(pos);
                 if (cell != null) {
-                    if ((input.length() == 3 && input.charAt(2) == 'F') || (input.length() == 4 && input.charAt(3) == 'F'))  {
+                    if ((input.length() == 3 && input.charAt(2) == 'F') || (input.length() == 4 && input.charAt(3) == 'F')) {
 
                         board.setCellAsFlag(pos.row(), pos.col());
 
@@ -137,8 +152,10 @@ public class Game {
                             System.out.println(TextOutput.PLAYER_RETRY);
                             String userInput = InputHandler.getString();
                             if (userInput.equals("YES")) {
+                                clearScreen();
                                 run();
                             } else if (userInput.equals("NO")) {
+                                clearScreen();
                                 homeMenu();
                             }
                             break;
@@ -149,7 +166,7 @@ public class Game {
         }
     }
 
-    public void clearScreen() {
+    public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
@@ -202,5 +219,14 @@ public class Game {
             }
             System.out.println();
         }
+    }
+
+    public void changePlayerName(Player player) {
+        clearScreen();
+
+        TextOutput.enterNameText();
+        player.setName(InputHandler.getStringName(TextOutput.ERROR_PLAYER_INPUT_NAME));
+
+        clearScreen();
     }
 }
