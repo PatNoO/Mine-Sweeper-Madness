@@ -11,8 +11,7 @@ public class Game {
 
     public void homeMenu() {
         Player player = new Player("");
-        System.out.println(TextOutput.WELCOME_TEXT);
-        System.out.println(TextOutput.PLAYER_NAME);
+        TextOutput.welcomeText();
         player.setName(InputHandler.getStringName(TextOutput.ERROR_PLAYER_INPUT_NAME));
 
         while (true) {
