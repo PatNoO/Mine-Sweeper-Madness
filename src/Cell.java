@@ -67,7 +67,7 @@ public class Cell {
             return Color.BOLD + Color.ORANGE_BG + Color.BLACK + "  X  " + Color.RESET;
 
         } else if (this.showMineAsFlag()) {
-            return Color.BOLD + Color.GREEN_BG + Color.BLACK + "  F  " + Color.RESET;
+            return Color.BOLD + Color.GREEN_BG + Color.BLACK +  " " + rowChar + ((row > 8) ? ("") : ("-")) + (row + 1) + " "  + Color.RESET;
 
         } else if (!this.hasMine() && this.isVisible()) {
 
