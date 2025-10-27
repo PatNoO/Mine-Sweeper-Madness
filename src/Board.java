@@ -5,7 +5,7 @@ public class Board {
 
 
     public Cell cellAtPosition(Position pos) {
-        if (pos.row()>=0 && pos.row()<grid.length && pos.col()>=0 && pos.col()<grid[0].length) {
+        if (pos.row() >= 0 && pos.row() < grid.length && pos.col() >= 0 && pos.col() < grid[0].length) {
             return grid[pos.row()][pos.col()];
         } else {
             return null;
@@ -14,7 +14,7 @@ public class Board {
 
     public void openCellAtPosition(int row, int col) {
 
-        if (row>=0 && row<grid.length && col>=0 && col<grid[0].length) {
+        if (row >= 0 && row < grid.length && col >= 0 && col < grid[0].length) {
 
             Cell cell = grid[row][col];
             if (!cell.showMineAsFlag() && !cell.isVisible()) {
@@ -38,7 +38,7 @@ public class Board {
 
     public void setCellAsFlag(int row, int col) {
 
-        if (row>=0 && row<grid.length && col>=0 && col<grid[0].length) {
+        if (row >= 0 && row < grid.length && col >= 0 && col < grid[0].length) {
             Cell cell = grid[row][col];
 
             if (!cell.isVisible()) {
@@ -99,7 +99,7 @@ public class Board {
                     count += ((grid[row + 1][col + 1].hasMine()) ? 1 : 0);
                 }
                 if (row > 0 && col > 0) {
-                    count += ((grid[row - 1][col - 1].hasMine()) ?  1 : 0);
+                    count += ((grid[row - 1][col - 1].hasMine()) ? 1 : 0);
                 }
                 if (row < rowHeight - 1 && col > 0) {
                     count += ((grid[row + 1][col - 1].hasMine()) ? 1 : 0);
@@ -107,7 +107,6 @@ public class Board {
                 if (row > 0 && col < colWidth - 1) {
                     count += ((grid[row - 1][col + 1].hasMine()) ? 1 : 0);
                 }
-
 
                 grid[row][col].setMinesNearby(count);
             }

@@ -11,7 +11,7 @@ public class Game {
 
     public void homeMenu() {
         clearScreen();
-        Player player = new Player("","EASY");
+        Player player = new Player("", "EASY");
         TextOutput.welcomeText();
         player.setName(InputHandler.getStringName(TextOutput.ERROR_PLAYER_INPUT_NAME));
         clearScreen();
@@ -79,7 +79,7 @@ public class Game {
         // Run Method
         int boardWidth = boardSizeWidth;
         int boardHeight = boardSizeHeight;
-        int boardNumOfMines = (int)Math.round(boardWidth * boardHeight * boardMinePercentage);
+        int boardNumOfMines = (int) Math.round(boardWidth * boardHeight * boardMinePercentage);
         board = new Board(boardWidth, boardHeight, boardNumOfMines);
 
         TextOutput.gameStartOutput();
@@ -96,7 +96,7 @@ public class Game {
             if (pos != null) {
                 Cell cell = board.cellAtPosition(pos);
                 if (cell != null) {
-                    if ((input.length() == 3 && input.charAt(2) == 'F') || (input.length() == 4 && input.charAt(3) == 'F'))  {
+                    if ((input.length() == 3 && input.charAt(2) == 'F') || (input.length() == 4 && input.charAt(3) == 'F')) {
 
                         board.setCellAsFlag(pos.row(), pos.col());
 
