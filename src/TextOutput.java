@@ -25,7 +25,7 @@ public class TextOutput {
     public static final String PLAYER_SET_FLAG_INFO_2 = " (Type \"open\" to switch back to open cells)";
     public static final String PLAYER_STEPPS_ON_SAFE_CELL = "Phew... Safe for now!";
     public static final String PLAYER_WIN = "🥳 You win !! The minefield is cleared! ";
-    public static final String PLAYER_RETRY = "Would you like to try again? (Y/N)";
+    public static final String PLAYER_RETRY = "Would you like to try again? Enter YES or NO";
 
 
     public static void difficultyMenuOutput(Player player) {
