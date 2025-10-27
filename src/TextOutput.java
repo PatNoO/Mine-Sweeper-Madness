@@ -27,11 +27,11 @@ public class TextOutput {
     public static final String PLAYER_STEPPS_ON_SAFE_CELL = "Phew... Safe for now!";
     public static final String PLAYER_WIN = "🥳 You win !! The minefield is cleared! ";
     public static final String PLAYER_RETRY = "Would you like to try again? (Y/N)";
-    public static final String BOARD_TITEL = Color.BOLD + """
-            
-             SWEEP FOR MINES, BUT DO NOT HIT ONE!
-            
-            """ + Color.RESET;
+//    public static final String BOARD_TITEL = Color.BOLD + """
+//
+//             SWEEP FOR MINES, BUT DO NOT HIT ONE!
+//
+//            """ + Color.RESET;
 
 
     public static void gameStartOutput() {
@@ -84,6 +84,10 @@ public class TextOutput {
                 🕹 CONTROLS:
                 - Type coordinates to open a cell.
                   Example: A1, B3,..
+                  
+                ⛳️ FLAG:
+                - Type flag and then coordinates to place flag on cell.
+                  Example: flag (enter) A1, B3,..
                 
                 💡 TIP:
                 - The number on a revealed cell shows how many mines
