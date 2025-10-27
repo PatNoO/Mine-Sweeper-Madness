@@ -10,15 +10,11 @@ public class Cell {
     public boolean hasMine() {
         return hasMine;
     }
-
     public void hasMine(boolean hasMine) {
         this.hasMine = hasMine;
     }
 
-    public boolean isVisible() {
-        return isVisible;
-    }
-
+    public boolean isVisible() {return isVisible;}
     public void isVisible(boolean visible) {
         this.isVisible = visible;
     }
@@ -26,7 +22,6 @@ public class Cell {
     public int getMinesNearby() {
         return minesNearby;
     }
-
     public void setMinesNearby(int minesNearby) {
         this.minesNearby = minesNearby;
     }
@@ -34,7 +29,6 @@ public class Cell {
     public boolean isMineHit() {
         return mineHit;
     }
-
     public void setMineHit(boolean mineHit) {
         this.mineHit = mineHit;
     }
@@ -42,7 +36,6 @@ public class Cell {
     public boolean showMineAsFlag() {
         return mineAsFlag;
     }
-
     public void setMineAsFlag(boolean mineAsFlag) {
         this.mineAsFlag = mineAsFlag;
     }
@@ -55,7 +48,7 @@ public class Cell {
 
     public String textAt(int row, int col) {
 
-        char rowChar = (char) ('A' + col);
+        char colChar = (char) ('A' + col);
 
         if (this.hasMine() && this.isVisible()) {
 
@@ -67,7 +60,8 @@ public class Cell {
             return Color.BOLD + Color.ORANGE_BG + Color.BLACK + "  X  " + Color.RESET;
 
         } else if (this.showMineAsFlag()) {
-            return Color.BOLD + Color.GREEN_BG + Color.BLACK + " " + rowChar + ((row > 8) ? ("") : ("-")) + (row + 1) + " " + Color.RESET;
+
+            return Color.BOLD + Color.GREEN_BG + Color.BLACK + " " + colChar + ((row > 8) ? ("") : ("-")) + (row + 1) + " " + Color.RESET;
 
         } else if (!this.hasMine() && this.isVisible()) {
 
@@ -85,7 +79,7 @@ public class Cell {
             };
 
         } else {
-            return Color.BOLD + Color.GRAY_BG + Color.BRIGHT_WHITE + " " + rowChar + ((row > 8) ? ("") : ("-")) + (row + 1) + " " + Color.RESET;
+            return Color.BOLD + Color.GRAY_BG + Color.BRIGHT_WHITE + " " + colChar + ((row > 8) ? ("") : ("-")) + (row + 1) + " " + Color.RESET;
         }
     }
 }

@@ -51,7 +51,6 @@ public class InputHandler {
         return result;
     }
 
-
     /// Method for handle wrong input when Integer with "min-max"-condition is expected
 
     public static int getInt(int min, int max, String text) {
@@ -67,7 +66,6 @@ public class InputHandler {
             System.out.println(text + " " + min + "-" + max);
         }
     }
-
 
     /// Method for handle wrong input when a Position in the grid is expected
 

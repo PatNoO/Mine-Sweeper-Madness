@@ -1,6 +1,5 @@
 public class Game {
 
-    static Board board;
     private int boardSizeWidth = 8;
     private int boardSizeHeight = 8;
     private double boardMinePercentage = 0.15; // 10 mines
@@ -30,7 +29,7 @@ public class Game {
             int userInputMenu = InputHandler.getInt(1, 5, TextOutput.ERROR_PLAYER_INT_INPUT);
 
             switch (userInputMenu) {
-                // Startar spelet
+                // Starts game
                 case 1:
                     run();
                     break;
@@ -89,19 +88,16 @@ public class Game {
         }
     }
 
-
     public void run() {
         // Run Method
-        int boardWidth = boardSizeWidth;
-        int boardHeight = boardSizeHeight;
-        int boardNumOfMines = (int) Math.round(boardWidth * boardHeight * boardMinePercentage);
-        board = new Board(boardWidth, boardHeight, boardNumOfMines);
+        int boardNumOfMines = (int) Math.round(boardSizeWidth * boardSizeHeight * boardMinePercentage);
+        Board board = new Board(boardSizeWidth, boardSizeHeight, boardNumOfMines);
 
 //        TextOutput.gameStartOutput();
 
         while (true) {
             clearScreen();
-            printBoard();
+            board.printBoard();
 
             System.out.println(Color.GRAY + TextOutput.PLAYER_MAKE_MOVE_INFO_2 + Color.RESET);
             System.out.println(Color.BRIGHT_WHITE + TextOutput.PLAYER_MAKE_MOVE_INFO + Color.RESET);
@@ -115,24 +111,16 @@ public class Game {
 
                         board.setCellAsFlag(pos.row(), pos.col());
 
-                        int openedCells = checkOpenedCells();
-                        int totalCells = boardWidth * boardHeight;
-                        if (openedCells == totalCells - boardNumOfMines) {
-                            openMinesAsFlags();
-                            printBoard();
-                            TextOutput.gameWinOutput();
-                            break;
-                        }
-
                     } else {
 
                         board.openCellAtPosition(pos.row(), pos.col());
 
-                        int openedCells = checkOpenedCells();
-                        int totalCells = boardWidth * boardHeight;
+                        int openedCells = board.checkOpenedCells();
+                        int totalCells = boardSizeWidth * boardSizeHeight;
                         if (openedCells == totalCells - boardNumOfMines) {
-                            openMinesAsFlags();
-                            printBoard();
+                            clearScreen();
+                            board.openMinesAsFlags();
+                            board.printBoard();
                             TextOutput.gameWinOutput();
                             System.out.println(TextOutput.PLAYER_RETRY);
                             String userInput = InputHandler.getString();
@@ -146,8 +134,8 @@ public class Game {
                         if (cell.hasMine() && cell.isVisible()) {
                             cell.setMineHit(true);
                             clearScreen();
-                            openMines();
-                            printBoard();
+                            board.openMines();
+                            board.printBoard();
                             TextOutput.gameOverOutput();
                             System.out.println(TextOutput.PLAYER_RETRY);
                             String userInput = InputHandler.getString();
@@ -166,61 +154,6 @@ public class Game {
         }
     }
 
-    public static void clearScreen() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
-
-    public int checkOpenedCells() {
-        int numOfOpenedCells = 0;
-        for (int row = 0; row < board.grid.length; row++) {
-            for (int col = 0; col < board.grid[row].length; col++) {
-                Cell cell = board.grid[row][col];
-                if (cell.isVisible() && !cell.showMineAsFlag()) {
-                    numOfOpenedCells++;
-                }
-            }
-        }
-        return numOfOpenedCells;
-    }
-
-    public void openMinesAsFlags() {
-        for (int row = 0; row < board.grid.length; row++) {
-            for (int col = 0; col < board.grid[row].length; col++) {
-                Cell cell = board.grid[row][col];
-                if (cell.hasMine()) {
-                    cell.isVisible(true);
-                    cell.setMineAsFlag(true);
-                }
-            }
-        }
-    }
-
-    public void openMines() {
-        for (int row = 0; row < board.grid.length; row++) {
-            for (int col = 0; col < board.grid[row].length; col++) {
-                Cell cell = board.grid[row][col];
-                if (cell.hasMine()) {
-                    cell.isVisible(true);
-                }
-            }
-        }
-    }
-
-    public static void printBoard() {
-        System.out.println();
-
-        for (int row = 0; row < board.grid.length; row++) {
-            for (int col = 0; col < board.grid[row].length; col++) {
-
-                Cell cell = board.grid[row][col];
-                System.out.print(cell.textAt(row, col));
-
-            }
-            System.out.println();
-        }
-    }
-
     public void changePlayerName(Player player) {
         clearScreen();
 
@@ -229,4 +162,10 @@ public class Game {
 
         clearScreen();
     }
+
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
 }
