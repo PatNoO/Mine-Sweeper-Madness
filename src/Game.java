@@ -11,7 +11,7 @@ public class Game {
 
     public void homeMenu() {
         clearScreen();
-        Player player = new Player("");
+        Player player = new Player("","EASY");
         TextOutput.welcomeText();
         player.setName(InputHandler.getStringName(TextOutput.ERROR_PLAYER_INPUT_NAME));
         clearScreen();
@@ -51,19 +51,19 @@ public class Game {
         int playerDifficulty = InputHandler.getInt(1, 4, TextOutput.ERROR_PLAYER_INT_INPUT);
         switch (playerDifficulty) {
             case 1:
-                System.out.println(Color.GREEN + "EASY" + Color.RESET);
+                player.setDifficulty("EASY");
                 boardSizeWidth = 8;
                 boardSizeHeight = 8;
                 boardMinePercentage = 0.15; // 10 mines
                 break;
             case 2:
-                System.out.println(Color.BLUE + "MEDIUM" + Color.RESET);
+                player.setDifficulty("MEDIUM");
                 boardSizeWidth = 12;
                 boardSizeHeight = 12;
                 boardMinePercentage = 0.15; // 22 mines
                 break;
             case 3:
-                System.out.println(Color.RED + "HARD" + Color.RESET);
+                player.setDifficulty("HARD");
                 boardSizeWidth = 20;
                 boardSizeHeight = 20;
                 boardMinePercentage = 0.20; // 80 mines
