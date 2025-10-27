@@ -99,39 +99,52 @@ public class Game {
         /// todo kanske starta på homeMenu istället för run ?
         //homeMenu();
 
-        System.out.println(Color.BOLD + """
-                
-                SWEEP FOR MINES, BUT DO NOT HIT ONE!
-                """ + Color.RESET);
+        TextOutput.gameStartOutput();
 
         while (true) {
             clearScreen();
             printBoard();
 
 
+            System.out.println(TextOutput.PLAYER_MAKE_MOVE_INFO + Color.GRAY + TextOutput.PLAYER_MAKE_MOVE_INFO_2 + Color.RESET);
+
+            // Om man kör placera flagga
+//            System.out.println(TextOutput.PLAYER_SET_FLAG_INFO + Color.GRAY + TextOutput.PLAYER_SET_FLAG_INFO_2 + Color.RESET);
+
             Position pos = InputHandler.getPosition();
 
             if (pos != null) {
                 Cell cell = board.cellAtPosition(pos);
                 if (cell != null) {
-                    board.openCellAtPosition(pos.row(), pos.col());
-                    int openedCells = checkOpenedCells();
-                    int totalCells = boardWidth * boardHeight;
-                    if (openedCells == totalCells - boardNumOfMines) {
-                        openMinesAsFlags();
-                        printBoard();
-                        System.out.println(TextOutput.PLAYER_WIN);
-                        break;
-                    }
-                    if (cell.hasMine()) {
-                        cell.setMineHit(true);
-                        openMines();
-                        printBoard();
-                        TextOutput. gameOverOutput();
 
-                        break;
+                    /* TODO:
+                        Finns en fungerande funktion att placera flaggor
+                        Men inte löst bytet mellan den och att öppna celler
+                    */
 
-                    }
+                    // "Placera flagga"
+//                    board.setCellAsFlag(pos.row(), pos.col());
+
+                    // Kommentera ut rad 130-147, för att testa ovan metod
+
+                                board.openCellAtPosition(pos.row(), pos.col());
+
+                                int openedCells = checkOpenedCells();
+                                int totalCells = boardWidth * boardHeight;
+                                if (openedCells == totalCells - boardNumOfMines) {
+                                    openMinesAsFlags();
+                                    printBoard();
+                                    TextOutput.gameWinOutput();
+                                    break;
+                                }
+                                if (cell.hasMine()) {
+                                    cell.setMineHit(true);
+                                    openMines();
+                                    printBoard();
+                                    TextOutput. gameOverOutput();
+
+                                    break;
+                                }
                 }
             }
 
