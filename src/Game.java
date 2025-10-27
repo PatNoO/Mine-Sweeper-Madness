@@ -18,12 +18,7 @@ public class Game {
         player.setName(InputHandler.getStringName(TextOutput.ERROR_PLAYER_INPUT_NAME));
 
         while (true) {
-            System.out.println("Welcome to the home menu!");
-
-            System.out.println("Press 1 to play the game ");
-            System.out.println("Press 2 change difficulty ");
-            System.out.println("Press 3 for help ");
-            System.out.println("Press 4 to quit ");
+            TextOutput.homeMenuOutput(player);
 
             int userInputMenu = InputHandler.getInt(1, 4, TextOutput.ERROR_PLAYER_INT_INPUT);
 //            System.out.println(userInputMenu);
@@ -96,8 +91,6 @@ public class Game {
         int boardHeight = boardSizeHeight;
         int boardNumOfMines = (int)Math.round(boardWidth * boardHeight * boardMinePercentage);
         board = new Board(boardWidth, boardHeight, boardNumOfMines);
-        /// todo kanske starta på homeMenu istället för run ?
-        //homeMenu();
 
         TextOutput.gameStartOutput();
 
