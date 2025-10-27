@@ -125,7 +125,7 @@ public class Game {
                             TextOutput.gameWinOutput();
                             break;
                         }
-                        if (cell.hasMine()) {
+                        if (cell.hasMine() && cell.isVisible()) {
                             cell.setMineHit(true);
                             clearScreen();
                             openMines();

@@ -17,7 +17,7 @@ public class Board {
         if (row>=0 && row<grid.length && col>=0 && col<grid[0].length) {
 
             Cell cell = grid[row][col];
-            if (!cell.isVisible()) {
+            if (!cell.showMineAsFlag() && !cell.isVisible()) {
                 cell.isVisible(true);
                 if (cell.getMinesNearby() == 0) {
 
