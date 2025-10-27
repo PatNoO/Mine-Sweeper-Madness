@@ -34,14 +34,16 @@ public class TextOutput {
     public static void homeMenuOutput(Player player) {
         System.out.println();
         System.out.println(Color.BOLD + Color.BRIGHT_WHITE + Color.BOX + " HOME MENU ");
+        System.out.println(" Player: " + player.getName());
         System.out.println();
         System.out.println(Color.BOLD + Color.BRIGHT_WHITE + Color.BOX +
                 " Press 1) Play: " + player.getDifficulty() + "   \n" +
                 " Press 2) Change difficulty \n" +
-                " Press 3) Help \n" +
-                " Press 4) Quit game         " + Color.RESET);
+                " Press 3) Change player name \n" +
+                " Press 4) Help \n" +
+                " Press 5) Quit game          " + Color.RESET);
         System.out.println();
-        System.out.println(Color.BOLD + Color.BRIGHT_WHITE + Color.BOX + " Make your choice, "+ player.getName() + ": " + Color.RESET);
+        System.out.println(Color.BOLD + Color.BRIGHT_WHITE + Color.BOX + " Make your choice: " + Color.RESET);
     }
 
     /// Prints menu for difficulty choices
@@ -77,10 +79,11 @@ public class TextOutput {
                             Color.RESET + Color.WHITE_BG + Color.BLACK + Color.BOLD + WELCOME_TEXT +
                             Color.BRIGHT_RED +  Color.BLINK + "  * " + Color.RESET);
         System.out.println(coloredLine);
+    }
+    public static void enterNameText() {
         System.out.println();
         System.out.println(Color.BOLD + Color.BRIGHT_WHITE + "PLEASE ENTER YOUR NAME:");
     }
-
     ///  Prints the Game over-"sign"
 
     public static void gameOverOutput() {
@@ -118,6 +121,7 @@ public class TextOutput {
     /// Prints the help information
 
     public static void showHelpOutput() {
+        Game.clearScreen();
         System.out.println(Color.BOLD + """
                 
                 📜 HOW TO PLAY MINESWEEPER 📜
@@ -158,10 +162,12 @@ public class TextOutput {
                 Output: Sets the cell as a ⛳️ (green background)
                 -------------------------
                 Press 1) Return to HOME MENU""" + Color.RESET);
+
         int userHelpInput;
         do {
             userHelpInput = InputHandler.getInt(TextOutput.ERROR_PLAYER_INVALID_INPUT);
             if (userHelpInput == 1) {
+                Game.clearScreen();
                 return;
             } else {
                 System.out.println(TextOutput.ERROR_PLAYER_INVALID_INPUT);
