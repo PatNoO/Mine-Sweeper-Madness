@@ -28,16 +28,26 @@ public class TextOutput {
     public static final String PLAYER_WIN = "🥳 You win !! The minefield is cleared! ";
     public static final String PLAYER_RETRY = "Would you like to try again? (Y/N)";
 
+
+    public static void difficultyMenuOutput(Player player) {
+        System.out.println(player.getName() + " Choose difficulty :");
+        System.out.println("Press 1 for : " + Color.GREEN + "EASY" + Color.RESET);
+        System.out.println("Press 2 for : " + Color.BLUE + "MEDIUM" + Color.RESET);
+        System.out.println("Press 3 for : " + Color.RED + "HARD" + Color.RESET);
+    }
+
     public static void homeMenuOutput(Player player) {
         System.out.println();
         System.out.println(Color.BOLD + Color.BOX + Color.BLINK +
                 "Welcome " + player.getName() + " to the home menu!" + Color.RESET);
         System.out.println();
 
-        System.out.println("Press 1 to play the game ");
-        System.out.println("Press 2 change difficulty ");
-        System.out.println("Press 3 for help ");
-        System.out.println("Press 4 to quit ");
+        System.out.println(Color.BOLD + Color.BOX + Color.BLINK +
+                " Press 1 to play the game \n " +
+                "Press 2 change difficulty \n " +
+                "Press 3 for help \n " +
+                "Press 4 to quit              " + Color.RESET);
+        System.out.println();
 
     }
 
@@ -79,7 +89,7 @@ public class TextOutput {
 
     //------------------------------------//
 
-    public static void showHelp() {
+    public static void showHelpOutput() {
         System.out.println(Color.BOLD + """
                 
                 📜 HOW TO PLAY MINESWEEPER 📜

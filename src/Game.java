@@ -1,5 +1,3 @@
-import org.w3c.dom.Text;
-
 public class Game {
 
     static Board board;
@@ -32,7 +30,7 @@ public class Game {
                     difficultyMenu(player);
                     break;
                 case 3:
-                    TextOutput.showHelp();
+                    TextOutput.showHelpOutput();
                     break;
                 case 4:
                     TextOutput.thanksForPlayingOutput();
@@ -50,10 +48,7 @@ public class Game {
 
     public void difficultyMenu(Player player) {
 
-        System.out.println(player.getName() + " Choose difficulty :");
-        System.out.println("Press 1 for : " + Color.GREEN + "EASY" + Color.RESET);
-        System.out.println("Press 2 for : " + Color.BLUE + "MEDIUM" + Color.RESET);
-        System.out.println("Press 3 for : " + Color.RED + "HARD" + Color.RESET);
+        TextOutput.difficultyMenuOutput(player);
 
         int playerDifficulty = InputHandler.getInt(1, 4, TextOutput.ERROR_PLAYER_INT_INPUT);
         switch (playerDifficulty) {
