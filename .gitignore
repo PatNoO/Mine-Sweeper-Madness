@@ -8,6 +8,8 @@ Mine-Sweeper-Madness.iml
 /src/InputHandler.class
 /src/Main.class
 /src/Position.class
+/src/TextOutput.class
+/src/Player.class
 
 ### IntelliJ IDEA ###
 out/

@@ -52,19 +52,38 @@ public class InputHandler {
         }
     }
 
-    public static Position getPosition() {
+//    public static Position getPosition(String input) {
+//
+//        // Takes input and make it to upper case if it's not
+////        String input = scanner.nextLine().toUpperCase();
+//
+//        try {
+//            int col = input.charAt(0) - 'A';
+//            int row = Integer.parseInt(input.substring(1)) - 1;
+//            return new Position(row, col);
+//        } catch (Exception e) {
+//            return null;
+//        }
+//    }
 
-        // Takes input and make it to upper case if it's not
-        String input = scanner.nextLine().toUpperCase();
-
+    public static Position getPosition(String input) {
+        String convertedInput = input.toUpperCase();
+        if ((convertedInput.length() == 3) && (input.charAt(2) == 'f' || input.charAt(2) == 'F')) {
+            convertedInput = input.substring(0, 2);
+        } else if((convertedInput.length() == 4) && (input.charAt(3) == 'f' || input.charAt(3) == 'F')) {
+            convertedInput = input.substring(0, 3);
+        }
         try {
-            int col = input.charAt(0) - 'A';
-            int row = Integer.parseInt(input.substring(1)) - 1;
+            int col = convertedInput.charAt(0) - 'A';
+            int row = Integer.parseInt(convertedInput.substring(1)) - 1;
+
             return new Position(row, col);
         } catch (Exception e) {
             return null;
         }
+    }
 
-
+    public static String getString() {
+        return scanner.nextLine().toUpperCase();
     }
 }

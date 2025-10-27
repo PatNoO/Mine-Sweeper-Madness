@@ -1,5 +1,3 @@
-import org.w3c.dom.Text;
-
 public class Game {
 
     static Board board;
@@ -105,46 +103,49 @@ public class Game {
             clearScreen();
             printBoard();
 
+            System.out.println(Color.GRAY + TextOutput.PLAYER_MAKE_MOVE_INFO_2 + Color.RESET);
+            System.out.println(TextOutput.PLAYER_MAKE_MOVE_INFO);
 
-            System.out.println(TextOutput.PLAYER_MAKE_MOVE_INFO + Color.GRAY + TextOutput.PLAYER_MAKE_MOVE_INFO_2 + Color.RESET);
-
-            // Om man kör placera flagga
-//            System.out.println(TextOutput.PLAYER_SET_FLAG_INFO + Color.GRAY + TextOutput.PLAYER_SET_FLAG_INFO_2 + Color.RESET);
-
-            Position pos = InputHandler.getPosition();
-
+            String input = InputHandler.getString();
+            Position pos = InputHandler.getPosition(input);
             if (pos != null) {
                 Cell cell = board.cellAtPosition(pos);
                 if (cell != null) {
+                    if ((input.length() == 3 && input.charAt(2) == 'F') || (input.length() == 4 && input.charAt(3) == 'F'))  {
 
-                    /* TODO:
-                        Finns en fungerande funktion att placera flaggor
-                        Men inte löst bytet mellan den och att öppna celler
-                    */
+                        board.setCellAsFlag(pos.row(), pos.col());
 
-                    // "Placera flagga"
-//                    board.setCellAsFlag(pos.row(), pos.col());
+                        int openedCells = checkOpenedCells();
+                        int totalCells = boardWidth * boardHeight;
+                        if (openedCells == totalCells - boardNumOfMines) {
+                            openMinesAsFlags();
+                            printBoard();
+                            TextOutput.gameWinOutput();
+                            break;
+                        }
 
-                    // Kommentera ut rad 130-147, för att testa ovan metod
+                    } else {
 
-                                board.openCellAtPosition(pos.row(), pos.col());
+                        board.openCellAtPosition(pos.row(), pos.col());
 
-                                int openedCells = checkOpenedCells();
-                                int totalCells = boardWidth * boardHeight;
-                                if (openedCells == totalCells - boardNumOfMines) {
-                                    openMinesAsFlags();
-                                    printBoard();
-                                    TextOutput.gameWinOutput();
-                                    break;
-                                }
-                                if (cell.hasMine()) {
-                                    cell.setMineHit(true);
-                                    openMines();
-                                    printBoard();
-                                    TextOutput. gameOverOutput();
+                        int openedCells = checkOpenedCells();
+                        int totalCells = boardWidth * boardHeight;
+                        if (openedCells == totalCells - boardNumOfMines) {
+                            openMinesAsFlags();
+                            printBoard();
+                            TextOutput.gameWinOutput();
+                            break;
+                        }
+                        if (cell.hasMine()) {
+                            cell.setMineHit(true);
+                            clearScreen();
+                            openMines();
+                            printBoard();
+                            TextOutput.gameOverOutput();
 
-                                    break;
-                                }
+                            break;
+                        }
+                    }
                 }
             }
 
@@ -161,7 +162,7 @@ public class Game {
         for (int row = 0; row < board.grid.length; row++) {
             for (int col = 0; col < board.grid[row].length; col++) {
                 Cell cell = board.grid[row][col];
-                if (cell.isVisible()) {
+                if (cell.isVisible() && !cell.showMineAsFlag()) {
                     numOfOpenedCells++;
                 }
             }

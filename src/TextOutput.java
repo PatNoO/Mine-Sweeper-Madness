@@ -20,8 +20,8 @@ public class TextOutput {
     public static final String ERROR_CELL_ALREADY_OPENED = "That cell is already open — choose another!";
     //-------------------------------//
 
-    public static final String PLAYER_MAKE_MOVE_INFO = "Open coordinate: ";
-    public static final String PLAYER_MAKE_MOVE_INFO_2 = " (Type \"flag\" to place flags)";
+    public static final String PLAYER_MAKE_MOVE_INFO = "Enter coordinate: ";
+    public static final String PLAYER_MAKE_MOVE_INFO_2 = "Type the coordinate you want to open or\nadd a 'F', at the end to place a flag\nat that cell. (E.g., \"A1\" or \"A1F\")";
     public static final String PLAYER_SET_FLAG_INFO = "Place a flag at coordinate: ";
     public static final String PLAYER_SET_FLAG_INFO_2 = " (Type \"open\" to switch back to open cells)";
     public static final String PLAYER_STEPPS_ON_SAFE_CELL = "Phew... Safe for now!";
