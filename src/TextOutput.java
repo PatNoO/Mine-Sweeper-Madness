@@ -49,6 +49,7 @@ public class TextOutput {
         System.out.println(Color.BOLD + Color.BRIGHT_WHITE + Color.BOX +
                 " Press 1 to play the game\n" +
                 " Press 2 change difficulty\n" +
+                " (Your difficulty " + player.getDifficulty() + ")\n" +
                 " Press 3 for help\n" +
                 " Press 4 to quit             " + Color.RESET);
         System.out.println();
