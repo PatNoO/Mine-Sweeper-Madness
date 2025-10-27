@@ -119,6 +119,13 @@ public class Game {
                             openMinesAsFlags();
                             printBoard();
                             TextOutput.gameWinOutput();
+                            System.out.println(TextOutput.PLAYER_RETRY);
+                            String userInput = InputHandler.getString();
+                            if (userInput.equals("YES")) {
+                                run();
+                            } else if (userInput.equals("NO")) {
+                                homeMenu();
+                            }
                             break;
                         }
                         if (cell.hasMine() && cell.isVisible()) {
@@ -127,7 +134,13 @@ public class Game {
                             openMines();
                             printBoard();
                             TextOutput.gameOverOutput();
-
+                            System.out.println(TextOutput.PLAYER_RETRY);
+                            String userInput = InputHandler.getString();
+                            if (userInput.equals("YES")) {
+                                run();
+                            } else if (userInput.equals("NO")) {
+                                homeMenu();
+                            }
                             break;
                         }
                     }
