@@ -43,8 +43,7 @@ public class Board {
             Cell cell = grid[row][col];
 
             if (!cell.isVisible()) {
-                cell.setMineAsFlag(true);
-                cell.isVisible(true);
+                cell.setMineAsFlag(!cell.showMineAsFlag());
             }
         }
     }
