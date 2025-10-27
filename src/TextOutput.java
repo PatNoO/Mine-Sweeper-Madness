@@ -28,18 +28,27 @@ public class TextOutput {
     public static final String PLAYER_WIN = "🥳 You win !! The minefield is cleared! ";
     public static final String PLAYER_RETRY = "Would you like to try again? (Y/N)";
 
+    public static void welcomeText () {
+
+    }
+
 
     public static void difficultyMenuOutput(Player player) {
-        System.out.println(player.getName() + " Choose difficulty :");
-        System.out.println("Press 1 for : " + Color.GREEN + "EASY" + Color.RESET);
-        System.out.println("Press 2 for : " + Color.BLUE + "MEDIUM" + Color.RESET);
-        System.out.println("Press 3 for : " + Color.RED + "HARD" + Color.RESET);
+        System.out.println(Color.BOLD + Color.BOX + Color.BLINK +
+                " " +player.getName() + " Choose difficulty " + Color.RESET);
+        System.out.println();
+
+        System.out.println(Color.BOLD + Color.BOX + Color.BLINK +
+                " Press 1 for :  EASY  \n" +
+                " Press 2 for : MEDIUM \n" +
+                " Press 3 for : HARD     " + Color.RESET);
+        System.out.println();
     }
 
     public static void homeMenuOutput(Player player) {
         System.out.println();
         System.out.println(Color.BOLD + Color.BOX + Color.BLINK +
-                "Welcome " + player.getName() + " to the home menu!" + Color.RESET);
+                " Welcome " + player.getName() + " to the home menu! " + Color.RESET);
         System.out.println();
 
         System.out.println(Color.BOLD + Color.BOX + Color.BLINK +
