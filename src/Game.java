@@ -1,24 +1,25 @@
 public class Game {
 
     static Board board;
-    private int boardSizeWidth = 10;
-    private int boardSizeHeight = 10;
-    private double boardMinePercentage = 0.15;
+    private int boardSizeWidth = 8;
+    private int boardSizeHeight = 8;
+    private double boardMinePercentage = 0.15; // 10 mines
 
     public Game() {
         // Init variables
     }
 
     public void homeMenu() {
+        clearScreen();
         Player player = new Player("");
         TextOutput.welcomeText();
         player.setName(InputHandler.getStringName(TextOutput.ERROR_PLAYER_INPUT_NAME));
+        clearScreen();
 
         while (true) {
             TextOutput.homeMenuOutput(player);
 
             int userInputMenu = InputHandler.getInt(1, 4, TextOutput.ERROR_PLAYER_INT_INPUT);
-//            System.out.println(userInputMenu);
 
             switch (userInputMenu) {
                 // Startar spelet
@@ -40,9 +41,7 @@ public class Game {
                     System.out.println(TextOutput.ERROR_PLAYER_INVALID_INPUT);
                     break;
             }
-
         }
-
     }
 
     public void difficultyMenu(Player player) {
@@ -53,29 +52,26 @@ public class Game {
         switch (playerDifficulty) {
             case 1:
                 System.out.println(Color.GREEN + "EASY" + Color.RESET);
-                boardSizeWidth = 10;
-                boardSizeHeight = 10;
-                boardMinePercentage = 0.15;
+                boardSizeWidth = 8;
+                boardSizeHeight = 8;
+                boardMinePercentage = 0.15; // 10 mines
                 break;
             case 2:
                 System.out.println(Color.BLUE + "MEDIUM" + Color.RESET);
-                boardSizeWidth = 18;
-                boardSizeHeight = 18;
-                boardMinePercentage = 0.15;
+                boardSizeWidth = 12;
+                boardSizeHeight = 12;
+                boardMinePercentage = 0.15; // 22 mines
                 break;
             case 3:
                 System.out.println(Color.RED + "HARD" + Color.RESET);
-                boardSizeWidth = 26;
-                boardSizeHeight = 26;
-                boardMinePercentage = 0.15;
+                boardSizeWidth = 20;
+                boardSizeHeight = 20;
+                boardMinePercentage = 0.20; // 80 mines
                 break;
             default:
                 System.out.println(TextOutput.ERROR_PLAYER_INVALID_INPUT);
                 homeMenu();
-
         }
-
-
     }
 
 
@@ -93,7 +89,7 @@ public class Game {
             printBoard();
 
             System.out.println(Color.GRAY + TextOutput.PLAYER_MAKE_MOVE_INFO_2 + Color.RESET);
-            System.out.println(TextOutput.PLAYER_MAKE_MOVE_INFO);
+            System.out.println(Color.BRIGHT_WHITE + TextOutput.PLAYER_MAKE_MOVE_INFO + Color.RESET);
 
             String input = InputHandler.getString();
             Position pos = InputHandler.getPosition(input);
@@ -137,7 +133,6 @@ public class Game {
                     }
                 }
             }
-
         }
     }
 
@@ -183,6 +178,7 @@ public class Game {
     }
 
     public static void printBoard() {
+        System.out.println();
 
         for (int row = 0; row < board.grid.length; row++) {
             for (int col = 0; col < board.grid[row].length; col++) {

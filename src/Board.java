@@ -19,7 +19,7 @@ public class Board {
             Cell cell = grid[row][col];
             if (!cell.showMineAsFlag() && !cell.isVisible()) {
                 cell.isVisible(true);
-                if (cell.getMinesNearby() == 0) {
+                if (cell.getMinesNearby() == 0 && !cell.hasMine()) {
 
                     openCellAtPosition(row, col - 1);
                     openCellAtPosition(row, col + 1);
@@ -31,7 +31,6 @@ public class Board {
                     openCellAtPosition(row + 1, col - 1);
                     openCellAtPosition(row + 1, col);
                     openCellAtPosition(row + 1, col + 1);
-
                 }
             }
         }
