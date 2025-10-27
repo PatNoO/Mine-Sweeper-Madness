@@ -85,7 +85,7 @@ public class Cell {
             };
 
         } else {
-            return Color.BOLD + Color.GRAY_BG + " " + rowChar + ((row > 8) ? ("") : ("-")) + (row + 1) + " " + Color.RESET;
+            return Color.BOLD + Color.GRAY_BG + Color.BRIGHT_WHITE + " " + rowChar + ((row > 8) ? ("") : ("-")) + (row + 1) + " " + Color.RESET;
         }
     }
 }

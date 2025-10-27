@@ -64,7 +64,7 @@ public class TextOutput {
     public static void welcomeText() {
         System.out.println();
         System.out.println((Color.BOLD + Color.BRIGHT_CYAN + Color.BLINK + "*" + Color.BRIGHT_RED +  "*").repeat(18) + Color.BRIGHT_CYAN + "*");
-        System.out.println(Color.BOLD + Color.BRIGHT_RED + Color.BLINK + "*  " + Color.RESET + Color.BRIGHT_RED + "WELCOME TO MINESWEEPER MADNESS" + Color.BRIGHT_RED +  Color.BLINK + "   *");
+        System.out.println(Color.BOLD + Color.BRIGHT_RED + Color.BLINK + "*  " + Color.RESET + Color.BRIGHT_WHITE + Color.BOLD + "WELCOME TO MINESWEEPER MADNESS" + Color.BRIGHT_RED +  Color.BLINK + "   *");
         System.out.println((Color.BOLD + Color.BRIGHT_CYAN + Color.BLINK + "*" + Color.BRIGHT_RED + "*").repeat(18) + Color.BRIGHT_CYAN + "*" + Color.RESET);
         System.out.println();
         System.out.println(Color.BOLD + Color.BRIGHT_WHITE + "PLEASE ENTER YOUR NAME:");
