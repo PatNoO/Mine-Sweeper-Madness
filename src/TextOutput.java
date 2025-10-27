@@ -24,7 +24,7 @@ public class TextOutput {
     public static final String PLAYER_MAKE_MOVE_INFO_2 = "Type the coordinate you want to open or\nadd 'F', at the end to place a flag\nat that cell. (E.g., \"A1\" or \"A1F\")";
     public static final String PLAYER_SET_FLAG_INFO = "Place a flag at coordinate: ";
     public static final String PLAYER_SET_FLAG_INFO_2 = " (Type \"open\" to switch back to open cells)";
-    public static final String PLAYER_STEPPS_ON_SAFE_CELL = "Phew... Safe for now!";
+    public static final String PLAYER_STEPS_ON_SAFE_CELL = "Phew... Safe for now!";
     public static final String PLAYER_WIN = "🥳 You win !! The minefield is cleared! ";
     public static final String PLAYER_RETRY = "Would you like to try again? Enter YES or NO";
 

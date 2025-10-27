@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Board {
-    Cell[][] grid;
+    private Cell[][] grid;
 
 
     public Cell cellAtPosition(Position pos) {
@@ -110,6 +110,53 @@ public class Board {
 
                 grid[row][col].setMinesNearby(count);
             }
+        }
+    }
+
+    public void openMines() {
+        for (int row = 0; row < grid.length; row++) {
+            for (int col = 0; col < grid[row].length; col++) {
+                Cell cell = grid[row][col];
+                if (cell.hasMine()) {
+                    cell.isVisible(true);
+                }
+            }
+        }
+    }
+
+    public void openMinesAsFlags() {
+        for (int row = 0; row < grid.length; row++) {
+            for (int col = 0; col < grid[row].length; col++) {
+                Cell cell = grid[row][col];
+                if (cell.hasMine()) {
+                    cell.isVisible(true);
+                    cell.setMineAsFlag(true);
+                }
+            }
+        }
+    }
+
+    public int checkOpenedCells() {
+        int numOfOpenedCells = 0;
+        for (int row = 0; row < grid.length; row++) {
+            for (int col = 0; col < grid[row].length; col++) {
+                Cell cell = grid[row][col];
+                if (cell.isVisible() && !cell.showMineAsFlag()) {
+                    numOfOpenedCells++;
+                }
+            }
+        }
+        return numOfOpenedCells;
+    }
+
+    public void printBoard() {
+        System.out.println();
+        for (int row = 0; row < grid.length; row++) {
+            for (int col = 0; col < grid[row].length; col++) {
+                Cell cell = grid[row][col];
+                System.out.print(cell.textAt(row, col));
+            }
+            System.out.println();
         }
     }
 }
