@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 public class Game {
 
@@ -38,7 +40,7 @@ public class Game {
                     changePlayerName(player);
                     break;
                 case 4:
-                    highScoreMenu(player);
+                    highScoreMenu();
                     break;
                 case 5:
                     TextOutput.showHelpOutput();
@@ -175,15 +177,36 @@ public class Game {
         clearScreen();
     }
 
-    public void highScoreMenu(Player player) {
+    public void highScoreMenu() {
         clearScreen();
         System.out.println(" " + Color.BOLD + Color.BRIGHT_WHITE + TextOutput.HIGHSCORE_COLUMNS + Color.RESET);
         try {
             ArrayList<Player> players = CSV.readCsvFile("highscore.csv");
 
-            for (Player p : players) {
-                p.print();
+            List<Player> easyPlayers = players.stream().
+                    filter(player -> player.getDifficulty().equals("EASY")).sorted(Comparator.comparing(Player::getTime)).toList();
+            List<Player> mediumPlayers = players.stream().
+                    filter(player -> player.getDifficulty().equals("MEDIUM")).sorted(Comparator.comparing(Player::getTime)).toList();
+            List<Player> hardPlayers = players.stream().
+                    filter(player -> player.getDifficulty().equals("HARD")).sorted(Comparator.comparing(Player::getTime)).toList();
+
+            System.out.println();
+            System.out.println(Color.GREEN + "EASY" + Color.RESET);
+            for (Player p : easyPlayers) {
+                p.printScore();
             }
+            System.out.println();
+            System.out.println(Color.BLUE + "MEDIUM" + Color.RESET);
+            for (Player p : mediumPlayers) {
+                p.printScore();
+            }
+            System.out.println();
+            System.out.println(Color.BRIGHT_RED + "HARD" + Color.RESET);
+            for (Player p : hardPlayers) {
+                p.printScore();
+            }
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }

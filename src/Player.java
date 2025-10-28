@@ -23,6 +23,9 @@ public class Player {
             case "HARD" -> System.out.println(" " + this.name + " | " + Color.BRIGHT_RED + this.difficulty + Color.RESET + " | " + this.time + " sec" + Color.RESET);
         }
     }
+    public void printScore() {
+        System.out.println(" " + this.name  + " | " + this.time + " sec");
+    }
     public void printDifficulty() {
         switch (difficulty) {
             case "EASY" -> System.out.println(" Difficulty: " + Color.GREEN + this.difficulty + Color.RESET);
