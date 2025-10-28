@@ -26,14 +26,17 @@ public class TextOutput {
     public static final String PLAYER_SET_FLAG_INFO_2 = " (Type \"open\" to switch back to open cells)";
     public static final String PLAYER_STEPS_ON_SAFE_CELL = "Phew... Safe for now!";
     public static final String PLAYER_WIN = "🥳 You win !! The minefield is cleared! ";
-    public static final String PLAYER_RETRY = "Would you like to try again? Enter YES or NO";
+    public static final String PLAYER_RETRY = """
+                                              Would you like to try again?
+                                              Press ENTER) Yes
+                                              Press ANY KEY) Menu""";
 
     //-------------------------------//
     /// Prints home menu with the players selections
 
     public static void homeMenuOutput(Player player) {
         System.out.println();
-        System.out.println(Color.BOLD + Color.BRIGHT_WHITE + Color.BOX + " HOME MENU ");
+        System.out.println(Color.BOLD + Color.BRIGHT_WHITE + Color.BOX + " MENU ");
         System.out.println(" Player: " + player.getName());
         System.out.println();
         System.out.println(Color.BOLD + Color.BRIGHT_WHITE + Color.BOX +

@@ -60,7 +60,7 @@ public class Color {
     public static final String RAPID_BLINK      = "\u001B[6m";
     public static final String SWAP_COLOR       = "\u001B[7m";
     public static final String INVISIBLE_TEXT   = "\u001B[8m";
-
+    public static final String STRIKETHROUGH    = "\u001B[9m";
     public static final String BOX              = "\u001B[51m";
 }
 

@@ -37,7 +37,6 @@ public class Board {
     }
 
     public void setCellAsFlag(int row, int col) {
-
         if (row >= 0 && row < grid.length && col >= 0 && col < grid[0].length) {
             Cell cell = grid[row][col];
 
@@ -45,6 +44,21 @@ public class Board {
                 cell.setMineAsFlag(!cell.showMineAsFlag());
             }
         }
+    }
+
+    private int numberOfMinesLeft() {
+        int returnValue = 0;
+        for (Cell[] rows : grid) {
+            for (Cell cell : rows) {
+                if (cell.showMineAsFlag()) {
+                    returnValue--;
+                }
+                if (cell.hasMine()){
+                    returnValue++;
+                }
+            }
+        }
+        return returnValue;
     }
 
     Board(int width, int height, int numberOfMines) {
@@ -150,7 +164,7 @@ public class Board {
     }
 
     public void printBoard() {
-        System.out.println();
+        System.out.println(Color.BOLD + Color.BRIGHT_RED + numberOfMinesLeft() + Color.BRIGHT_WHITE + " mines left" + Color.RESET);
         for (int row = 0; row < grid.length; row++) {
             for (int col = 0; col < grid[row].length; col++) {
                 Cell cell = grid[row][col];
