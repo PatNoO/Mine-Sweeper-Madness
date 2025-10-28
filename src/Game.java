@@ -93,7 +93,6 @@ public class Game {
         int boardNumOfMines = (int) Math.round(boardSizeWidth * boardSizeHeight * boardMinePercentage);
         Board board = new Board(boardSizeWidth, boardSizeHeight, boardNumOfMines);
 
-//        TextOutput.gameStartOutput();
 
         while (true) {
             clearScreen();
@@ -104,6 +103,7 @@ public class Game {
 
             String input = InputHandler.getString();
             Position pos = InputHandler.getPosition(input);
+
             if (pos != null) {
                 Cell cell = board.cellAtPosition(pos);
                 if (cell != null) {
@@ -117,6 +117,7 @@ public class Game {
 
                         int openedCells = board.checkOpenedCells();
                         int totalCells = boardSizeWidth * boardSizeHeight;
+
                         if (openedCells == totalCells - boardNumOfMines) {
                             clearScreen();
                             board.openMinesAsFlags();
@@ -124,10 +125,9 @@ public class Game {
                             TextOutput.gameWinOutput();
                             System.out.println(TextOutput.PLAYER_RETRY);
                             String userInput = InputHandler.getString();
-                            if (userInput.equals("YES")) {
+                            if (userInput.isEmpty()) {
+                                clearScreen();
                                 run();
-                            } else if (userInput.equals("NO")) {
-                                homeMenu();
                             }
                             break;
                         }
@@ -139,12 +139,9 @@ public class Game {
                             TextOutput.gameOverOutput();
                             System.out.println(TextOutput.PLAYER_RETRY);
                             String userInput = InputHandler.getString();
-                            if (userInput.equals("YES")) {
+                            if (userInput.isEmpty()) {
                                 clearScreen();
                                 run();
-                            } else if (userInput.equals("NO")) {
-                                clearScreen();
-                                homeMenu();
                             }
                             break;
                         }

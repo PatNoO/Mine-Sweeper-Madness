@@ -55,13 +55,13 @@ public class Cell {
             if (this.isMineHit()) {
                 return Color.BOLD + Color.BRIGHT_RED_BG + Color.BLACK + "  X  " + Color.RESET;
             } else if (this.showMineAsFlag()) {
-                return Color.BOLD + Color.GREEN_BG + Color.BLACK + "  F  " + Color.RESET;
+                return Color.BOLD + Color.ORANGE_BG + Color.BLACK + "  F  " + Color.RESET;
             }
             return Color.BOLD + Color.ORANGE_BG + Color.BLACK + "  X  " + Color.RESET;
 
         } else if (this.showMineAsFlag()) {
 
-            return Color.BOLD + Color.GREEN_BG + Color.BLACK + " " + colChar + ((row > 8) ? ("") : ("-")) + (row + 1) + " " + Color.RESET;
+            return Color.BOLD + Color.BLUE_BG + Color.BLACK + " " + colChar + ((row > 8) ? ("") : ("-")) + (row + 1) + " " + Color.RESET;
 
         } else if (!this.hasMine() && this.isVisible()) {
 
