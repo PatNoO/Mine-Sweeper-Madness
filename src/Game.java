@@ -1,3 +1,6 @@
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class Game {
 
     private int boardSizeWidth = 8;
@@ -17,16 +20,11 @@ public class Game {
 
     public void homeMenu() {
         clearScreen();
-//        Player player = new Player("", "EASY");
-
-//        TextOutput.enterNameText();
-//        player.setName(InputHandler.getStringName(TextOutput.ERROR_PLAYER_INPUT_NAME));
-//        clearScreen();
 
         while (true) {
             TextOutput.homeMenuOutput(player);
 
-            int userInputMenu = InputHandler.getInt(1, 5, TextOutput.ERROR_PLAYER_INT_INPUT);
+            int userInputMenu = InputHandler.getInt(1, 6, TextOutput.ERROR_PLAYER_INT_INPUT);
 
             switch (userInputMenu) {
                 // Starts game
@@ -40,9 +38,13 @@ public class Game {
                     changePlayerName(player);
                     break;
                 case 4:
-                    TextOutput.showHelpOutput();
+                    highScoreMenu(player);
                     break;
                 case 5:
+                    TextOutput.showHelpOutput();
+                    break;
+                case 6:
+                    clearScreen();
                     TextOutput.thanksForPlayingOutput();
                     System.exit(0);
                     break;
@@ -71,7 +73,7 @@ public class Game {
                 player.setDifficulty("MEDIUM");
                 boardSizeWidth = 12;
                 boardSizeHeight = 12;
-                boardMinePercentage = 0.15; // 22 mines
+                boardMinePercentage = 0.18; // 26 mines
                 clearScreen();
                 break;
             case 3:
@@ -94,6 +96,7 @@ public class Game {
         Board board = new Board(boardSizeWidth, boardSizeHeight, boardNumOfMines);
 
 
+        long startTime = System.currentTimeMillis();
         while (true) {
             clearScreen();
             board.printBoard();
@@ -119,6 +122,13 @@ public class Game {
                         int totalCells = boardSizeWidth * boardSizeHeight;
 
                         if (openedCells == totalCells - boardNumOfMines) {
+                            int elapsedTime = (int)((System.currentTimeMillis() - startTime) / 1000);
+                            player.setTime(elapsedTime);
+                            try {
+                                CSV.write(player, "highscore.csv");
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                             clearScreen();
                             board.openMinesAsFlags();
                             board.printBoard();
@@ -158,6 +168,21 @@ public class Game {
         player.setName(InputHandler.getStringName(TextOutput.ERROR_PLAYER_INPUT_NAME));
 
         clearScreen();
+    }
+
+    public void highScoreMenu(Player player) {
+        clearScreen();
+        try {
+            ArrayList<Player> players = CSV.readCsvFile("highscore.csv");
+
+            for (Player p : players) {
+                p.print();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     public static void clearScreen() {

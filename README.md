@@ -24,7 +24,7 @@ And write clean and easy to understand code and code structure.
 
 - **Three difficulty levels:**
     - **EASY:** 8×8 grid with ~10 mines
-    - **MEDIUM:** 12×12 grid with ~22 mines
+    - **MEDIUM:** 12×12 grid with ~26 mines
     - **HARD:** 20×20 grid with ~80 mines
 
 - **Colored console output** using ANSI escape codes for better visual feedback
