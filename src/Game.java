@@ -145,6 +145,7 @@ public class Game {
                                 clearScreen();
                                 run();
                             }
+                            clearScreen();
                             break;
                         }
                         if (cell.hasMine() && cell.isVisible()) {
@@ -160,6 +161,7 @@ public class Game {
                                 clearScreen();
                                 run();
                             }
+                            clearScreen();
                             break;
                         }
                     }
