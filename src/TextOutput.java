@@ -7,7 +7,7 @@ public class TextOutput {
     public static final String LETS_PLAY = "Let's Play ! 🎮 ";
     public static final String PLAYER_NAME = "Please enter your name";
     public static final String THANKS_FOR_PLAYING = "Thanks for playing!";
-    public static final String HIGHSCORE_COLUMNS = "PLAYER | DIFFICULTY | TIME";
+    public static final String HIGHSCORE_COLUMNS = "HIGHSCORE!";
     public static final String PLAYER_EXIT_GAME = "Quit game? Enter: ";
     public static final String PLAYER_EXIT_GAME_2 = "\"EXIT\"";
 
