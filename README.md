@@ -4,7 +4,9 @@
 It runs directly in the terminal and lets players enter their name, choose a difficulty level,
 and play using colorful, text-based visuals.
 
- <img src="Images/WelcomeText.png" width="70%">
+ <img src="Gifs/WelcomeToMineSweeperMadness.gif" width="70%" alt="">
+
+<img src="Gifs/PlayingAGameMs.gif" width="70%" alt="">
 
 ---
 
@@ -48,7 +50,7 @@ to ensure a clear and professional workflow.
 - You **win** when all safe cells are opened.
 - You **lose** if you open a cell that contains a mine 💥.
 
-<img src="Images/HelpMenu.png" width="85%">
+<img src="Images/HelpMenuMs.png" width="85%">
 
 ---
 ## ▶️ How to Run
@@ -117,31 +119,33 @@ maintaining effective communication during the project.
 ## 🧾 Example Gameplay
 
 <div align="center">
-  <img src="Images/GameBoardHard.png" width="45%">
-  <img src="Images/GameOver.png" width="45%">
+  <img src="Gifs/PlayingLosingGameMs.gif" width="50%">
 </div>
 
 <div align="center">
-  <img src="Images/Win.png" width="45%">
-  <img src="Images/ThanksForPlaying.png" width="45%">
+  <img src="Images/Win.png" width="44%">
+  <img src="Images/GameOver.png" width="52%">
 </div>
 
 ---
 
 ## 🤝 Creators
 
-Created by 
-**Erik Nordvall**
-https://github.com/EN-MA25/
-**Jonathan Strid**
-https://github.com/pjstrid/
-**William Albinsson**
-https://github.com/wilabson/
-**Patrik Noordh**
-https://github.com/PatNoO
+**Created by**
+
+**Created by:**
+- [Erik Nordvall](https://github.com/EN-MA25)
+- [Jonathan Strid](https://github.com/pjstrid)
+- [William Albinsson](https://github.com/wilabson)
+- [Patrik Noordh](https://github.com/PatNoO)
 
 ---
 
 ## 📄 License
 
-This project is for educational purposes and not intended for commercial use.
+Minesweeper Madness was built for fun and learning.  
+You’re free to explore the code and play the game.
+
+--- 
+ ## 🖐
+️![ThanksForPlaying.gif](Gifs/ThanksForPlaying.gif)
