@@ -8,6 +8,7 @@ public class TextOutput {
     public static final String PLAYER_NAME = "Please enter your name";
     public static final String THANKS_FOR_PLAYING = "Thanks for playing!";
     public static final String HIGHSCORE_COLUMNS = "PLAYER | DIFFICULTY | TIME";
+    public static final String PLAYER_EXIT_GAME = "Enter exit if you want to quit the game";
 
     //-------------------------------//
 

@@ -1,15 +1,22 @@
 # 💣 Minesweeper Madness
 
-A classic **console-based Minesweeper game** developed in **Java** using **intellij**.  
-The game is text-based and runs directly in the terminal and allows the player
-to enter their name, select a difficulty level, and play using colorful visual elements.
+**Minesweeper Madness** is a classic console-based Minesweeper game developed in **Java (IntelliJ IDEA)**.
+It runs directly in the terminal and lets players enter their name, choose a difficulty level,
+and play using colorful, text-based visuals.
+
+ <img src="Images/WelcomeText.png" width="70%">
 
 ---
 
 ## 🎯 Purpose
 
-Create a Classic MineSweeper game but with a touch of color based madness.
-And write clean and easy to understand code and code structure.
+The purpose of this project was to develop a fully playable version of the classic **Minesweeper** game, based on our initial design idea and plan.  
+Throughout the project, we focused on applying **object-oriented programming (OOP)** principles, writing **clean and structured code**,
+and creating a **colorful and engaging** player experience.
+
+In addition to the technical work, the project emphasized **collaboration using Git**.  
+Each group member worked in separate **branches**, regularly merging updates through **pull requests**,
+to ensure a clear and professional workflow.
 
 ---
 
@@ -41,6 +48,16 @@ And write clean and easy to understand code and code structure.
 - You **win** when all safe cells are opened.
 - You **lose** if you open a cell that contains a mine 💥.
 
+<img src="Images/HelpMenu.png" width="85%">
+
+---
+## ▶️ How to Run
+
+1. Open the project in **IntelliJ IDEA** or any Java IDE.
+2. Make sure the JDK (Java Development Kit) is installed and configured.
+3. Run the `Main.java` file.
+4. The game will launch in the **terminal window**.
+
 ---
 
 ## 🕹 How to Play
@@ -49,18 +66,11 @@ And write clean and easy to understand code and code structure.
 2. Enter your player name when prompted.
 3. Choose from the main menu:
 
-// ändra till bild utav menu istället//
+<img src="Images/HomeMenu.png" width="50%">
 
-   | Menu <br/>Option | Description        |
-   |-------------|--------------------|
-   | `1`         | Play               |
-   | `2`         | Change difficulty  |
-   | `3`         | Change player name |
-   | `4`         | Help               |
-   | `5`         | Quit               |
 
 ---
-## 🔖 UML-Diagram
+## 🔖 UML Diagram
 
 The UML diagram was created using Lucidchart and represents the foundational structure of the Minesweeper game.
 It illustrates our initial design thoughts and how the core components interact.
@@ -86,12 +96,13 @@ The diagram includes:
 
 ---
 
-## 📝 Kontract 
+## 📝 Contract 
+
 This document outlines the initial collaboration plan for – **Minesweeper**.
 The agreement serves as a foundation for organizing tasks and
 maintaining effective communication during the project.
 
-![Kontract- Mine-Sweeper-Madness.png](Images/Kontract-%20Mine-Sweeper-Madness.png)
+<img src="Images/Contract-Mine-Sweeper-Madness.png" width="70%">
 
 ---
 
@@ -104,3 +115,33 @@ maintaining effective communication during the project.
 ---
 
 ## 🧾 Example Gameplay
+
+<div align="center">
+  <img src="Images/GameBoardHard.png" width="45%">
+  <img src="Images/GameOver.png" width="45%">
+</div>
+
+<div align="center">
+  <img src="Images/Win.png" width="45%">
+  <img src="Images/ThanksForPlaying.png" width="45%">
+</div>
+
+---
+
+## 🤝 Creators
+
+Created by 
+**Erik Nordvall**
+https://github.com/EN-MA25/
+**Jonathan Strid**
+https://github.com/pjstrid/
+**William Albinsson**
+https://github.com/wilabson/
+**Patrik Noordh**
+https://github.com/PatNoO
+
+---
+
+## 📄 License
+
+This project is for educational purposes and not intended for commercial use.
