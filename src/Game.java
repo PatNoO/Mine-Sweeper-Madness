@@ -64,14 +64,14 @@ public class Game {
                 player.setDifficulty("EASY");
                 boardSizeWidth = 8;
                 boardSizeHeight = 8;
-                boardMinePercentage = 0.18; // 10 mines
+                boardMinePercentage = 0.15; // 10 mines
                 clearScreen();
                 break;
             case 2:
                 player.setDifficulty("MEDIUM");
                 boardSizeWidth = 12;
                 boardSizeHeight = 12;
-                boardMinePercentage = 0.15; // 22 mines
+                boardMinePercentage = 0.18; // 22 mines
                 clearScreen();
                 break;
             case 3:
