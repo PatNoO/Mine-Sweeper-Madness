@@ -4,7 +4,7 @@
 It runs directly in the terminal and lets players enter their name, choose a difficulty level,
 and play using colorful, text-based visuals.
 
- <img src="Images/WelcomeText.png" width="70%">
+ <img src=Giffs/WelcomeToMineSweeperMadness.gif width="80%" alt="">
 
 ---
 
@@ -48,7 +48,7 @@ to ensure a clear and professional workflow.
 - You **win** when all safe cells are opened.
 - You **lose** if you open a cell that contains a mine 💥.
 
-<img src="Images/HelpMenu.png" width="85%">
+<img src="Images/HelpMenuMs.png" width="85%">
 
 ---
 ## ▶️ How to Run
@@ -126,18 +126,23 @@ maintaining effective communication during the project.
   <img src="Images/ThanksForPlaying.png" width="45%">
 </div>
 
+
 ---
 
 ## 🤝 Creators
 
-Created by 
-**Erik Nordvall**
+**Created by**
+
+`Erik Nordvall`
 https://github.com/EN-MA25/
-**Jonathan Strid**
+
+`Jonathan Strid`
 https://github.com/pjstrid/
-**William Albinsson**
+
+`William Albinsson`
 https://github.com/wilabson/
-**Patrik Noordh**
+
+`Patrik Noordh`
 https://github.com/PatNoO
 
 ---
@@ -145,3 +150,7 @@ https://github.com/PatNoO
 ## 📄 License
 
 This project is for educational purposes and not intended for commercial use.
+
+--- 
+ ## 🖐
+️![ThanksForPlaying.gif](Giffs/ThanksForPlaying.gif)
