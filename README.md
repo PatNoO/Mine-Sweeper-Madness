@@ -4,7 +4,8 @@ A classic **console-based Minesweeper game** developed in **Java** using **intel
 The game is text-based and runs directly in the terminal and allows the player
 to enter their name, select a difficulty level, and play using colorful visual elements.
 
-![Welcome .png](Images/Welcome%20.png)
+ <img src="Images/Welcome.png" width="70%">
+
 ---
 
 ## 🎯 Purpose
@@ -42,7 +43,7 @@ And write clean and easy to understand code and code structure.
 - You **win** when all safe cells are opened.
 - You **lose** if you open a cell that contains a mine 💥.
 
-![Help Menu.png](Images/Help%20Menu.png)
+<img src="Images/HelpMenu.png" width="85%">
 
 ---
 
@@ -52,7 +53,7 @@ And write clean and easy to understand code and code structure.
 2. Enter your player name when prompted.
 3. Choose from the main menu:
 
-![HomeMenu.png](Images/HomeMenu.png)
+<img src="Images/HomeMenu.png" width="50%">
 
 
 ---
@@ -82,7 +83,7 @@ The diagram includes:
 
 ---
 
-## 📝 Kontract 
+## 📝 Contract 
 This document outlines the initial collaboration plan for – **Minesweeper**.
 The agreement serves as a foundation for organizing tasks and
 maintaining effective communication during the project.
@@ -101,10 +102,12 @@ maintaining effective communication during the project.
 
 ## 🧾 Example Gameplay
 
-![GameBoard Hard.png](Images/GameBoard%20Hard.png)
+<div align="center">
+  <img src="Images/GameBoardHard.png" width="45%">
+  <img src="Images/GameOver.png" width="45%">
+</div>
 
-![Game Over.png](Images/Game%20Over.png)
-
-![Win.png](Images/Win.png)
-
-![Thanks for playing.png](Images/Thanks%20for%20playing.png)
+<div align="center">
+  <img src="Images/Win.png" width="45%">
+  <img src="Images/ThanksForPlaying.png" width="45%">
+</div>
