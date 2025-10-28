@@ -98,11 +98,16 @@ public class Game {
             clearScreen();
             board.printBoard();
 
+            System.out.println(Color.GRAY + TextOutput.PLAYER_EXIT_GAME + Color.RESET);
             System.out.println(Color.GRAY + TextOutput.PLAYER_MAKE_MOVE_INFO_2 + Color.RESET);
             System.out.println(Color.BRIGHT_WHITE + TextOutput.PLAYER_MAKE_MOVE_INFO + Color.RESET);
 
             String input = InputHandler.getString();
             Position pos = InputHandler.getPosition(input);
+
+            if (input.equals("EXIT")) {
+                homeMenu();
+            }
 
             if (pos != null) {
                 Cell cell = board.cellAtPosition(pos);
