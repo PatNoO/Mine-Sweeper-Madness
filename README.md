@@ -49,14 +49,27 @@ And write clean and easy to understand code and code structure.
 2. Enter your player name when prompted.
 3. Choose from the main menu:
 
-   | Option | Description        |
-   |--------|--------------------|
-   | `1`    | Play               |
-   | `2`    | Change difficulty  |
-   | `3`    | Change player name |
-   | `4`    | Help               |
-   | `5`    | Quit               |
+// ändra till bild utav menu istället//
 
+   | Menu <br/>Option | Description        |
+   |-------------|--------------------|
+   | `1`         | Play               |
+   | `2`         | Change difficulty  |
+   | `3`         | Change player name |
+   | `4`         | Help               |
+   | `5`         | Quit               |
+
+---
+## 🔖 UML-Diagram
+
+The UML diagram was created using Lucidchart and represents the foundational structure of the Minesweeper game.
+It illustrates our initial design thoughts and how the core components interact.
+The diagram includes:
+
+![UML-Diagram Mine-Sweeper-Madness.png](Images/UML-Diagram%20Mine-Sweeper-Madness.png)
+---
+
+---
 ## 🧠 Classes and Structure
 
 | Class            | Responsibility                                    |
@@ -70,6 +83,15 @@ And write clean and easy to understand code and code structure.
 | **TextOutput**   | Manages all printed text and UI messages          |
 | **Color**        | Contains ANSI color codes for console output      |
 |                  |                                                   |
+
+---
+
+## 📝 Kontract 
+This document outlines the initial collaboration plan for – **Minesweeper**.
+The agreement serves as a foundation for organizing tasks and
+maintaining effective communication during the project.
+
+![Kontract- Mine-Sweeper-Madness.png](Images/Kontract-%20Mine-Sweeper-Madness.png)
 
 ---
 
