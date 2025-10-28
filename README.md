@@ -4,6 +4,7 @@ A classic **console-based Minesweeper game** developed in **Java** using **intel
 The game is text-based and runs directly in the terminal and allows the player
 to enter their name, select a difficulty level, and play using colorful visual elements.
 
+![Welcome .png](Images/Welcome%20.png)
 ---
 
 ## 🎯 Purpose
@@ -41,6 +42,8 @@ And write clean and easy to understand code and code structure.
 - You **win** when all safe cells are opened.
 - You **lose** if you open a cell that contains a mine 💥.
 
+![Help Menu.png](Images/Help%20Menu.png)
+
 ---
 
 ## 🕹 How to Play
@@ -49,15 +52,8 @@ And write clean and easy to understand code and code structure.
 2. Enter your player name when prompted.
 3. Choose from the main menu:
 
-// ändra till bild utav menu istället//
+![HomeMenu.png](Images/HomeMenu.png)
 
-   | Menu <br/>Option | Description        |
-   |-------------|--------------------|
-   | `1`         | Play               |
-   | `2`         | Change difficulty  |
-   | `3`         | Change player name |
-   | `4`         | Help               |
-   | `5`         | Quit               |
 
 ---
 ## 🔖 UML-Diagram
@@ -104,3 +100,11 @@ maintaining effective communication during the project.
 ---
 
 ## 🧾 Example Gameplay
+
+![GameBoard Hard.png](Images/GameBoard%20Hard.png)
+
+![Game Over.png](Images/Game%20Over.png)
+
+![Win.png](Images/Win.png)
+
+![Thanks for playing.png](Images/Thanks%20for%20playing.png)
