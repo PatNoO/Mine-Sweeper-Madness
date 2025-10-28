@@ -8,7 +8,9 @@ public class TextOutput {
     public static final String PLAYER_NAME = "Please enter your name";
     public static final String THANKS_FOR_PLAYING = "Thanks for playing!";
     public static final String HIGHSCORE_COLUMNS = "PLAYER | DIFFICULTY | TIME";
-    public static final String PLAYER_EXIT_GAME = "Enter exit if you want to quit the game";
+    public static final String PLAYER_EXIT_GAME = "Quit game? Enter: ";
+    public static final String PLAYER_EXIT_GAME_2 = "\"EXIT\"";
+
 
     //-------------------------------//
 
@@ -22,36 +24,35 @@ public class TextOutput {
     public static final String ERROR_CELL_ALREADY_OPENED = "That cell is already open — choose another!";
 
     //-------------------------------//
-
-    public static final String PLAYER_MAKE_MOVE_INFO = "Enter coordinate: ";
-    public static final String PLAYER_MAKE_MOVE_INFO_2 = "Type the coordinate you want to open or\nadd 'F', at the end to place a flag\nat that cell. (E.g., \"A1\" or \"A1F\")";
-    public static final String PLAYER_SET_FLAG_INFO = "Place a flag at coordinate: ";
-    public static final String PLAYER_SET_FLAG_INFO_2 = " (Type \"open\" to switch back to open cells)";
+    public static final String PLAYER_MAKE_MOVE_INFO = """
+                                                        Enter the coordinate you want to open or
+                                                        add 'F', at the end to place a flag
+                                                        at that cell. (E.g., "A1" or "A1F")""";
+    public static final String PLAYER_MAKE_MOVE_INFO_2 = "Enter coordinate: ";
     public static final String PLAYER_STEPS_ON_SAFE_CELL = "Phew... Safe for now!";
     public static final String PLAYER_WIN = "🥳 You win !! The minefield is cleared! ";
     public static final String PLAYER_RETURN = "Press ENTER) Return to MENU";
-    public static final String PLAYER_RETRY = """
-                                              Would you like to try again?
-                                              Press ENTER) YES
-                                              Press ANY KEY) Return to MENU""";
+    public static final String PLAYER_RETRY = "Would you like to try again?";
+    public static final String PLAYER_RETRY_2 = "Press ENTER) YES\nPress ANY KEY) Return to MENU";
 
     //-------------------------------//
     /// Prints home menu with the players selections
 
     public static void homeMenuOutput(Player player) {
         System.out.println();
-        System.out.println(Color.BOLD + Color.BRIGHT_WHITE + Color.BOX + " MENU ");
+        System.out.println(Color.BOLD + Color.BRIGHT_WHITE +   " MENU ");
         System.out.println(" Player: " + player.getName());
+        player.printDifficulty();
         System.out.println();
-        System.out.println(Color.BOLD + Color.BRIGHT_WHITE + Color.BOX +
-                " Press 1) Play: " + player.getDifficulty() + "   \n" +
+        System.out.println(Color.BOLD + Color.BRIGHT_WHITE +
+                " Press 1) Play game   \n" +
                 " Press 2) Change difficulty \n" +
                 " Press 3) Change player name \n" +
                 " Press 4) Highscore \n" +
                 " Press 5) Help \n" +
                 " Press 6) Quit game          " + Color.RESET);
         System.out.println();
-        System.out.println(Color.BOLD + Color.BRIGHT_WHITE + Color.BOX + " Make your choice: " + Color.RESET);
+        System.out.println(Color.BOLD + Color.BRIGHT_WHITE +   " Make your choice: " + Color.RESET);
     }
 
     /// Prints menu for difficulty choices
@@ -59,22 +60,23 @@ public class TextOutput {
     public static void difficultyMenuOutput(Player player) {
 
         System.out.println();
-        System.out.println(Color.BOLD + Color.BRIGHT_WHITE + Color.BOX +
-                " Press 1) for : EASY  \n" +
-                " Press 2) for : MEDIUM \n" +
-                " Press 3) for : HARD     " + Color.RESET);
+        System.out.println(
+                Color.BOLD + Color.BRIGHT_WHITE + " Press 1) for : " + Color.GREEN + "EASY  \n" + Color.RESET +
+                Color.BOLD + Color.BRIGHT_WHITE + " Press 2) for : " + Color.BLUE + "MEDIUM  \n" + Color.RESET +
+                Color.BOLD + Color.BRIGHT_WHITE + " Press 3) for : " + Color.BRIGHT_RED + "HARD  \n" + Color.RESET );
         System.out.println();
-        System.out.println(Color.BOLD + Color.BRIGHT_WHITE + Color.BOX +
+        System.out.println(Color.BOLD + Color.BRIGHT_WHITE +
                 " " + player.getName() + ", choose difficulty: " + Color.RESET);
     }
 
     /// Prints the start text on the first round
 
-    public static void gameStartOutput() {
+    public static void gameInfoOutput() {
+        System.out.println(Color.CHARCOAL_GRAY + Color.ITALIC + PLAYER_EXIT_GAME + Color.RESET +
+                Color.DARK_RED + PLAYER_EXIT_GAME_2 + Color.RESET);
+        System.out.println(Color.LIGHT_GRAY + PLAYER_MAKE_MOVE_INFO + Color.RESET);
         System.out.println();
-        System.out.println(Color.BOLD + Color.BOX + Color.BRIGHT_WHITE +
-                " SWEEP FOR MINES, BUT DO NOT HIT ONE! " + Color.RESET);
-        System.out.println();
+        System.out.println(Color.BRIGHT_WHITE + PLAYER_MAKE_MOVE_INFO_2 + Color.RESET);
     }
 
     ///  Prints the Welcome-"sign"
@@ -82,6 +84,7 @@ public class TextOutput {
     public static void welcomeText() {
         System.out.println();
         String coloredLine = Color.WHITE_BG + " " + (Color.BOLD + Color.BLUE + Color.BLINK + "*" + Color.BRIGHT_RED + "*").repeat(18) + Color.BLUE + "* " + Color.RESET;
+
         System.out.println(coloredLine);
         System.out.println(Color.WHITE_BG + " " + Color.BOLD + Color.BRIGHT_RED + Color.BLINK + "*  " +
                             Color.RESET + Color.WHITE_BG + Color.BLACK + Color.BOLD + WELCOME_TEXT +
@@ -90,7 +93,7 @@ public class TextOutput {
     }
     public static void enterNameText() {
         System.out.println();
-        System.out.println(Color.BOLD + Color.BRIGHT_WHITE + "PLEASE ENTER YOUR NAME:");
+        System.out.println(Color.BOLD + Color.BRIGHT_WHITE + " PLEASE ENTER YOUR NAME:");
     }
     ///  Prints the Game over-"sign"
 
@@ -130,7 +133,7 @@ public class TextOutput {
 
     public static void showHelpOutput() {
         Game.clearScreen();
-        System.out.println(Color.BOLD + """
+        System.out.println(Color.BOLD + Color.BRIGHT_WHITE + """
                 
                 📜 HOW TO PLAY MINESWEEPER 📜
                 ----------------------------------
@@ -140,22 +143,23 @@ public class TextOutput {
                 Avoid hidden mines 💣 or the game will end!
                 
                 🕹 CONTROLS:
-                - Type coordinates to open a cell.
+                - Enter coordinates to open a cell.
                   Example: A1, B3,..
                 
                 ⛳️ FLAG:
-                - Add 'F', at the end of the coordinate to place a flag at that cell.
+                - Add 'F', at the end of the coordinate to place a ⛳️(blue background) at that cell.
                 (E.g., "A1" or "A1F")
                 
                 💡 TIP:
-                - The number on a revealed cell shows how many mines
+                - The number on an opened cell shows how many mines
                   are hidden around it (in 8 directions).
                 
                 - Use logic to avoid mines and find safe paths.
+                
                 - You can play carefully or take risks — up to you!
                 
                 🏁 WIN CONDITION:
-                - You win when all safe cells have been revealed!
+                - You win when all safe cells have been opened!
                 
                 ☠️ LOSE CONDITION:
                 - You lose if you open a cell that has a mine.
@@ -167,10 +171,10 @@ public class TextOutput {
                 or 💣 if you hit one.
                 
                 Input:  "A1F"
-                Output: Sets the cell as a ⛳️ (green background)
+                Output: Sets the cell as a ⛳️ (blue background)
                 -------------------------
                 """ + Color.RESET);
-        System.out.println(Color.GRAY + "Press ENTER) Return to MENU" + Color.RESET);
+        System.out.println("Press ENTER) Return to MENU");
 
         InputHandler.getString();
         Game.clearScreen();

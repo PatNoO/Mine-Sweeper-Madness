@@ -4,7 +4,7 @@ public class Color {
 
     ///  Standard colors for text
 
-    public static final String BLACK            = "\u001B[30m";
+    public static final String BLACK            = "\u001B[38;5;232m";
     public static final String RED              = "\u001B[31m";
     public static final String GREEN            = "\u001B[32m";
     public static final String YELLOW           = "\u001B[33m";
@@ -22,6 +22,7 @@ public class Color {
     public static final String LIGHT_GRAY       = "\u001B[38;5;250m";
     public static final String HOT_PINK         = "\u001B[38;5;205m";
     public static final String TURQUOISE        = "\u001B[38;5;80m";
+    public static final String DARK_RED         = "\u001B[38;5;88m";
 
     ///  Bright/neon colors for text
 
