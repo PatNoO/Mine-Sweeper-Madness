@@ -101,9 +101,7 @@ public class Game {
             clearScreen();
             board.printBoard();
 
-            System.out.println(Color.GRAY + TextOutput.PLAYER_EXIT_GAME + Color.RESET);
-            System.out.println(Color.GRAY + TextOutput.PLAYER_MAKE_MOVE_INFO_2 + Color.RESET);
-            System.out.println(Color.BRIGHT_WHITE + TextOutput.PLAYER_MAKE_MOVE_INFO + Color.RESET);
+            TextOutput.gameInfoOutput();
 
             String input = InputHandler.getString();
             Position pos = InputHandler.getPosition(input);
@@ -138,7 +136,8 @@ public class Game {
                             board.openMinesAsFlags();
                             board.printBoard();
                             TextOutput.gameWinOutput();
-                            System.out.println(TextOutput.PLAYER_RETRY);
+                            System.out.println(Color.BOLD + Color.BRIGHT_WHITE + TextOutput.PLAYER_RETRY + Color. RESET);
+                            System.out.println(TextOutput.PLAYER_RETRY_2);
                             String userInput = InputHandler.getString();
                             if (userInput.isEmpty()) {
                                 clearScreen();
@@ -152,7 +151,8 @@ public class Game {
                             board.openMines();
                             board.printBoard();
                             TextOutput.gameOverOutput();
-                            System.out.println(TextOutput.PLAYER_RETRY);
+                            System.out.println(Color.BOLD + Color.BRIGHT_WHITE + TextOutput.PLAYER_RETRY + Color. RESET);
+                            System.out.println(TextOutput.PLAYER_RETRY_2);
                             String userInput = InputHandler.getString();
                             if (userInput.isEmpty()) {
                                 clearScreen();
@@ -177,7 +177,7 @@ public class Game {
 
     public void highScoreMenu(Player player) {
         clearScreen();
-        System.out.println(Color.BOLD + Color.BRIGHT_WHITE + TextOutput.HIGHSCORE_COLUMNS + Color.RESET);
+        System.out.println(" " + Color.BOLD + Color.BRIGHT_WHITE + TextOutput.HIGHSCORE_COLUMNS + Color.RESET);
         try {
             ArrayList<Player> players = CSV.readCsvFile("highscore.csv");
 
@@ -189,7 +189,7 @@ public class Game {
         }
 
         System.out.println();
-        System.out.println(TextOutput.PLAYER_RETURN);
+        System.out.println(" " + TextOutput.PLAYER_RETURN);
         InputHandler.getString();
         clearScreen();
     }
