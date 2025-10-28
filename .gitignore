@@ -10,6 +10,9 @@ Mine-Sweeper-Madness.iml
 /src/Position.class
 /src/TextOutput.class
 /src/Player.class
+/src/CSV.class
+/src/highscore.csv
+/highscore.csv
 
 ### IntelliJ IDEA ###
 out/

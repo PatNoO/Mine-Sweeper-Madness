@@ -44,8 +44,9 @@ public class TextOutput {
                 " Press 1) Play: " + player.getDifficulty() + "   \n" +
                 " Press 2) Change difficulty \n" +
                 " Press 3) Change player name \n" +
-                " Press 4) Help \n" +
-                " Press 5) Quit game          " + Color.RESET);
+                " Press 4) Highscore \n" +
+                " Press 5) Help \n" +
+                " Press 6) Quit game          " + Color.RESET);
         System.out.println();
         System.out.println(Color.BOLD + Color.BRIGHT_WHITE + Color.BOX + " Make your choice: " + Color.RESET);
     }
@@ -165,17 +166,8 @@ public class TextOutput {
                 Input:  "A1F"
                 Output: Sets the cell as a ⛳️ (green background)
                 -------------------------
-                Press 1) Return to HOME MENU""" + Color.RESET);
+                Press ENTER) Return to MENU""" + Color.RESET);
 
-        int userHelpInput;
-        do {
-            userHelpInput = InputHandler.getInt(TextOutput.ERROR_PLAYER_INVALID_INPUT);
-            if (userHelpInput == 1) {
-                Game.clearScreen();
-                return;
-            } else {
-                System.out.println(TextOutput.ERROR_PLAYER_INVALID_INPUT);
-            }
-        } while (true);
+        InputHandler.getString();
     }
 }
