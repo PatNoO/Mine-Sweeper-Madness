@@ -21,6 +21,9 @@ public class InputHandler {
                         c != 'Å' && c != 'Ä' && c != 'Ö') {
                     isValid = false;
                     break;
+                } else if (input.length() < 2) {
+                    isValid = false;
+                    break;
                 }
             }
 
