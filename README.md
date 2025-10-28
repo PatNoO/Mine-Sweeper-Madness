@@ -4,9 +4,9 @@
 It runs directly in the terminal and lets players enter their name, choose a difficulty level,
 and play using colorful, text-based visuals.
 
- <img src=Gifs/WelcomeToMineSweeperMadness.gif width="70%" alt="">
+ <img src="Gifs/WelcomeToMineSweeperMadness.gif" width="70%" alt="">
 
-<img src=Gifs/PlayingAGameMs.gif width="70%" alt="">
+<img src="Gifs/PlayingAGameMs.gif" width="70%" alt="">
 
 ---
 
@@ -119,7 +119,7 @@ maintaining effective communication during the project.
 ## 🧾 Example Gameplay
 
 <div align="center">
-  <img src=Gifs/PlayingLosingGameMs.gif width="50%">
+  <img src="Gifs/PlayingLosingGameMs.gif" width="50%">
 </div>
 
 <div align="center">
@@ -133,17 +133,11 @@ maintaining effective communication during the project.
 
 **Created by**
 
-`Erik Nordvall`
-https://github.com/EN-MA25/
-
-`Jonathan Strid`
-https://github.com/pjstrid/
-
-`William Albinsson`
-https://github.com/wilabson/
-
-`Patrik Noordh`
-https://github.com/PatNoO
+**Created by:**
+- [Erik Nordvall](https://github.com/EN-MA25)
+- [Jonathan Strid](https://github.com/pjstrid)
+- [William Albinsson](https://github.com/wilabson)
+- [Patrik Noordh](https://github.com/PatNoO)
 
 ---
 
