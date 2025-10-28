@@ -177,6 +177,7 @@ public class Game {
 
     public void highScoreMenu(Player player) {
         clearScreen();
+        System.out.println(Color.BOLD + Color.BRIGHT_WHITE + TextOutput.HIGHSCORE_COLUMNS + Color.RESET);
         try {
             ArrayList<Player> players = CSV.readCsvFile("highscore.csv");
 
@@ -187,7 +188,10 @@ public class Game {
             e.printStackTrace();
         }
 
-
+        System.out.println();
+        System.out.println(TextOutput.PLAYER_RETURN);
+        InputHandler.getString();
+        clearScreen();
     }
 
     public static void clearScreen() {

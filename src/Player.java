@@ -17,7 +17,7 @@ public class Player {
     }
 
     public void print() {
-        System.out.println(this.name + " " + this.difficulty + " " + this.time);
+        System.out.println(this.name + " | " + this.difficulty + " | " + this.time + " sec");
     }
 
     public String getName() {

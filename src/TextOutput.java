@@ -7,11 +7,13 @@ public class TextOutput {
     public static final String LETS_PLAY = "Let's Play ! 🎮 ";
     public static final String PLAYER_NAME = "Please enter your name";
     public static final String THANKS_FOR_PLAYING = "Thanks for playing!";
+    public static final String HIGHSCORE_COLUMNS = "PLAYER | DIFFICULTY | TIME";
     public static final String PLAYER_EXIT_GAME = "Enter exit if you want to quit the game";
 
     //-------------------------------//
 
-    public static final String ERROR_PLAYER_INPUT_NAME = "Your name can only contain letters (A-Ö), hyphen (-) or single quote (')";
+    public static final String ERROR_PLAYER_INPUT_NAME = "Your name must be at least two letters long and\n" +
+                                                            "can only contain letters (A-Ö), hyphen (-) or single quote (')";
     public static final String ERROR_PLAYER_INVALID_INPUT = "Invalid input";
     public static final String ERROR_PLAYER_TRY_AGAIN = "Try again !";
     public static final String ERROR_PLAYER_INVALID_COORDINATE = "Invalid coordinate! ";
@@ -27,10 +29,11 @@ public class TextOutput {
     public static final String PLAYER_SET_FLAG_INFO_2 = " (Type \"open\" to switch back to open cells)";
     public static final String PLAYER_STEPS_ON_SAFE_CELL = "Phew... Safe for now!";
     public static final String PLAYER_WIN = "🥳 You win !! The minefield is cleared! ";
+    public static final String PLAYER_RETURN = "Press ENTER) Return to MENU";
     public static final String PLAYER_RETRY = """
                                               Would you like to try again?
-                                              Press ENTER) Yes
-                                              Press ANY KEY) Menu""";
+                                              Press ENTER) YES
+                                              Press ANY KEY) Return to MENU""";
 
     //-------------------------------//
     /// Prints home menu with the players selections
@@ -166,8 +169,10 @@ public class TextOutput {
                 Input:  "A1F"
                 Output: Sets the cell as a ⛳️ (green background)
                 -------------------------
-                Press ENTER) Return to MENU""" + Color.RESET);
+                """ + Color.RESET);
+        System.out.println(Color.GRAY + "Press ENTER) Return to MENU" + Color.RESET);
 
         InputHandler.getString();
+        Game.clearScreen();
     }
 }
