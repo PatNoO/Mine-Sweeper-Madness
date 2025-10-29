@@ -90,7 +90,7 @@ public class InputHandler {
             int row = Integer.parseInt(convertedInput.substring(1)) - 1;
 
             return new Position(row, col);
-        } catch (NumberFormatException ignored) {
+        } catch (Exception ignored) {
             return null;
         }
     }

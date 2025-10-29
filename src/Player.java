@@ -17,14 +17,14 @@ public class Player {
     }
 
     public void printScore() {
-        System.out.printf("%-20s%02d:%02d:%02d\n", this.name, this.time/3600, this.time/60%60, this.time%60);
+        System.out.printf("%s%-17s%02d:%02d:%02d\n", Color.BRIGHT_WHITE, this.name, this.time/3600, this.time/60%60, this.time%60);
     }
 
     public void printDifficulty() {
-        switch (difficulty) {
-            case "EASY" -> System.out.println(" " + TextOutput.DIFFICULTY + " " + Color.GREEN + this.difficulty + Color.RESET);
-            case "MEDIUM" -> System.out.println(" " + TextOutput.DIFFICULTY + " " + Color.BLUE + this.difficulty + Color.RESET);
-            case "HARD" -> System.out.println(" " + TextOutput.DIFFICULTY + " " + Color.BRIGHT_RED + this.difficulty + Color.RESET);
+        switch (this.difficulty) {
+            case "EASY" -> System.out.println(" " + Color.BOLD + Color.BRIGHT_WHITE + TextOutput.DIFFICULTY + " " + Color.GREEN + this.difficulty + Color.RESET);
+            case "MEDIUM" -> System.out.println(" " + Color.BOLD + Color.BRIGHT_WHITE + TextOutput.DIFFICULTY + " " + Color.BLUE + this.difficulty + Color.RESET);
+            case "HARD" -> System.out.println(" " + Color.BOLD + Color.BRIGHT_WHITE + TextOutput.DIFFICULTY + " " + Color.BRIGHT_RED + this.difficulty + Color.RESET);
         }
 
     }

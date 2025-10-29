@@ -7,14 +7,24 @@ public class TextOutput {
     public static final String LETS_PLAY = "Let's Play ! 🎮 ";
     public static final String PLAYER_NAME = "Please enter your name";
     public static final String THANKS_FOR_PLAYING = "Thanks for playing!";
-    public static final String HIGHSCORE_COLUMNS = " " + Color.BOLD + Color.BRIGHT_WHITE + "HIGHSCORE!" + Color.RESET;
+    public static final String HIGHSCORE_COLUMNS = Color.BOLD +
+                                                    Color.BRIGHT_RED + "H" +
+                                                    Color.BRIGHT_ORANGE + "I" +
+                                                    Color.BRIGHT_YELLOW +"G" +
+                                                    Color.BRIGHT_GREEN + "H" +
+                                                    Color.BRIGHT_CYAN + "S" +
+                                                    Color.BRIGHT_BLUE + "C" +
+                                                    Color.DARK_PURPLE + "O" +
+                                                    Color.BRIGHT_PURPLE + "R" +
+                                                    Color.VIOLET + "E"+
+                                                    Color.BRIGHT_WHITE + ":" + Color.RESET;
     public static final String EXIT_GAME = Color.CHARCOAL_GRAY + Color.ITALIC + "Quit game? Enter: " + Color.RESET +
                                                     Color.DARK_RED + "\"EXIT\"" + Color.RESET;
 
 
-    public static final String EASY_GREEN = Color.GREEN + "EASY" + Color.RESET;
-    public static final String MEDIUM_BLUE = Color.BLUE + "MEDIUM" + Color.RESET;
-    public static final String HARD_RED = Color.BRIGHT_RED + "HARD" + Color.RESET;
+    public static final String EASY_GREEN = Color.BOLD + Color.GREEN + "EASY" + Color.RESET;
+    public static final String MEDIUM_BLUE = Color.BOLD + Color.BLUE + "MEDIUM" + Color.RESET;
+    public static final String HARD_RED = Color.BOLD + Color.BRIGHT_RED + "HARD" + Color.RESET;
 
     public static final String MENU = "MENU";
     public static final String PLAYER = "Player:";
@@ -57,7 +67,7 @@ public class TextOutput {
     public static void homeMenuOutput(Player player) {
         System.out.println();
         System.out.println(Color.BOLD + Color.BRIGHT_WHITE + " " + MENU + " ");
-        System.out.println(" " + PLAYER + " " + player.getName());
+        System.out.println(" " + PLAYER + " " + Color.VIOLET + player.getName() + Color.RESET);
         player.printDifficulty();
         System.out.println();
         System.out.println(Color.BOLD + Color.BRIGHT_WHITE +
@@ -92,6 +102,12 @@ public class TextOutput {
         System.out.println(Color.LIGHT_GRAY + PLAYER_MAKE_MOVE_INFO + Color.RESET);
         System.out.println();
         System.out.println(Color.BRIGHT_WHITE + PLAYER_MAKE_MOVE_INFO_2 + Color.RESET);
+    }
+
+    /// Prints the number of mines above the board in game
+
+    public static void numberOfMinesLeftText(int numberOfMines) {
+        System.out.println(Color.BOLD + Color.BRIGHT_RED + numberOfMines + Color.BRIGHT_WHITE + " mines left" + Color.RESET);
     }
 
     ///  Prints the Welcome-"sign"

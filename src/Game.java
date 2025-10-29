@@ -126,7 +126,17 @@ public class Game {
                         int openedCells = board.checkOpenedCells();
                         int totalCells = boardSizeWidth * boardSizeHeight;
 
-                        if (openedCells == totalCells - boardNumOfMines) {
+                        if (cell.hasMine() && cell.isVisible()) {
+                            cell.setMineHit(true);
+                            clearScreen();
+                            board.openMines();
+                            board.printBoard();
+                            TextOutput.gameOverOutput();
+                            playerRetry();
+                            clearScreen();
+                            break;
+
+                        } else if (openedCells == totalCells - boardNumOfMines) {
                             int elapsedTime = (int)((System.currentTimeMillis() - startTime) / 1000);
                             player.setTime(elapsedTime);
                             try {
@@ -136,16 +146,6 @@ public class Game {
                             board.openMinesAsFlags();
                             board.printBoard();
                             TextOutput.gameWinOutput();
-                            playerRetry();
-                            clearScreen();
-                            break;
-                        }
-                        if (cell.hasMine() && cell.isVisible()) {
-                            cell.setMineHit(true);
-                            clearScreen();
-                            board.openMines();
-                            board.printBoard();
-                            TextOutput.gameOverOutput();
                             playerRetry();
                             clearScreen();
                             break;
@@ -187,21 +187,21 @@ public class Game {
                     filter(player -> player.getDifficulty().equals("HARD")).sorted(Comparator.comparing(Player::getTime)).toList();
 
             System.out.println();
-            System.out.println(" " + Color.BOLD + Color.BRIGHT_WHITE + TextOutput.HIGHSCORE_COLUMNS + Color.RESET);
+            System.out.println(TextOutput.HIGHSCORE_COLUMNS);
             System.out.println();
-            System.out.println(Color.GREEN + "EASY" + Color.RESET);
+            System.out.println(TextOutput.EASY_GREEN);
             for (int i = 0 ; i<Math.min(easyPlayers.size(), 5); i++) {
                 Player p = easyPlayers.get(i);
                 p.printScore();
             }
             System.out.println();
-            System.out.println(Color.BLUE + "MEDIUM" + Color.RESET);
+            System.out.println(TextOutput.MEDIUM_BLUE);
             for (int i = 0 ; i<Math.min(mediumPlayers.size(), 5); i++) {
                 Player p = mediumPlayers.get(i);
                 p.printScore();
             }
             System.out.println();
-            System.out.println(Color.BRIGHT_RED + "HARD" + Color.RESET);
+            System.out.println(TextOutput.HARD_RED);
             for (int i = 0 ; i<Math.min(hardPlayers.size(), 5); i++) {
                 Player p = hardPlayers.get(i);
                 p.printScore();
