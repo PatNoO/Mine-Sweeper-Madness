@@ -16,7 +16,7 @@ public class Game {
         clearScreen();
         TextOutput.welcomeText();
 
-        TextOutput.enterNameText();
+        System.out.println(TextOutput.PLAYER_NAME);
         player.setName(InputHandler.getStringName(TextOutput.ERROR_PLAYER_INPUT_NAME));
     }
 
@@ -60,7 +60,7 @@ public class Game {
 
     public void difficultyMenu(Player player) {
         clearScreen();
-        TextOutput.difficultyMenuOutput(player);
+        TextOutput.difficultyMenuOutput();
 
         int playerDifficulty = InputHandler.getInt(1, 3, TextOutput.ERROR_PLAYER_INT_INPUT);
         switch (playerDifficulty) {
@@ -68,7 +68,7 @@ public class Game {
                 player.setDifficulty("EASY");
                 boardSizeWidth = 8;
                 boardSizeHeight = 8;
-                boardMinePercentage = 0.01; // 10 mines
+                boardMinePercentage = 0.15; // 10 mines
                 clearScreen();
                 break;
             case 2:
@@ -146,6 +146,7 @@ public class Game {
                             board.openMinesAsFlags();
                             board.printBoard();
                             TextOutput.gameWinOutput();
+                            TextOutput.gameWinPrintTime(elapsedTime);
                             playerRetry();
                             clearScreen();
                             break;
@@ -168,7 +169,7 @@ public class Game {
     public void changePlayerName(Player player) {
         clearScreen();
 
-        TextOutput.enterNameText();
+        System.out.println(TextOutput.PLAYER_NAME);
         player.setName(InputHandler.getStringName(TextOutput.ERROR_PLAYER_INPUT_NAME));
 
         clearScreen();
@@ -187,21 +188,21 @@ public class Game {
                     filter(player -> player.getDifficulty().equals("HARD")).sorted(Comparator.comparing(Player::getTime)).toList();
 
             System.out.println();
-            System.out.println(TextOutput.HIGHSCORE_COLUMNS);
+            System.out.println(TextOutput.HIGHSCORE);
             System.out.println();
-            System.out.println(TextOutput.EASY_GREEN);
+            System.out.println(" " + TextOutput.EASY_GREEN);
             for (int i = 0 ; i<Math.min(easyPlayers.size(), 5); i++) {
                 Player p = easyPlayers.get(i);
                 p.printScore();
             }
             System.out.println();
-            System.out.println(TextOutput.MEDIUM_BLUE);
+            System.out.println(" " + TextOutput.MEDIUM_BLUE);
             for (int i = 0 ; i<Math.min(mediumPlayers.size(), 5); i++) {
                 Player p = mediumPlayers.get(i);
                 p.printScore();
             }
             System.out.println();
-            System.out.println(TextOutput.HARD_RED);
+            System.out.println(" " + TextOutput.HARD_RED);
             for (int i = 0 ; i<Math.min(hardPlayers.size(), 5); i++) {
                 Player p = hardPlayers.get(i);
                 p.printScore();
@@ -209,7 +210,7 @@ public class Game {
 
         } catch (IOException ignored) {
             System.out.println();
-            System.out.println(TextOutput.ERROR_HIGHSCORE_NO_DATA);
+            System.out.println(" " + TextOutput.ERROR_HIGHSCORE_NO_DATA);
         }
 
         System.out.println();
