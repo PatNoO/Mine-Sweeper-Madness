@@ -51,6 +51,7 @@ to ensure a clear and professional workflow.
 <img src="Images/HelpMenuMs.png" width="85%">
 
 ---
+
 ## ▶️ How to Run
 
 1. Open the project in **IntelliJ IDEA** or any Java IDE.
@@ -66,10 +67,14 @@ to ensure a clear and professional workflow.
 2. Enter your player name when prompted.
 3. Choose from the main menu:
 
-<img src="Images/Menu.png" width="50%">
 
+<div align="center">
+  <img src="Images/Menu.png" width="40%" height="300">
+  <img src="Images/HighScoreMenu.png" width="40%" height="300">
+</div>
 
 ---
+
 ## 🔖 UML Diagram
 
 The UML diagram was created using Lucidchart and represents the foundational structure of the Minesweeper game.
@@ -77,22 +82,24 @@ It illustrates our initial design thoughts and how the core components interact.
 The diagram includes:
 
 ![UML-Diagram Mine-Sweeper-Madness.png](Images/UML-Diagram%20Mine-Sweeper-Madness.png)
----
 
 ---
+
 ## 🧠 Classes and Structure
 
-| Class            | Responsibility                                    |
-|------------------|---------------------------------------------------|
-| **Main**         | Starts the game                                   |
-| **Game**         | Handles menus, game loop, and difficulty settings |
-| **Board**        | Creates and manages the game board                |
-| **Cell**         | Represents an individual grid cell                |
-| **Player**       | Stores player name and difficulty                 |
-| **InputHandler** | Handles user input and validation                 |
-| **TextOutput**   | Manages all printed text and UI messages          |
-| **Color**        | Contains ANSI color codes for console output      |
-|                  |                                                   |
+| Class            | Responsibility                                                                  |
+|------------------|---------------------------------------------------------------------------------|
+| **Main**         | Starts the game                                                                 |
+| **Game**         | Handles menus, game loop, and difficulty settings                               |
+| **Board**        | Creates and manages the game board                                              |
+| **Cell**         | Represents an individual grid cell                                              |
+| **Player**       | Stores player name and difficulty                                               |
+| **Position**     | Represents a cell's coordinates on the board                                    | 
+| **InputHandler** | Handles user input and validation                                               |
+| **TextOutput**   | Manages all printed text and UI messages                                        |
+| **Color**        | Contains ANSI color codes for console output                                    |
+| **CVS**          | Reads from and writes to CSV files,<br/> used for storing player scores or logs |
+|                  |                                                                                 |
 
 ---
 
