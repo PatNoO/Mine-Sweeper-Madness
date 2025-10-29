@@ -8,14 +8,15 @@ public class TextOutput {
     public static final String PLAYER_NAME = "Please enter your name";
     public static final String THANKS_FOR_PLAYING = "Thanks for playing!";
     public static final String HIGHSCORE_COLUMNS = "HIGHSCORE!";
+    public static final String HIGHSCORE_NODATA = "No people in Highscore yet";
     public static final String PLAYER_EXIT_GAME = "Quit game? Enter: ";
     public static final String PLAYER_EXIT_GAME_2 = "\"EXIT\"";
 
 
     //-------------------------------//
 
-    public static final String ERROR_PLAYER_INPUT_NAME = "Your name must be at least two letters long and\n" +
-                                                            "can only contain letters (A-Ö), hyphen (-) or single quote (')";
+    public static final String ERROR_PLAYER_INPUT_NAME = "Your name must be between 2-15 letters and can only contain\n" +
+                                                            "letters (A-Ö), numbers (0-9), hyphen (-) or single quote (')";
     public static final String ERROR_PLAYER_INVALID_INPUT = "Invalid input";
     public static final String ERROR_PLAYER_TRY_AGAIN = "Try again !";
     public static final String ERROR_PLAYER_INVALID_COORDINATE = "Invalid coordinate! ";

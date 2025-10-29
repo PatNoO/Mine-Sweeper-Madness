@@ -1,3 +1,6 @@
+import java.util.Calendar;
+import java.util.Date;
+
 public class Player {
 
     private String name;
@@ -16,15 +19,10 @@ public class Player {
         this.time = time;
     }
 
-    public void print() {
-        switch (difficulty) {
-            case "EASY" -> System.out.println(" " + this.name + " | " + Color.GREEN + this.difficulty + Color.RESET + " | " + this.time + " sec" );
-            case "MEDIUM" -> System.out.println(" " + this.name + " | " + Color.BLUE + this.difficulty + Color.RESET + " | " + this.time + " sec" + Color.RESET);
-            case "HARD" -> System.out.println(" " + this.name + " | " + Color.BRIGHT_RED + this.difficulty + Color.RESET + " | " + this.time + " sec" + Color.RESET);
-        }
-    }
     public void printScore() {
-        System.out.println(" " + this.name  + " | " + this.time/60 + " min" + " " + this.time%60 + " sec");
+        Date timeFormat = new Date(0, Calendar.JANUARY, 0, 0, 0, this.time);
+        System.out.printf("%-20s%tT%n", this.name, timeFormat);
+        //System.out.println(" " + this.name  + " | " + this.time/60 + " min" + " " + this.time%60 + " sec");
     }
     public void printDifficulty() {
         switch (difficulty) {
