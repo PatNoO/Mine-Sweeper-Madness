@@ -167,6 +167,7 @@ public class Board {
         TextOutput.numberOfMinesLeftText(numberOfMinesLeft());
 
         for (int row = 0; row < grid.length; row++) {
+            System.out.print(" ");
             for (int col = 0; col < grid[row].length; col++) {
                 Cell cell = grid[row][col];
                 System.out.print(cell.textAt(row, col));
