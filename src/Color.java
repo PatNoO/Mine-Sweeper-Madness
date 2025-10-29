@@ -1,9 +1,15 @@
+/**
+ * Provides ANSI escape codes for text colors, backgrounds, and styles
+ * to format console output.
+ */
 public class Color {
 
-    public static final String RESET            = "\u001B[0m";  // To use after text to reset the color to standard
+    // ----------------- Reset ----------------- //
+    /// To use after text to reset the color to standard
+    public static final String RESET            = "\u001B[0m";
 
+    // ----------------- Standard text colors ----------------- //
     ///  Standard colors for text
-
     public static final String BLACK            = "\u001B[38;5;232m";
     public static final String RED              = "\u001B[31m";
     public static final String GREEN            = "\u001B[32m";
@@ -24,8 +30,8 @@ public class Color {
     public static final String TURQUOISE        = "\u001B[38;5;80m";
     public static final String DARK_RED         = "\u001B[38;5;88m";
 
+    // ----------------- Bright/neon text colors ----------------- //
     ///  Bright/neon colors for text
-
     public static final String BRIGHT_ORANGE    = "\u001B[38;5;208m";
     public static final String BRIGHT_RED       = "\u001B[91m";
     public static final String BRIGHT_GREEN     = "\u001B[92m";
@@ -35,8 +41,8 @@ public class Color {
     public static final String BRIGHT_CYAN      = "\u001B[96m";
     public static final String BRIGHT_WHITE     = "\u001B[97m";
 
+    // ----------------- Background colors ----------------- //
     ///  Background colors for prints
-
     public static final String BLACK_BG         = "\u001B[40m";
     public static final String RED_BG           = "\u001B[41m";
     public static final String BRIGHT_RED_BG    = "\u001B[48;5;196m";
@@ -50,8 +56,8 @@ public class Color {
     public static final String DARK_GRAY_BG     = "\u001B[48;5;235m";
     public static final String ORANGE_BG        = "\u001B[48;5;208m";
 
+    // ----------------- Font styles ----------------- //
     ///  Font styles
-
     public static final String SANE             = "\u001B[0m";
     public static final String BOLD             = "\u001B[1m";
     public static final String THIN             = "\u001B[2m";

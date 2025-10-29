@@ -1,8 +1,13 @@
+/// Utility class containing all game-related text outputs and messages
 public class TextOutput {
 
+    // Private constructor to prevent instantiation of this utility class
     private TextOutput() {
 
     }
+
+    // ----------------- Static Text Constants ----------------- //
+
     public static final String WELCOME_TEXT = "WELCOME TO MINESWEEPER MADNESS!";
     public static final String LETS_PLAY = "Let's Play ! 🎮 ";
     public static final String PLAYER_NAME = "Please enter your name";
@@ -12,8 +17,7 @@ public class TextOutput {
     public static final String PLAYER_EXIT_GAME = "Quit game? Enter: ";
     public static final String PLAYER_EXIT_GAME_2 = "\"EXIT\"";
 
-
-    //-------------------------------//
+    // ----------------- Error Messages ----------------- //
 
     public static final String ERROR_PLAYER_INPUT_NAME = "Your name must be between 2-15 letters and can only contain\n" +
                                                             "letters (A-Ö), numbers (0-9), hyphen (-) or single quote (')";
@@ -24,7 +28,8 @@ public class TextOutput {
     public static final String ERROR_PLAYER_INT_INPUT = "Choose a number between :";
     public static final String ERROR_CELL_ALREADY_OPENED = "That cell is already open — choose another!";
 
-    //-------------------------------//
+    // ----------------- Player Instructions ----------------- //
+
     public static final String PLAYER_MAKE_MOVE_INFO = """
                                                         Enter the coordinate you want to open or
                                                         add 'F', at the end to place a flag
@@ -36,9 +41,9 @@ public class TextOutput {
     public static final String PLAYER_RETRY = "Would you like to try again?";
     public static final String PLAYER_RETRY_2 = "Press ENTER) YES\nPress ANY KEY) Return to MENU";
 
-    //-------------------------------//
-    /// Prints home menu with the players selections
+    // ----------------- Menu Outputs ----------------- //
 
+    /// Prints home menu with the players selections
     public static void homeMenuOutput(Player player) {
         System.out.println();
         System.out.println(Color.BOLD + Color.BRIGHT_WHITE +   " MENU ");
@@ -57,7 +62,6 @@ public class TextOutput {
     }
 
     /// Prints menu for difficulty choices
-
     public static void difficultyMenuOutput(Player player) {
 
         System.out.println();
@@ -71,7 +75,6 @@ public class TextOutput {
     }
 
     /// Prints the start text on the first round
-
     public static void gameInfoOutput() {
         System.out.println(Color.CHARCOAL_GRAY + Color.ITALIC + PLAYER_EXIT_GAME + Color.RESET +
                 Color.DARK_RED + PLAYER_EXIT_GAME_2 + Color.RESET);
@@ -81,7 +84,6 @@ public class TextOutput {
     }
 
     ///  Prints the Welcome-"sign"
-
     public static void welcomeText() {
         System.out.println();
         String coloredLine = Color.WHITE_BG + " " + (Color.BOLD + Color.BLUE + Color.BLINK + "*" + Color.BRIGHT_RED + "*").repeat(18) + Color.BLUE + "* " + Color.RESET;
@@ -97,7 +99,6 @@ public class TextOutput {
         System.out.println(Color.BOLD + Color.BRIGHT_WHITE + " PLEASE ENTER YOUR NAME:");
     }
     ///  Prints the Game over-"sign"
-
     public static void gameOverOutput() {
         System.out.println();
         System.out.println((Color.BOLD + Color.BRIGHT_ORANGE + Color.BLINK + "*" + Color.RED + "*").repeat(12) + Color.BRIGHT_ORANGE + "*");
@@ -108,7 +109,6 @@ public class TextOutput {
     }
 
     ///  Prints the Game win-"sign"
-
     public static void gameWinOutput() {
         System.out.println();
         System.out.println((Color.BOLD + Color.BRIGHT_CYAN + Color.BLINK + "*" + Color.BRIGHT_GREEN + "*").repeat(12) + Color.BRIGHT_CYAN + "*");
@@ -119,7 +119,6 @@ public class TextOutput {
     }
 
     ///  Prints the Goodbye-"sign"
-
     public static void thanksForPlayingOutput() {
         System.out.println();
         System.out.println((Color.BOLD + Color.BRIGHT_YELLOW + Color.BLINK + "*" + Color.BRIGHT_CYAN + "*").repeat(12) + Color.BRIGHT_YELLOW + "*");
@@ -129,9 +128,9 @@ public class TextOutput {
         System.out.println();
     }
 
-    //------------------------------------//
-    /// Prints the help information
+    // ----------------- Help Instructions ----------------- //
 
+    /// Prints the help information
     public static void showHelpOutput() {
         Game.clearScreen();
         System.out.println(Color.BOLD + Color.BRIGHT_WHITE + """
