@@ -7,21 +7,34 @@ public class TextOutput {
     public static final String LETS_PLAY = "Let's Play ! 🎮 ";
     public static final String PLAYER_NAME = "Please enter your name";
     public static final String THANKS_FOR_PLAYING = "Thanks for playing!";
-    public static final String HIGHSCORE_COLUMNS = "HIGHSCORE!";
-    public static final String HIGHSCORE_NODATA = "No people in Highscore yet";
-    public static final String PLAYER_EXIT_GAME = "Quit game? Enter: ";
-    public static final String PLAYER_EXIT_GAME_2 = "\"EXIT\"";
+    public static final String HIGHSCORE_COLUMNS = " " + Color.BOLD + Color.BRIGHT_WHITE + "HIGHSCORE!" + Color.RESET;
+    public static final String EXIT_GAME = Color.CHARCOAL_GRAY + Color.ITALIC + "Quit game? Enter: " + Color.RESET +
+                                                    Color.DARK_RED + "\"EXIT\"" + Color.RESET;
+
+
+    public static final String EASY_GREEN = Color.GREEN + "EASY" + Color.RESET;
+    public static final String MEDIUM_BLUE = Color.BLUE + "MEDIUM" + Color.RESET;
+    public static final String HARD_RED = Color.BRIGHT_RED + "HARD" + Color.RESET;
+
+    public static final String MENU = "MENU";
+    public static final String PLAYER = "Player:";
+    public static final String DIFFICULTY = "Difficulty:";
+
+    public static final String RED_X = Color.BOLD + Color.BRIGHT_RED_BG + Color.BLACK + "  X  " + Color.RESET;
+    public static final String ORANGE_X = Color.BOLD + Color.ORANGE_BG + Color.BLACK + "  X  " + Color.RESET;
+    public static final String ORANGE_F = Color.BOLD + Color.ORANGE_BG + Color.BLACK + "  F  " + Color.RESET;
 
 
     //-------------------------------//
 
-    public static final String ERROR_PLAYER_INPUT_NAME = "Your name must be between 2-15 letters and can only contain\n" +
-                                                            "letters (A-Ö), numbers (0-9), hyphen (-) or single quote (')";
-    public static final String ERROR_PLAYER_INVALID_INPUT = "Invalid input";
+    public static final String ERROR_PLAYER_INPUT_NAME = Color.BRIGHT_ORANGE + "Your name must be between 2-15 letters and can only contain\n" +
+                                                            "letters (A-Ö), numbers (0-9), hyphen (-) or single quote (')" + Color.RESET;
+    public static final String ERROR_PLAYER_INVALID_INPUT = Color.BRIGHT_ORANGE + "Invalid input" + Color.RESET;
+    public static final String ERROR_PLAYER_INT_INPUT = Color.BRIGHT_ORANGE + "Choose a number between :" + Color.RESET;
+    public static final String ERROR_HIGHSCORE_NO_DATA = Color.BRIGHT_ORANGE + "No players in Highscore yet" + Color.RESET;
     public static final String ERROR_PLAYER_TRY_AGAIN = "Try again !";
     public static final String ERROR_PLAYER_INVALID_COORDINATE = "Invalid coordinate! ";
     public static final String ERROR_PLAYER_INPUT_FORMAT = "Try a coordinate e.g., 'A1' : ";
-    public static final String ERROR_PLAYER_INT_INPUT = "Choose a number between :";
     public static final String ERROR_CELL_ALREADY_OPENED = "That cell is already open — choose another!";
 
     //-------------------------------//
@@ -33,16 +46,18 @@ public class TextOutput {
     public static final String PLAYER_STEPS_ON_SAFE_CELL = "Phew... Safe for now!";
     public static final String PLAYER_WIN = "🥳 You win !! The minefield is cleared! ";
     public static final String PLAYER_RETURN = "Press ENTER) Return to MENU";
-    public static final String PLAYER_RETRY = "Would you like to try again?";
-    public static final String PLAYER_RETRY_2 = "Press ENTER) YES\nPress ANY KEY) Return to MENU";
+    public static final String PLAYER_RETRY = Color.BOLD + Color.BRIGHT_WHITE +
+                                                "Would you like to try again?\n" + Color. RESET +
+                                                "Press ENTER) YES\n" +
+                                                "Press ANY KEY) Return to MENU";
 
     //-------------------------------//
     /// Prints home menu with the players selections
 
     public static void homeMenuOutput(Player player) {
         System.out.println();
-        System.out.println(Color.BOLD + Color.BRIGHT_WHITE +   " MENU ");
-        System.out.println(" Player: " + player.getName());
+        System.out.println(Color.BOLD + Color.BRIGHT_WHITE + " " + MENU + " ");
+        System.out.println(" " + PLAYER + " " + player.getName());
         player.printDifficulty();
         System.out.println();
         System.out.println(Color.BOLD + Color.BRIGHT_WHITE +
@@ -73,8 +88,7 @@ public class TextOutput {
     /// Prints the start text on the first round
 
     public static void gameInfoOutput() {
-        System.out.println(Color.CHARCOAL_GRAY + Color.ITALIC + PLAYER_EXIT_GAME + Color.RESET +
-                Color.DARK_RED + PLAYER_EXIT_GAME_2 + Color.RESET);
+        System.out.println(EXIT_GAME);
         System.out.println(Color.LIGHT_GRAY + PLAYER_MAKE_MOVE_INFO + Color.RESET);
         System.out.println();
         System.out.println(Color.BRIGHT_WHITE + PLAYER_MAKE_MOVE_INFO_2 + Color.RESET);
