@@ -68,7 +68,7 @@ public class Game {
                 player.setDifficulty("EASY");
                 boardSizeWidth = 8;
                 boardSizeHeight = 8;
-                boardMinePercentage = 0.15; // 10 mines
+                boardMinePercentage = 0.01; // 10 mines
                 clearScreen();
                 break;
             case 2:
@@ -136,13 +136,7 @@ public class Game {
                             board.openMinesAsFlags();
                             board.printBoard();
                             TextOutput.gameWinOutput();
-                            System.out.println(Color.BOLD + Color.BRIGHT_WHITE + TextOutput.PLAYER_RETRY + Color. RESET);
-                            System.out.println(TextOutput.PLAYER_RETRY_2);
-                            String userInput = InputHandler.getString();
-                            if (userInput.isEmpty()) {
-                                clearScreen();
-                                run();
-                            }
+                            playerRetry();
                             clearScreen();
                             break;
                         }
@@ -152,19 +146,23 @@ public class Game {
                             board.openMines();
                             board.printBoard();
                             TextOutput.gameOverOutput();
-                            System.out.println(Color.BOLD + Color.BRIGHT_WHITE + TextOutput.PLAYER_RETRY + Color. RESET);
-                            System.out.println(TextOutput.PLAYER_RETRY_2);
-                            String userInput = InputHandler.getString();
-                            if (userInput.isEmpty()) {
-                                clearScreen();
-                                run();
-                            }
+                            playerRetry();
                             clearScreen();
                             break;
                         }
                     }
                 }
             }
+        }
+    }
+
+    private void playerRetry() {
+        System.out.println(Color.BOLD + Color.BRIGHT_WHITE + TextOutput.PLAYER_RETRY + Color. RESET);
+        System.out.println(TextOutput.PLAYER_RETRY_2);
+        String userInput = InputHandler.getString();
+        if (userInput.isEmpty()) {
+            clearScreen();
+            run();
         }
     }
 
