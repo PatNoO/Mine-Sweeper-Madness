@@ -1,10 +1,15 @@
 import java.util.Calendar;
 import java.util.Date;
-
+/**
+ * Represents a player in the game, including their name, difficulty level, and total time.
+ */
 public class Player {
 
+    /** The player's name. */
     private String name;
+    /** The difficulty level chosen by the player (e.g., EASY, MEDIUM, HARD). */
     private String difficulty;
+    /** The player's total time in seconds. */
     private int time;
 
     /**
