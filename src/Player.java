@@ -24,7 +24,7 @@ public class Player {
         }
     }
     public void printScore() {
-        System.out.println(" " + this.name  + " | " + this.time + " sec");
+        System.out.println(" " + this.name  + " | " + this.time/60 + " min" + " " + this.time%60 + " sec");
     }
     public void printDifficulty() {
         switch (difficulty) {

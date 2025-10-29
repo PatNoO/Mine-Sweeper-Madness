@@ -16,12 +16,12 @@ public class InputHandler {
             boolean isValid = true;
 
             for (char c : input.toCharArray()) {
-                if (!Character.isLetter(c) &&
+                if (!Character.isLetter(c) && !Character.isDigit(c) &&
                         c != '-' && c != '\'' && c != 'å' && c != 'ä' && c != 'ö' &&
                         c != 'Å' && c != 'Ä' && c != 'Ö') {
                     isValid = false;
                     break;
-                } else if (input.length() < 2) {
+                } else if (input.length() < 2 || input.length() > 15) {
                     isValid = false;
                     break;
                 }
