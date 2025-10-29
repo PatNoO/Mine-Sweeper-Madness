@@ -7,21 +7,41 @@ public class Player {
     private String difficulty;
     private int time;
 
+    /**
+     * Creates a new Player with a given name and difficulty.
+     * The time is initialized to 0.
+     *
+     * @param name        the name of the player
+     * @param difficulty  the difficulty level of the player
+     */
     public Player(String name, String difficulty) {
         this.name = name;
         this.difficulty = difficulty;
         this.time = 0;
     }
-
+    /**
+     * Creates a new Player with a given name, difficulty, and time.
+     *
+     * @param name        the name of the player
+     * @param difficulty  the difficulty level of the player
+     * @param time        the total time
+     */
     public Player(String name, String difficulty, int time) {
         this.name = name;
         this.difficulty = difficulty;
         this.time = time;
     }
-
+    /**
+     * Prints the player's name and time formatted as HH:MM:SS.
+     * The name is left-aligned to 20 characters.
+     */
     public void printScore() {
         System.out.printf("%-20s%02d:%02d:%02d\n", this.name, this.time/3600, this.time/60%60, this.time%60);
     }
+    /**
+     * Prints the player's difficulty with color formatting depending on the difficulty level.
+     * (Uses the Color class for colored text output in the console.)
+     */
     public void printDifficulty() {
         switch (difficulty) {
             case "EASY" -> System.out.println(" Difficulty: " + Color.GREEN + this.difficulty + Color.RESET);
@@ -30,27 +50,28 @@ public class Player {
         }
 
     }
+    /** @return the player's name */
     public String getName() {
         return name;
     }
-
+    /** @param name sets the player's name */
     public void setName(String name) {
         this.name = name;
     }
-
+    /** @return the difficulty level */
     public String getDifficulty() {
         return difficulty;
     }
-
+    /** @param difficulty sets the difficulty level */
     public void setDifficulty(String difficulty) {
         this.difficulty = difficulty;
     }
-
-    public void setTime(int time) {
-        this.time = time;
-    }
-
+    /** @return the player's total time in seconds */
     public int getTime() {
         return time;
+    }
+    /** @param time sets the player's total time */
+    public void setTime(int time) {
+        this.time = time;
     }
 }
