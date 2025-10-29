@@ -20,9 +20,7 @@ public class Player {
     }
 
     public void printScore() {
-        Date timeFormat = new Date(0, Calendar.JANUARY, 0, 0, 0, this.time);
-        System.out.printf("%-20s%tT%n", this.name, timeFormat);
-        //System.out.println(" " + this.name  + " | " + this.time/60 + " min" + " " + this.time%60 + " sec");
+        System.out.printf("%-20s%02d:%02d:%02d\n", this.name, this.time/3600, this.time/60%60, this.time%60);
     }
     public void printDifficulty() {
         switch (difficulty) {
