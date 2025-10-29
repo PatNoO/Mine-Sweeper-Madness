@@ -6,8 +6,6 @@ and play using colorful, text-based visuals.
 
  <img src="Gifs/WelcomeToMineSweeperMadness.gif" width="70%" alt="">
 
-<img src="Gifs/PlayingAGameMs.gif" width="70%" alt="">
-
 ---
 
 ## 🎯 Purpose
@@ -68,7 +66,7 @@ to ensure a clear and professional workflow.
 2. Enter your player name when prompted.
 3. Choose from the main menu:
 
-<img src="Images/HomeMenu.png" width="50%">
+<img src="Images/Menu.png" width="50%">
 
 
 ---
@@ -119,7 +117,7 @@ maintaining effective communication during the project.
 ## 🧾 Example Gameplay
 
 <div align="center">
-  <img src="Gifs/PlayingLosingGameMs.gif" width="50%">
+  <img src="Gifs/PlayingAGame.gif" width="50%">
 </div>
 
 <div align="center">
@@ -148,4 +146,5 @@ You’re free to explore the code and play the game.
 
 --- 
  ## 🖐
-️![ThanksForPlaying.gif](Gifs/ThanksForPlaying.gif)
+
+<img src="Gifs/ThanksForPlaying.gif" width="40%" alt="">
