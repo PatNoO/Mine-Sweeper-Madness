@@ -131,9 +131,7 @@ public class Game {
                             player.setTime(elapsedTime);
                             try {
                                 CSV.write(player, "highscore.csv");
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
+                            } catch (IOException ignored) {}
                             clearScreen();
                             board.openMinesAsFlags();
                             board.printBoard();
@@ -181,7 +179,6 @@ public class Game {
 
     public void highScoreMenu() {
         clearScreen();
-        System.out.println(" " + Color.BOLD + Color.BRIGHT_WHITE + TextOutput.HIGHSCORE_COLUMNS + Color.RESET);
         try {
             ArrayList<Player> players = CSV.readCsvFile("highscore.csv");
 
@@ -193,24 +190,29 @@ public class Game {
                     filter(player -> player.getDifficulty().equals("HARD")).sorted(Comparator.comparing(Player::getTime)).toList();
 
             System.out.println();
+            System.out.println(" " + Color.BOLD + Color.BRIGHT_WHITE + TextOutput.HIGHSCORE_COLUMNS + Color.RESET);
+            System.out.println();
             System.out.println(Color.GREEN + "EASY" + Color.RESET);
-            for (Player p : easyPlayers) {
+            for (int i = 0 ; i<Math.min(easyPlayers.size(), 5); i++) {
+                Player p = easyPlayers.get(i);
                 p.printScore();
             }
             System.out.println();
             System.out.println(Color.BLUE + "MEDIUM" + Color.RESET);
-            for (Player p : mediumPlayers) {
+            for (int i = 0 ; i<Math.min(mediumPlayers.size(), 5); i++) {
+                Player p = mediumPlayers.get(i);
                 p.printScore();
             }
             System.out.println();
             System.out.println(Color.BRIGHT_RED + "HARD" + Color.RESET);
-            for (Player p : hardPlayers) {
+            for (int i = 0 ; i<Math.min(hardPlayers.size(), 5); i++) {
+                Player p = hardPlayers.get(i);
                 p.printScore();
             }
 
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ignored) {
+            System.out.println();
+            System.out.println(TextOutput.HIGHSCORE_NODATA);
         }
 
         System.out.println();
