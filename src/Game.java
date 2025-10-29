@@ -68,7 +68,7 @@ public class Game {
                 player.setDifficulty("EASY");
                 boardSizeWidth = 8;
                 boardSizeHeight = 8;
-                boardMinePercentage = 0.15; // 10 mines
+                boardMinePercentage = 0.01; // 10 mines
                 clearScreen();
                 break;
             case 2:
@@ -136,12 +136,7 @@ public class Game {
                             board.openMinesAsFlags();
                             board.printBoard();
                             TextOutput.gameWinOutput();
-                            System.out.println(TextOutput.PLAYER_RETRY);
-                            String userInput = InputHandler.getString();
-                            if (userInput.isEmpty()) {
-                                clearScreen();
-                                run();
-                            }
+                            playerRetry();
                             clearScreen();
                             break;
                         }
@@ -151,18 +146,22 @@ public class Game {
                             board.openMines();
                             board.printBoard();
                             TextOutput.gameOverOutput();
-                            System.out.println(TextOutput.PLAYER_RETRY);
-                            String userInput = InputHandler.getString();
-                            if (userInput.isEmpty()) {
-                                clearScreen();
-                                run();
-                            }
+                            playerRetry();
                             clearScreen();
                             break;
                         }
                     }
                 }
             }
+        }
+    }
+
+    private void playerRetry() {
+        System.out.println(TextOutput.PLAYER_RETRY);
+        String userInput = InputHandler.getString();
+        if (userInput.isEmpty()) {
+            clearScreen();
+            run();
         }
     }
 
@@ -188,21 +187,21 @@ public class Game {
                     filter(player -> player.getDifficulty().equals("HARD")).sorted(Comparator.comparing(Player::getTime)).toList();
 
             System.out.println();
-            System.out.println( TextOutput.HIGHSCORE_COLUMNS);
+            System.out.println(" " + Color.BOLD + Color.BRIGHT_WHITE + TextOutput.HIGHSCORE_COLUMNS + Color.RESET);
             System.out.println();
-            System.out.println(TextOutput.EASY_GREEN);
+            System.out.println(Color.GREEN + "EASY" + Color.RESET);
             for (int i = 0 ; i<Math.min(easyPlayers.size(), 5); i++) {
                 Player p = easyPlayers.get(i);
                 p.printScore();
             }
             System.out.println();
-            System.out.println(TextOutput.MEDIUM_BLUE);
+            System.out.println(Color.BLUE + "MEDIUM" + Color.RESET);
             for (int i = 0 ; i<Math.min(mediumPlayers.size(), 5); i++) {
                 Player p = mediumPlayers.get(i);
                 p.printScore();
             }
             System.out.println();
-            System.out.println(TextOutput.HARD_RED);
+            System.out.println(Color.BRIGHT_RED + "HARD" + Color.RESET);
             for (int i = 0 ; i<Math.min(hardPlayers.size(), 5); i++) {
                 Player p = hardPlayers.get(i);
                 p.printScore();
