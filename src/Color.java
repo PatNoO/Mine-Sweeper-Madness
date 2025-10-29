@@ -23,6 +23,7 @@ public class Color {
     public static final String HOT_PINK         = "\u001B[38;5;205m";
     public static final String TURQUOISE        = "\u001B[38;5;80m";
     public static final String DARK_RED         = "\u001B[38;5;88m";
+    public static final String DARK_PURPLE      = "\u001B[38;5;91m";
 
     ///  Bright/neon colors for text
 
