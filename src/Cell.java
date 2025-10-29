@@ -13,25 +13,15 @@
  */
 public class Cell {
 
-    /**
-     * Is True if this cell contains a mine.
-     */
+    /// Is True if this cell contains a mine.
     private boolean hasMine;
-    /**
-     * Is True if this cell has been revealed to the player.
-     */
+    /// Is True if this cell has been revealed to the player.
     private boolean isVisible;
-    /**
-     * True if this cell’s mine was the one that exploded.
-     */
+    /// True if this cell’s mine was the one that exploded.
     private boolean mineHit;
-    /**
-     * True if the player has marked this cell with a flag.
-     */
+    /// True if the player has marked this cell with a flag.
     private boolean mineAsFlag;
-    /**
-     * Number of mines in the surrounding cells.
-     */
+    /// Number of mines in the surrounding cells.
     private int minesNearby;
 
     /**
@@ -107,9 +97,7 @@ public class Cell {
         this.hasMine = hasMine;
     }
 
-    /**
-     * @return true if this cell has been revealed.
-     */
+    /// @return true if this cell has been revealed.
     public boolean isVisible() {
         return isVisible;
     }
@@ -123,9 +111,7 @@ public class Cell {
         this.isVisible = visible;
     }
 
-    /**
-     * @return how many mines are in the neighboring cells.
-     */
+    /// @return how many mines are in the neighboring cells.
     public int getMinesNearby() {
         return minesNearby;
     }
@@ -139,9 +125,7 @@ public class Cell {
         this.minesNearby = minesNearby;
     }
 
-    /**
-     * @return true if this mine was hit (player lost on this cell).
-     */
+    /// @return true if this mine was hit (player lost on this cell)
     public boolean isMineHit() {
         return mineHit;
     }
@@ -155,9 +139,7 @@ public class Cell {
         this.mineHit = mineHit;
     }
 
-    /**
-     * @return true if this cell is flagged by the player.
-     */
+    /// @return true if this cell is flagged by the player.
     public boolean showMineAsFlag() {
         return mineAsFlag;
     }

@@ -51,9 +51,7 @@ public class Board {
         }
     }
 
-    /**
-     * Initializes all cells as hidden and without mines.
-     */
+    /// Initializes all cells as hidden and without mines.
     private void createCells(int width, int height) {
         grid = new Cell[height][width];
         for (int col = 0; col < width; col++) {
@@ -154,9 +152,7 @@ public class Board {
         }
     }
 
-    /**
-     * Reveals all mines on the board (used when the player loses).
-     */
+    /// Reveals all mines on the board (used when the player loses).
     public void openMines() {
         for (int row = 0; row < grid.length; row++) {
             for (int col = 0; col < grid[row].length; col++) {
@@ -168,9 +164,7 @@ public class Board {
         }
     }
 
-    /**
-     * Reveals all mines and marks them as flags (used for victory display).
-     */
+    /// Reveals all mines and marks them as flags (used for victory display).
     public void openMinesAsFlags() {
         for (int row = 0; row < grid.length; row++) {
             for (int col = 0; col < grid[row].length; col++) {
@@ -183,9 +177,7 @@ public class Board {
         }
     }
 
-    /**
-     * Reveals all mines and marks them as flags (used for victory display).
-     */
+    /// Reveals all mines and marks them as flags (used for victory display).
     public int checkOpenedCells() {
         int numOfOpenedCells = 0;
         for (int row = 0; row < grid.length; row++) {
@@ -199,10 +191,7 @@ public class Board {
         return numOfOpenedCells;
     }
 
-    /**
-     * Calculates the number of mines left (mines - flags).
-     * Returns a negative number if there are extra flags.
-     */
+    /// Calculates the number of mines left (mines - flags).
     private int numberOfMinesLeft() {
         int returnValue = 0;
         for (Cell[] rows : grid) {
@@ -218,9 +207,7 @@ public class Board {
         return returnValue;
     }
 
-    /**
-     * Prints the current board to the console with mines left.
-     */
+    /// Prints the current board to the console with mines left.
     public void printBoard() {
         System.out.println(Color.BOLD + Color.BRIGHT_RED + numberOfMinesLeft() + Color.BRIGHT_WHITE + " mines left" + Color.RESET);
         for (int row = 0; row < grid.length; row++) {

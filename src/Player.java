@@ -1,22 +1,11 @@
-import java.util.Calendar;
-import java.util.Date;
-
-/**
- * Represents a player in the game, including their name, difficulty level, and total time.
- */
+/// Represents a player in the game, including their name, difficulty level, and total time.
 public class Player {
 
-    /**
-     * The player's name.
-     */
+    /// The player's name.
     private String name;
-    /**
-     * The difficulty level chosen by the player (e.g., EASY, MEDIUM, HARD).
-     */
+    /// The difficulty level chosen by the player (e.g., EASY, MEDIUM, HARD).
     private String difficulty;
-    /**
-     * The player's total time in seconds.
-     */
+    /// The player's total time in seconds.
     private int time;
 
     /**
@@ -66,44 +55,32 @@ public class Player {
 
     }
 
-    /**
-     * @return the player's name
-     */
+    /// @return the player's name
     public String getName() {
         return name;
     }
 
-    /**
-     * @param name sets the player's name
-     */
+    /// @param name sets the player's name
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * @return the difficulty level
-     */
+    /// @return the difficulty level
     public String getDifficulty() {
         return difficulty;
     }
 
-    /**
-     * @param difficulty sets the difficulty level
-     */
+    /// @param difficulty sets the difficulty level
     public void setDifficulty(String difficulty) {
         this.difficulty = difficulty;
     }
 
-    /**
-     * @return the player's total time in seconds
-     */
+    /// @return the player's total time in seconds
     public int getTime() {
         return time;
     }
 
-    /**
-     * @param time sets the player's total time
-     */
+    /// @param time sets the player's total time
     public void setTime(int time) {
         this.time = time;
     }
