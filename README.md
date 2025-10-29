@@ -129,8 +129,6 @@ maintaining effective communication during the project.
 
 ## 🤝 Creators
 
-**Created by**
-
 **Created by:**
 - [Erik Nordvall](https://github.com/EN-MA25)
 - [Jonathan Strid](https://github.com/pjstrid)
