@@ -144,6 +144,12 @@ public class TextOutput {
         System.out.printf("%s%s%s%s%s%02d:%02d:%02d%s%s\n\n"," " + Color.BLINK, Color.BOLD, Color.GREEN_BG, Color.BRIGHT_WHITE, "  ", elapsedTime / 3600, (elapsedTime % 3600) / 60, elapsedTime % 60, "  ", Color.RESET);
     }
 
+    /// Prints the time after winning game
+    public static void gameOverPrintTime(int elapsedTime) {
+        System.out.printf("%s%s%s%s%s%s\n"," ", Color.BOLD, Color.BRIGHT_RED_BG, Color.BLACK, " YOUR TIME: ", Color.RESET);
+        System.out.printf("%s%s%s%s%s%02d:%02d:%02d%s%s\n\n"," ", Color.BOLD, Color.BRIGHT_RED_BG, Color.BLACK, "  ", elapsedTime / 3600, (elapsedTime % 3600) / 60, elapsedTime % 60, "  ", Color.RESET);
+    }
+
     ///  Prints the Goodbye-"sign"
     public static void thanksForPlayingOutput() {
         System.out.println();
