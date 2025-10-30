@@ -125,6 +125,7 @@ public class Game {
 
             String input = InputHandler.getString();
             Position pos = InputHandler.getPosition(input);
+            int elapsedTime;
 
             if (input.equals("EXIT")) {
                 homeMenu();
@@ -143,11 +144,15 @@ public class Game {
 
                         // Check lose condition
                         if (cell.hasMine() && cell.isVisible()) {
+
                             cell.setMineHit(true);
+                            elapsedTime = (int) ((System.currentTimeMillis() - startTime) / 1000);
+                            player.setTime(elapsedTime);
                             clearScreen();
                             board.openMines();
                             board.printBoard();
                             TextOutput.gameOverOutput();
+                            TextOutput.gameOverPrintTime(elapsedTime);
                             playerRetry();
                             clearScreen();
                             break;
@@ -155,9 +160,8 @@ public class Game {
                         // Check win condition
                         } else if (board.hasWon()) {
 
-                            int elapsedTime = (int) ((System.currentTimeMillis() - startTime) / 1000);
+                            elapsedTime = (int) ((System.currentTimeMillis() - startTime) / 1000);
                             player.setTime(elapsedTime);
-
                             try {
                                 CSV.write(player, "highscore.csv");
                             } catch (IOException ignored) {
