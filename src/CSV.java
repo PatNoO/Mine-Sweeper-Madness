@@ -20,8 +20,6 @@ public class CSV {
      */
     public static void write(Player player, String filePath) throws IOException {
         File file = new File(filePath);
-        boolean fileExists = file.exists();
-
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
 
             // Write the player data as a CSV line

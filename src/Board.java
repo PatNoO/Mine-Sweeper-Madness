@@ -8,6 +8,8 @@ import java.util.*;
 public class Board {
     // * 2D array of Cell objects representing the game board
     private Cell[][] grid;
+    private final int width;
+    private final int height;
 
     /**
      * Constructor: initializes cells, mines, and nearby counts.
@@ -17,9 +19,11 @@ public class Board {
      * @param numberOfMines number of mines to place
      */
     Board(int width, int height, int numberOfMines) {
-        createCells(width, height);
-        createMines(width, height, numberOfMines);
-        createNearby(width, height);
+        this.width = width;
+        this.height = height;
+        createCells();
+        createMines(numberOfMines);
+        createNearby();
     }
 
     /**
@@ -30,7 +34,7 @@ public class Board {
      * @return the Cell at the position or null
      */
     public Cell cellAtPosition(Position pos) {
-        if (pos.row() >= 0 && pos.row() < grid.length && pos.col() >= 0 && pos.col() < grid[0].length) {
+        if (pos.row() >= 0 && pos.row() < height && pos.col() >= 0 && pos.col() < width) {
             return grid[pos.row()][pos.col()];
         } else {
             return null;
@@ -42,7 +46,7 @@ public class Board {
      * Flags only allowed on hidden cells.
      */
     public void setCellAsFlag(int row, int col) {
-        if (row >= 0 && row < grid.length && col >= 0 && col < grid[0].length) {
+        if (row >= 0 && row < width && col >= 0 && col < height) {
             Cell cell = grid[row][col];
 
             if (!cell.isVisible()) {
@@ -52,7 +56,7 @@ public class Board {
     }
 
     /// Initializes all cells as hidden and without mines.
-    private void createCells(int width, int height) {
+    private void createCells() {
         grid = new Cell[height][width];
         for (int col = 0; col < width; col++) {
             for (int row = 0; row < height; row++) {
@@ -66,7 +70,7 @@ public class Board {
      * Randomly places mines on the board.
      * Ensures no duplicate placement.
      */
-    private void createMines(int width, int height, int numberOfMines) {
+    private void createMines(int numberOfMines) {
         Random random = new Random();
         int i = 0;
         while (i < numberOfMines) {
@@ -83,35 +87,35 @@ public class Board {
      * Calculates the number of mines near each cell.
      * Counts all neighbors carefully.
      */
-    private void createNearby(int colWidth, int rowHeight) {
+    private void createNearby() {
         int count;
 
-        for (int col = 0; col < colWidth; col++) {
-            for (int row = 0; row < rowHeight; row++) {
+        for (int col = 0; col < width; col++) {
+            for (int row = 0; row < height; row++) {
 
                 count = 0;
                 if (col > 0) {
                     count += ((grid[row][col - 1].hasMine()) ? 1 : 0);
                 }
-                if (col < colWidth - 1) {
+                if (col < width - 1) {
                     count += ((grid[row][col + 1].hasMine()) ? 1 : 0);
                 }
-                if (row < rowHeight - 1) {
+                if (row < height - 1) {
                     count += ((grid[row + 1][col].hasMine()) ? 1 : 0);
                 }
                 if (row > 0) {
                     count += ((grid[row - 1][col].hasMine()) ? 1 : 0);
                 }
-                if (row < rowHeight - 1 && col < colWidth - 1) {
+                if (row < height - 1 && col < width - 1) {
                     count += ((grid[row + 1][col + 1].hasMine()) ? 1 : 0);
                 }
                 if (row > 0 && col > 0) {
                     count += ((grid[row - 1][col - 1].hasMine()) ? 1 : 0);
                 }
-                if (row < rowHeight - 1 && col > 0) {
+                if (row < height - 1 && col > 0) {
                     count += ((grid[row + 1][col - 1].hasMine()) ? 1 : 0);
                 }
-                if (row > 0 && col < colWidth - 1) {
+                if (row > 0 && col < width - 1) {
                     count += ((grid[row - 1][col + 1].hasMine()) ? 1 : 0);
                 }
 
@@ -129,7 +133,7 @@ public class Board {
      */
     public void openCellAtPosition(int row, int col) {
 
-        if (row >= 0 && row < grid.length && col >= 0 && col < grid[0].length) {
+        if (row >= 0 && row < height && col >= 0 && col < width) {
 
             Cell cell = grid[row][col];
             if (!cell.showMineAsFlag() && !cell.isVisible()) {
@@ -154,9 +158,8 @@ public class Board {
 
     /// Reveals all mines on the board (used when the player loses).
     public void openMines() {
-        for (int row = 0; row < grid.length; row++) {
-            for (int col = 0; col < grid[row].length; col++) {
-                Cell cell = grid[row][col];
+        for (Cell[] cells : grid) {
+            for (Cell cell : cells) {
                 if (cell.hasMine()) {
                     cell.isVisible(true);
                 }
@@ -166,9 +169,8 @@ public class Board {
 
     /// Reveals all mines and marks them as flags (used for victory display).
     public void openMinesAsFlags() {
-        for (int row = 0; row < grid.length; row++) {
-            for (int col = 0; col < grid[row].length; col++) {
-                Cell cell = grid[row][col];
+        for (Cell[] cells : grid) {
+            for (Cell cell : cells) {
                 if (cell.hasMine()) {
                     cell.isVisible(true);
                     cell.setMineAsFlag(true);
@@ -180,9 +182,8 @@ public class Board {
     /// Reveals all mines and marks them as flags (used for victory display).
     public int checkOpenedCells() {
         int numOfOpenedCells = 0;
-        for (int row = 0; row < grid.length; row++) {
-            for (int col = 0; col < grid[row].length; col++) {
-                Cell cell = grid[row][col];
+        for (Cell[] cells : grid) {
+            for (Cell cell : cells) {
                 if (cell.isVisible() && !cell.showMineAsFlag()) {
                     numOfOpenedCells++;
                 }
@@ -211,9 +212,9 @@ public class Board {
     public void printBoard() {
         TextOutput.numberOfMinesLeftText(numberOfMinesLeft());
 
-        for (int row = 0; row < grid.length; row++) {
+        for (int row = 0; row < height; row++) {
             System.out.print(" ");
-            for (int col = 0; col < grid[row].length; col++) {
+            for (int col = 0; col < width; col++) {
                 Cell cell = grid[row][col];
                 System.out.print(cell.textAt(row, col));
             }
