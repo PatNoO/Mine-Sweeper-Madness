@@ -67,11 +67,15 @@ to ensure a clear and professional workflow.
 2. Enter your player name when prompted.
 3. Choose from the main menu:
 
+<img src="Images/HomeMenuMs.png" width="324" height="344" alt="">
 
-<div align="center">
-  <img src="Images/Menu.png" width="40%" height="300">
-  <img src="Images/HighScoreMenu.png" width="40%" height="300">
-</div>
+[//]: # (<div align="center">)
+
+[//]: # (  <img src="Images/HomeMenuMs.png" width="324" height="344" alt="">)
+
+[//]: # (  <img src="Images/HighScoreMenuMs.png" width="320" height="479" alt="">)
+
+[//]: # (</div>)
 
 ---
 
@@ -81,8 +85,7 @@ The UML diagram was created using Lucidchart and represents the foundational str
 It illustrates our initial design thoughts and how the core components interact.
 The diagram includes:
 
-![UML-Diagram Mine-Sweeper-Madness.png](Images/UML-Diagram%20Mine-Sweeper-Madness.png)
-
+![UMLDiagramMineSweeperMadness.png](Images/UMLDiagramMineSweeperMadness.png)
 ---
 
 ## 🧠 Classes and Structure
@@ -108,8 +111,7 @@ The diagram includes:
 This document outlines the initial collaboration plan for – **Minesweeper**.
 The agreement serves as a foundation for organizing tasks and
 maintaining effective communication during the project.
-
-<img src="Images/Contract-Mine-Sweeper-Madness.png" width="70%">
+<img src="Images/Contract-Mine-Sweeper-Madness.png" width="50%" alt="">
 
 ---
 
@@ -124,13 +126,14 @@ maintaining effective communication during the project.
 ## 🧾 Example Gameplay
 
 <div align="center">
-  <img src="Gifs/PlayingAGame.gif" width="50%">
-</div>
+<img src="Images/HighScoreMenuMs.png" width="320" height="479" alt="">
+  <img src="Gifs/PlayingAGame.gif" width="1122" height="712" alt="">
+
 
 <div align="center">
-  <img src="Images/Win.png" width="44%">
-  <img src="Images/GameOver.png" width="52%">
-</div>
+  <img src="Images/Win.png" width="44%" alt="">
+  <img src="Images/GameOver.png" width="52%" alt="">
+</div>;
 
 ---
 
@@ -151,5 +154,5 @@ You’re free to explore the code and play the game.
 
 --- 
  ## 🖐
-
+<div align="center">
 <img src="Gifs/ThanksForPlaying.gif" width="40%" alt="">
