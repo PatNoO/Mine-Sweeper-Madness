@@ -2,15 +2,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+
 /**
  * Main game class for Minesweeper.
- * Handles game setup, menus, gameplay loop, difficulty settings, and highscores.
+ * Handles game setup, menus, gameplay loop, difficulty settings, and highscore.
  */
 public class Game {
 
     /**
-     *  Board dimensions (default values)
-     *  Percentage of cells that contain mines
+     * Board dimensions (default values)
+     * Percentage of cells that contain mines
      */
     private int boardSizeWidth = 8;
     private int boardSizeHeight = 8;
@@ -19,7 +20,7 @@ public class Game {
     Player player = new Player("", "EASY");
 
 
-      /// Constructor: clears the screen, shows welcome text, and asks for player's name.
+    /// Constructor: clears the screen, shows welcome text, and asks for player's name.
     public Game() {
         clearScreen();
         TextOutput.welcomeText();
@@ -66,8 +67,10 @@ public class Game {
             }
         }
     }
+
     /**
      * Shows the difficulty menu and sets board size and mine density.
+     *
      * @param player The player making the difficulty selection
      */
     public void difficultyMenu(Player player) {
@@ -103,9 +106,10 @@ public class Game {
                 homeMenu();
         }
     }
+
     /**
      * Main game loop: processes user input, opens cells, sets flags,
-     * checks win/loss conditions, and updates highscores.
+     * checks win/loss conditions, and updates highscore.
      */
     public void run() {
         // Run Method
@@ -141,44 +145,44 @@ public class Game {
                         int openedCells = board.checkOpenedCells();
                         int totalCells = boardSizeWidth * boardSizeHeight;
 
-                          // Check lose condition
-                        if (openedCells == totalCells - boardNumOfMines) {
+                        // Check lose condition
 
-                          if (cell.hasMine() && cell.isVisible()) {
-                              cell.setMineHit(true);
-                              clearScreen();
-                              board.openMines();
-                              board.printBoard();
-                              TextOutput.gameOverOutput();
-                              playerRetry();
-                              clearScreen();
-                              break;
-                            
-                              // Check win condition
-                            } else if (openedCells == totalCells - boardNumOfMines) {
+                        if (cell.hasMine() && cell.isVisible()) {
+                            cell.setMineHit(true);
+                            clearScreen();
+                            board.openMines();
+                            board.printBoard();
+                            TextOutput.gameOverOutput();
+                            playerRetry();
+                            clearScreen();
+                            break;
 
-                                int elapsedTime = (int)((System.currentTimeMillis() - startTime) / 1000);
-                                player.setTime(elapsedTime);
+                        // Check win condition
+                        } else if (openedCells == totalCells - boardNumOfMines) {
 
-                                try {
-                                    CSV.write(player, "highscore.csv");
-                                } catch (IOException ignored) {}
+                            int elapsedTime = (int) ((System.currentTimeMillis() - startTime) / 1000);
+                            player.setTime(elapsedTime);
 
-                                clearScreen();
-                                board.openMinesAsFlags();
-                                board.printBoard();
-                                TextOutput.gameWinOutput();
-                                playerRetry();
-                                clearScreen();
-                                break;
+                            try {
+                                CSV.write(player, "highscore.csv");
+                            } catch (IOException ignored) {
                             }
+
+                            clearScreen();
+                            board.openMinesAsFlags();
+                            board.printBoard();
+                            TextOutput.gameWinOutput();
+                            TextOutput.gameWinPrintTime(elapsedTime);
+                            playerRetry();
+                            clearScreen();
+                            break;
                         }
                     }
                 }
             }
         }
     }
-  
+
     /// Prompts the player to retry the game after winning or losing.
     private void playerRetry() {
         System.out.println(TextOutput.PLAYER_RETRY);
@@ -188,9 +192,10 @@ public class Game {
             run();
         }
     }
-  
+
     /**
      * Allows the player to change their name.
+     *
      * @param player The player updating their name
      */
     public void changePlayerName(Player player) {
@@ -202,7 +207,7 @@ public class Game {
         clearScreen();
     }
 
-     /// Displays highscores for each difficulty and top 5 players.
+    /// Displays highscore for each difficulty and top 5 players.
     public void highScoreMenu() {
         clearScreen();
         try {
@@ -219,19 +224,19 @@ public class Game {
             System.out.println(TextOutput.HIGHSCORE);
             System.out.println();
             System.out.println(" " + TextOutput.EASY_GREEN);
-            for (int i = 0 ; i<Math.min(easyPlayers.size(), 5); i++) {
+            for (int i = 0; i < Math.min(easyPlayers.size(), 5); i++) {
                 Player p = easyPlayers.get(i);
                 p.printScore();
             }
             System.out.println();
             System.out.println(" " + TextOutput.MEDIUM_BLUE);
-            for (int i = 0 ; i<Math.min(mediumPlayers.size(), 5); i++) {
+            for (int i = 0; i < Math.min(mediumPlayers.size(), 5); i++) {
                 Player p = mediumPlayers.get(i);
                 p.printScore();
             }
             System.out.println();
             System.out.println(" " + TextOutput.HARD_RED);
-            for (int i = 0 ; i<Math.min(hardPlayers.size(), 5); i++) {
+            for (int i = 0; i < Math.min(hardPlayers.size(), 5); i++) {
                 Player p = hardPlayers.get(i);
                 p.printScore();
             }
@@ -246,6 +251,7 @@ public class Game {
         InputHandler.getString();
         clearScreen();
     }
+
     /// Clears the console screen using ANSI escape codes.
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
