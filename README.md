@@ -48,7 +48,7 @@ to ensure a clear and professional workflow.
 - You **win** when all safe cells are opened.
 - You **lose** if you open a cell that contains a mine 💥.
 
-<img src="Images/HelpMenuMs.png" width="85%">
+<img src="Images/HelpMenuMs2.png" width="85%">
 
 ---
 
@@ -111,7 +111,7 @@ The diagram includes:
 This document outlines the initial collaboration plan for – **Minesweeper**.
 The agreement serves as a foundation for organizing tasks and
 maintaining effective communication during the project.
-<img src="Images/Contract-Mine-Sweeper-Madness.png" width="50%" alt="">
+<img src="Images/Contract-Mine-Sweeper-Madness.png" width="150" height="30">
 
 ---
 
