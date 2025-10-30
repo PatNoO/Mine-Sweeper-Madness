@@ -209,8 +209,10 @@ public class Board {
 
     /// Prints the current board to the console with mines left.
     public void printBoard() {
-        System.out.println(Color.BOLD + Color.BRIGHT_RED + numberOfMinesLeft() + Color.BRIGHT_WHITE + " mines left" + Color.RESET);
+        TextOutput.numberOfMinesLeftText(numberOfMinesLeft());
+
         for (int row = 0; row < grid.length; row++) {
+            System.out.print(" ");
             for (int col = 0; col < grid[row].length; col++) {
                 Cell cell = grid[row][col];
                 System.out.print(cell.textAt(row, col));

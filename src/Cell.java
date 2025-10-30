@@ -51,11 +51,11 @@ public class Cell {
         if (this.hasMine() && this.isVisible()) {
 
             if (this.isMineHit()) {
-                return Color.BOLD + Color.BRIGHT_RED_BG + Color.BLACK + "  X  " + Color.RESET;
+                return TextOutput.RED_X;
             } else if (this.showMineAsFlag()) {
-                return Color.BOLD + Color.ORANGE_BG + Color.BLACK + "  F  " + Color.RESET;
+                return TextOutput.ORANGE_F;
             }
-            return Color.BOLD + Color.ORANGE_BG + Color.BLACK + "  X  " + Color.RESET;
+            return TextOutput.ORANGE_X;
 
         } else if (this.showMineAsFlag()) {
 

@@ -23,15 +23,16 @@ public class Color {
     public static final String ORANGE           = "\u001B[38;5;208m";
     public static final String LIME_GREEN       = "\u001B[38;5;118m";
     public static final String SKY_BLUE         = "\u001B[38;5;117m";
-    public static final String VIOLET           = "\u001B[38;5;177m";
     public static final String CHARCOAL_GRAY    = "\u001B[38;5;236m";
     public static final String LIGHT_GRAY       = "\u001B[38;5;250m";
     public static final String HOT_PINK         = "\u001B[38;5;205m";
     public static final String TURQUOISE        = "\u001B[38;5;80m";
     public static final String DARK_RED         = "\u001B[38;5;88m";
+    public static final String DARK_PURPLE      = "\u001B[38;5;91m";
 
     // ----------------- Bright/neon text colors ----------------- //
     ///  Bright/neon colors for text
+    public static final String BRIGHT_PINK      = "\u001B[38;5;177m";
     public static final String BRIGHT_ORANGE    = "\u001B[38;5;208m";
     public static final String BRIGHT_RED       = "\u001B[91m";
     public static final String BRIGHT_GREEN     = "\u001B[92m";
