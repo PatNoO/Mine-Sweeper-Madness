@@ -46,9 +46,11 @@ public class TextOutput {
     // ----------------- Player Instructions ----------------- //
     public static final String PLAYER_EXIT_GAME = Color.CHARCOAL_GRAY + Color.ITALIC + " Quit game? Enter: " + Color.RESET +
                                                     Color.DARK_RED + "\"EXIT\"" + Color.RESET;
-    public static final String PLAYER_MAKE_MOVE_INFO = " Enter the coordinate you want to open or\n" +
-                                                       " add 'F', at the end to place a flag\n" +
-                                                        " at that cell. (E.g., \"A1\" or \"A1F\")";
+    public static final String PLAYER_MAKE_MOVE_INFO = """
+             Enter the coordinate you want to open or
+             add 'F', at the end to place a flag
+             at that cell. (E.g., "A1" or "A1F")\
+            """;
     public static final String PLAYER_MAKE_MOVE_INPUT = " Enter coordinate: ";
     public static final String PLAYER_RETURN = "Press ENTER) ⏎ MENU";
     public static final String PLAYER_RETRY = " " + Color.BOLD + Color.WHITE_BG + Color.BLACK +
