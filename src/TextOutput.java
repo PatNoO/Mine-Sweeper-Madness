@@ -46,12 +46,13 @@ public class TextOutput {
     // ----------------- Player Instructions ----------------- //
     public static final String PLAYER_EXIT_GAME = Color.CHARCOAL_GRAY + Color.ITALIC + " Quit game? Enter: " + Color.RESET +
                                                     Color.DARK_RED + "\"EXIT\"" + Color.RESET;
-    public static final String PLAYER_MAKE_MOVE_INFO = """
-             Enter the coordinate you want to open or
-             add 'F', at the end to place a flag
-             at that cell. (E.g., "A1" or "A1F")\
-            """;
-    public static final String PLAYER_MAKE_MOVE_INPUT = " Enter coordinate: ";
+    public static final String PLAYER_MAKE_MOVE_INFO = Color.LIGHT_GRAY + """
+                                                         Enter the coordinate you want to open or
+                                                         add 'F', at the end to place a flag
+                                                         at that cell. (E.g., "A1" or "A1F")\
+                                                        """ + Color.RESET;
+    public static final String PLAYER_MAKE_MOVE_INPUT = "\n" +" " + Color.BOLD + Color.WHITE_BG + Color.BLACK +
+                                                        " Enter coordinate: "  + Color.RESET;
     public static final String PLAYER_RETURN = "Press ENTER) ⏎ MENU";
     public static final String PLAYER_RETRY = " " + Color.BOLD + Color.WHITE_BG + Color.BLACK +
                                                 " Would you like to play again? " + Color.RESET + "\n" +
@@ -96,9 +97,8 @@ public class TextOutput {
     /// Prints the start text on the first round
     public static void gameInfoOutput() {
         System.out.println(PLAYER_EXIT_GAME);
-        System.out.println(Color.LIGHT_GRAY + PLAYER_MAKE_MOVE_INFO + Color.RESET);
-        System.out.println();
-        System.out.println(" " + Color.BOLD + Color.WHITE_BG + Color.BLACK + PLAYER_MAKE_MOVE_INPUT + Color.RESET);
+        System.out.println(PLAYER_MAKE_MOVE_INFO);
+        System.out.println(PLAYER_MAKE_MOVE_INPUT);
     }
 
     /// Prints the number of mines above the board in game
@@ -190,8 +190,11 @@ public class TextOutput {
                 - Use logic to avoid mines and find safe paths.
                 
                 - You can play carefully or take risks — up to you!
-                
-                🏁 WIN CONDITION:
+                ------------------------------""" + Color.RESET);
+        System.out.println("Press ENTER) ⇩ Continue");
+        InputHandler.getString();
+        System.out.println(Color.BOLD + Color.BRIGHT_WHITE + """
+                🏆 WIN CONDITION:
                 - You win when all safe cells have been opened!
                 
                 ☠️ LOSE CONDITION:
