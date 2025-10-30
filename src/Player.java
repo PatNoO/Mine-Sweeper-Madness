@@ -5,7 +5,7 @@ public class Player {
     private String name;
     /// The difficulty level chosen by the player (e.g., EASY, MEDIUM, HARD).
     private String difficulty;
-    /// The player's total time in seconds.
+    /// The player's total time.
     private int time;
 
     /**

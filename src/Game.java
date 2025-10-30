@@ -2,9 +2,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-
+/**
+ * Main game class for Minesweeper.
+ * Handles game setup, menus, gameplay loop, difficulty settings, and highscores.
+ */
 public class Game {
 
+    /**
+     *  Board dimensions (default values)
+     *  Percentage of cells that contain mines
+     */
     private int boardSizeWidth = 8;
     private int boardSizeHeight = 8;
     private double boardMinePercentage = 0.15; // 10 mines
@@ -12,6 +19,7 @@ public class Game {
     Player player = new Player("", "EASY");
 
 
+      /// Constructor: clears the screen, shows welcome text, and asks for player's name.
     public Game() {
         clearScreen();
         TextOutput.welcomeText();
@@ -20,6 +28,7 @@ public class Game {
         player.setName(InputHandler.getStringName(TextOutput.ERROR_PLAYER_INPUT_NAME));
     }
 
+    /// Displays the home menu and handles user menu selection.
     public void homeMenu() {
         clearScreen();
 
@@ -57,7 +66,10 @@ public class Game {
             }
         }
     }
-
+    /**
+     * Shows the difficulty menu and sets board size and mine density.
+     * @param player The player making the difficulty selection
+     */
     public void difficultyMenu(Player player) {
         clearScreen();
         TextOutput.difficultyMenuOutput(player);
@@ -91,7 +103,10 @@ public class Game {
                 homeMenu();
         }
     }
-
+    /**
+     * Main game loop: processes user input, opens cells, sets flags,
+     * checks win/loss conditions, and updates highscores.
+     */
     public void run() {
         // Run Method
         int boardNumOfMines = (int) Math.round(boardSizeWidth * boardSizeHeight * boardMinePercentage);
@@ -125,7 +140,7 @@ public class Game {
 
                         int openedCells = board.checkOpenedCells();
                         int totalCells = boardSizeWidth * boardSizeHeight;
-
+                        // Check win condition
                         if (openedCells == totalCells - boardNumOfMines) {
                             int elapsedTime = (int)((System.currentTimeMillis() - startTime) / 1000);
                             player.setTime(elapsedTime);
@@ -140,6 +155,7 @@ public class Game {
                             clearScreen();
                             break;
                         }
+                        // Check lose condition
                         if (cell.hasMine() && cell.isVisible()) {
                             cell.setMineHit(true);
                             clearScreen();
@@ -155,7 +171,7 @@ public class Game {
             }
         }
     }
-
+    /// Prompts the player to retry the game after winning or losing.
     private void playerRetry() {
         System.out.println(Color.BOLD + Color.BRIGHT_WHITE + TextOutput.PLAYER_RETRY + Color. RESET);
         System.out.println(TextOutput.PLAYER_RETRY_2);
@@ -165,7 +181,10 @@ public class Game {
             run();
         }
     }
-
+    /**
+     * Allows the player to change their name.
+     * @param player The player updating their name
+     */
     public void changePlayerName(Player player) {
         clearScreen();
 
@@ -175,6 +194,7 @@ public class Game {
         clearScreen();
     }
 
+     /// Displays highscores for each difficulty and top 5 players.
     public void highScoreMenu() {
         clearScreen();
         try {
@@ -218,7 +238,7 @@ public class Game {
         InputHandler.getString();
         clearScreen();
     }
-
+    /// Clears the console screen using ANSI escape codes.
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
