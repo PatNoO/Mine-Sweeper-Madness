@@ -1,8 +1,13 @@
+/// Utility class containing all game-related text outputs and messages
 public class TextOutput {
 
+    // Private constructor to prevent instantiation of this utility class
     private TextOutput() {
 
     }
+
+    // ----------------- Static Text Constants ----------------- //
+
     public static final String WELCOME_TEXT = "WELCOME TO MINESWEEPER MADNESS!";
     public static final String PLAYER_NAME = "\n" +
                                                 " " + Color.BOLD + Color.WHITE_BG + Color.BLACK + " PLEASE ENTER YOUR NAME: " + Color.RESET;
@@ -29,8 +34,7 @@ public class TextOutput {
                                             Color.BRIGHT_PURPLE + "R" +
                                             Color.BRIGHT_PINK + "E" + Color.RESET;
 
-
-    //-------------------------------//
+    // ----------------- Error Messages ----------------- //
 
     public static final String ERROR_PLAYER_INPUT_NAME = Color.BRIGHT_ORANGE + "Your name must be between 2-15 letters and can only contain\n" +
                                                             "letters (A-Ö), numbers (0-9), hyphen (-) or single quote (')" + Color.RESET;
@@ -38,8 +42,8 @@ public class TextOutput {
     public static final String ERROR_PLAYER_INT_INPUT = Color.BRIGHT_ORANGE + "Choose a number between :" + Color.RESET;
     public static final String ERROR_HIGHSCORE_NO_DATA = Color.BRIGHT_ORANGE + "No players in Highscore yet" + Color.RESET;
 
-    //-------------------------------//
 
+    // ----------------- Player Instructions ----------------- //
     public static final String PLAYER_EXIT_GAME = Color.CHARCOAL_GRAY + Color.ITALIC + " Quit game? Enter: " + Color.RESET +
                                                     Color.DARK_RED + "\"EXIT\"" + Color.RESET;
     public static final String PLAYER_MAKE_MOVE_INFO = " Enter the coordinate you want to open or\n" +
@@ -47,12 +51,13 @@ public class TextOutput {
                                                         " at that cell. (E.g., \"A1\" or \"A1F\")";
     public static final String PLAYER_MAKE_MOVE_INPUT = " Enter coordinate: ";
     public static final String PLAYER_RETURN = "Press ENTER) Return to MENU";
-    public static final String PLAYER_RETRY = " " +Color.BOLD + Color.WHITE_BG + Color.BLACK +
+    public static final String PLAYER_RETRY = " " + Color.BOLD + Color.WHITE_BG + Color.BLACK +
                                                 " Would you like to play again? " + Color.RESET + "\n" +
                                                 "  Press ENTER) YES\n" +
                                                 "  Press ANY KEY) Return to MENU";
 
-    //-------------------------------//
+
+    // ----------------- Menu Outputs ----------------- //
 
     /// Prints home menu with the players selections
     public static void homeMenuOutput(Player player) {
@@ -74,6 +79,7 @@ public class TextOutput {
     }
 
     /// Prints menu for difficulty choices
+
     public static void difficultyMenuOutput() {
         System.out.println();
         System.out.println(" " + Color.BOLD + Color.WHITE_BG + Color.BLACK + " DIFFICULTY " + Color.RESET);
@@ -146,7 +152,8 @@ public class TextOutput {
         System.out.println();
     }
 
-    //------------------------------------//
+
+    // ----------------- Help Instructions ----------------- //
 
     /// Prints the help information
     public static void showHelpOutput() {

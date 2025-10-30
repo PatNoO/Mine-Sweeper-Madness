@@ -2,13 +2,18 @@ import java.util.Scanner;
 
 public class InputHandler {
 
-    /// Creates the scanner for all methods
-
+    ///  Creates the scanner for all methods
     private static final Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Method for getting a String from the scanner
+     * so no extra scanner is needed in another class
+     */
+    public static String getString() {
+        return scanner.nextLine().toUpperCase();
+    }
 
-    /// Method for making the name of the player valid
-
+    /// Method to get a valid player name with letters, numbers, and certain special characters
     public static String getStringName(String text) {
 
         while (true) {
@@ -28,17 +33,15 @@ public class InputHandler {
             }
 
             if (isValid && !input.isEmpty()) {
-                return input.substring(0,1).toUpperCase() + input.substring(1).toLowerCase();
+                return input.substring(0, 1).toUpperCase() + input.substring(1).toLowerCase();
             } else {
                 // Prints "error text" when wrong input
                 System.out.println(text);
             }
         }
     }
-
-
+    
     /// Method for handle wrong input when Integer is expected
-
     public static int getInt(String text) {
         while (!scanner.hasNextInt()) {
 
@@ -55,7 +58,6 @@ public class InputHandler {
     }
 
     /// Method for handle wrong input when Integer with "min-max"-condition is expected
-
     public static int getInt(int min, int max, String text) {
 
         while (true) {
@@ -71,7 +73,6 @@ public class InputHandler {
     }
 
     /// Method for handle wrong input when a Position in the grid is expected
-
     public static Position getPosition(String input) {
         String convertedInput = input.toUpperCase();
 
@@ -80,8 +81,8 @@ public class InputHandler {
 
             convertedInput = input.substring(0, 2);
 
-        } else if((convertedInput.length() == 4) &&
-                    (input.charAt(3) == 'f' || input.charAt(3) == 'F')) {
+        } else if ((convertedInput.length() == 4) &&
+                (input.charAt(3) == 'f' || input.charAt(3) == 'F')) {
 
             convertedInput = input.substring(0, 3);
         }
@@ -93,15 +94,5 @@ public class InputHandler {
         } catch (Exception ignored) {
             return null;
         }
-    }
-
-
-    /*
-        Method for getting a String from the scanner
-        so no extra scanner is needed in another class
-     */
-
-    public static String getString() {
-        return scanner.nextLine().toUpperCase();
     }
 }
