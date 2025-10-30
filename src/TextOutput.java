@@ -50,11 +50,11 @@ public class TextOutput {
                                                        " add 'F', at the end to place a flag\n" +
                                                         " at that cell. (E.g., \"A1\" or \"A1F\")";
     public static final String PLAYER_MAKE_MOVE_INPUT = " Enter coordinate: ";
-    public static final String PLAYER_RETURN = "Press ENTER) Return to MENU";
+    public static final String PLAYER_RETURN = "Press ENTER) ⏎ MENU";
     public static final String PLAYER_RETRY = " " + Color.BOLD + Color.WHITE_BG + Color.BLACK +
                                                 " Would you like to play again? " + Color.RESET + "\n" +
                                                 "  Press ENTER) YES\n" +
-                                                "  Press ANY KEY) Return to MENU";
+                                                "  Press ANY KEY) ⏎ MENU";
 
 
     // ----------------- Menu Outputs ----------------- //
@@ -203,7 +203,7 @@ public class TextOutput {
                  Marks the cell as a ⛳️ (blue background)
                 ------------------------------
                 """ + Color.RESET);
-        System.out.println("Press ENTER) Return to MENU");
+        System.out.println("Press ENTER) ⏎ MENU");
 
         InputHandler.getString();
         Game.clearScreen();
