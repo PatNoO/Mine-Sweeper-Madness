@@ -111,7 +111,7 @@ The diagram includes:
 This document outlines the initial collaboration plan for – **Minesweeper**.
 The agreement serves as a foundation for organizing tasks and
 maintaining effective communication during the project.
-<img src="Images/Contract-Mine-Sweeper-Madness.png" width="50%" alt="">
+<img src="Images/Contract-Mine-Sweeper-Madness.png" width="70%" alt="">
 
 ---
 
