@@ -10,6 +10,7 @@ public class Board {
     private Cell[][] grid;
     private final int width;
     private final int height;
+    private final int numberOfMines;
 
     /**
      * Constructor: initializes cells, mines, and nearby counts.
@@ -21,6 +22,7 @@ public class Board {
     Board(int width, int height, int numberOfMines) {
         this.width = width;
         this.height = height;
+        this.numberOfMines = numberOfMines;
         createCells();
         createMines(numberOfMines);
         createNearby();
@@ -190,6 +192,12 @@ public class Board {
             }
         }
         return numOfOpenedCells;
+    }
+
+    public boolean hasWon() {
+        int openedCells = checkOpenedCells();
+        int totalCells = width * height;
+        return openedCells == totalCells - numberOfMines;
     }
 
     /// Calculates the number of mines left (mines - flags).
