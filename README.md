@@ -128,7 +128,7 @@ maintaining effective communication during the project.
 <div align="center">
 <img src="Images/HighScoreMenuMs.png" width="320" height="479" alt="">
   <img src="Gifs/PlayingAGame.gif" width="1122" height="712" alt="">
-
+</div>
 
 <div align="center">
   <img src="Images/Win.png" width="44%" alt="">
