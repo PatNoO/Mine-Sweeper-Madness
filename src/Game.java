@@ -116,7 +116,6 @@ public class Game {
         int boardNumOfMines = (int) Math.round(boardSizeWidth * boardSizeHeight * boardMinePercentage);
         Board board = new Board(boardSizeWidth, boardSizeHeight, boardNumOfMines);
 
-
         long startTime = System.currentTimeMillis();
         while (true) {
             clearScreen();
@@ -142,11 +141,7 @@ public class Game {
 
                         board.openCellAtPosition(pos.row(), pos.col());
 
-                        int openedCells = board.checkOpenedCells();
-                        int totalCells = boardSizeWidth * boardSizeHeight;
-
                         // Check lose condition
-
                         if (cell.hasMine() && cell.isVisible()) {
                             cell.setMineHit(true);
                             clearScreen();
@@ -158,7 +153,7 @@ public class Game {
                             break;
 
                         // Check win condition
-                        } else if (openedCells == totalCells - boardNumOfMines) {
+                        } else if (board.hasWon()) {
 
                             int elapsedTime = (int) ((System.currentTimeMillis() - startTime) / 1000);
                             player.setTime(elapsedTime);
