@@ -19,7 +19,7 @@ public class Board {
      * @param height        board height
      * @param numberOfMines number of mines to place
      */
-    Board(int width, int height, int numberOfMines) {
+    public Board(int width, int height, int numberOfMines) {
         this.width = width;
         this.height = height;
         this.numberOfMines = numberOfMines;
