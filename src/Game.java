@@ -22,7 +22,7 @@ public class Game {
 
     /// Constructor: clears the screen, shows welcome text, and asks for player's name.
     public Game() {
-        clearScreen();
+        TextOutput.clearScreen();
         TextOutput.welcomeText();
 
         System.out.println(TextOutput.PLAYER_NAME);
@@ -31,7 +31,7 @@ public class Game {
 
     /// Displays the home menu and handles user menu selection.
     public void homeMenu() {
-        clearScreen();
+        TextOutput.clearScreen();
 
         while (true) {
             TextOutput.homeMenuOutput(player);
@@ -56,7 +56,7 @@ public class Game {
                     TextOutput.showHelpOutput();
                     break;
                 case 6:
-                    clearScreen();
+                    TextOutput.clearScreen();
                     TextOutput.thanksForPlayingOutput();
                     System.exit(0);
                     break;
@@ -73,8 +73,8 @@ public class Game {
      *
      * @param player The player making the difficulty selection
      */
-    public void difficultyMenu(Player player) {
-        clearScreen();
+    private void difficultyMenu(Player player) {
+        TextOutput.clearScreen();
         TextOutput.difficultyMenuOutput();
 
         int playerDifficulty = InputHandler.getInt(1, 3, TextOutput.ERROR_PLAYER_INT_INPUT);
@@ -84,25 +84,25 @@ public class Game {
                 boardSizeWidth = 8;
                 boardSizeHeight = 8;
                 boardMinePercentage = 0.15; // 10 mines
-                clearScreen();
+                TextOutput.clearScreen();
                 break;
             case 2:
                 player.setDifficulty("MEDIUM");
                 boardSizeWidth = 12;
                 boardSizeHeight = 12;
                 boardMinePercentage = 0.18; // 26 mines
-                clearScreen();
+                TextOutput.clearScreen();
                 break;
             case 3:
                 player.setDifficulty("HARD");
                 boardSizeWidth = 20;
                 boardSizeHeight = 20;
                 boardMinePercentage = 0.20; // 80 mines
-                clearScreen();
+                TextOutput.clearScreen();
                 break;
             default:
                 System.out.println(TextOutput.ERROR_PLAYER_INVALID_INPUT);
-                clearScreen();
+                TextOutput.clearScreen();
                 homeMenu();
         }
     }
@@ -111,14 +111,14 @@ public class Game {
      * Main game loop: processes user input, opens cells, sets flags,
      * checks win/loss conditions, and updates highscore.
      */
-    public void run() {
+    private void run() {
         // Run Method
         int boardNumOfMines = (int) Math.round(boardSizeWidth * boardSizeHeight * boardMinePercentage);
         Board board = new Board(boardSizeWidth, boardSizeHeight, boardNumOfMines);
 
         long startTime = System.currentTimeMillis();
         while (true) {
-            clearScreen();
+            TextOutput.clearScreen();
             board.printBoard();
 
             TextOutput.gameInfoOutput();
@@ -148,7 +148,7 @@ public class Game {
                             cell.setMineHit(true);
                             elapsedTime = (int) ((System.currentTimeMillis() - startTime) / 1000);
                             player.setTime(elapsedTime);
-                            clearScreen();
+                            TextOutput.clearScreen();
                             board.openMines();
                             board.printBoard();
                             TextOutput.gameOverOutput();
@@ -166,7 +166,7 @@ public class Game {
                             } catch (IOException ignored) {
                             }
 
-                            clearScreen();
+                            TextOutput.clearScreen();
                             board.openMinesAsFlags();
                             board.printBoard();
                             TextOutput.gameWinOutput();
@@ -184,7 +184,7 @@ public class Game {
     private void playerRetry() {
         System.out.println(TextOutput.PLAYER_RETURN);
         InputHandler.getString();
-        clearScreen();
+        TextOutput.clearScreen();
     }
 
     /**
@@ -192,18 +192,18 @@ public class Game {
      *
      * @param player The player updating their name
      */
-    public void changePlayerName(Player player) {
-        clearScreen();
+    private void changePlayerName(Player player) {
+        TextOutput.clearScreen();
 
         System.out.println(TextOutput.PLAYER_NAME);
         player.setName(InputHandler.getStringName(TextOutput.ERROR_PLAYER_INPUT_NAME));
 
-        clearScreen();
+        TextOutput.clearScreen();
     }
 
     /// Displays highscore for each difficulty and top 5 players.
-    public void highScoreMenu() {
-        clearScreen();
+    private void highScoreMenu() {
+        TextOutput.clearScreen();
         try {
             ArrayList<Player> players = CSV.readCsvFile("highscore.csv");
 
@@ -243,12 +243,7 @@ public class Game {
         System.out.println();
         System.out.println(TextOutput.PLAYER_RETURN);
         InputHandler.getString();
-        clearScreen();
+        TextOutput.clearScreen();
     }
 
-    /// Clears the console screen using ANSI escape codes.
-    public static void clearScreen() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
 }
