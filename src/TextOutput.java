@@ -160,7 +160,7 @@ public class TextOutput {
 
     /// Prints the help information
     public static void showHelpOutput() {
-        Game.clearScreen();
+        clearScreen();
         System.out.println(Color.BOLD + Color.BRIGHT_WHITE + """
                 
                   📜 HOW TO PLAY MINESWEEPER 📜
@@ -219,6 +219,12 @@ public class TextOutput {
         System.out.println(PLAYER_RETURN);
 
         InputHandler.getString();
-        Game.clearScreen();
+        clearScreen();
+    }
+
+    /// Clears the console screen using ANSI escape codes.
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 }
