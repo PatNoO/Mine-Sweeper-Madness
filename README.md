@@ -77,7 +77,8 @@ The UML diagram was created using Lucidchart and represents the foundational str
 It illustrates our initial design thoughts and how the core components interact.
 The diagram includes:
 
-![UMLDiagramMineSweeperMadness.png](Images/UMLDiagramMineSweeperMadness.png)
+![UmlDiagramMsM.png](Images/UmlDiagramMsM.png)
+
 ---
 
 ## 🧠 Classes and Structure
@@ -125,9 +126,9 @@ maintaining effective communication during the project.
 </div>
 
 <div align="center">
-  <img src="Images/Win.png" width="44%" alt="">
-  <img src="Images/GameOver.png" width="52%" alt="">
-</div>;
+  <img src="Images/WinMs.png" width="47%" height="445" alt="">
+  <img src="Images/GameOverMs.png" width="52%" alt="">
+</div>
 
 ---
 
