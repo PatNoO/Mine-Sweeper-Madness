@@ -69,14 +69,6 @@ to ensure a clear and professional workflow.
 
 <img src="Images/HomeMenuMs.png" width="324" height="344" alt="">
 
-[//]: # (<div align="center">)
-
-[//]: # (  <img src="Images/HomeMenuMs.png" width="324" height="344" alt="">)
-
-[//]: # (  <img src="Images/HighScoreMenuMs.png" width="320" height="479" alt="">)
-
-[//]: # (</div>)
-
 ---
 
 ## 🔖 UML Diagram
