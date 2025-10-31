@@ -154,7 +154,6 @@ public class Game {
                             TextOutput.gameOverOutput();
                             TextOutput.gameOverPrintTime(elapsedTime);
                             playerRetry();
-                            clearScreen();
                             break;
 
                         // Check win condition
@@ -173,7 +172,6 @@ public class Game {
                             TextOutput.gameWinOutput();
                             TextOutput.gameWinPrintTime(elapsedTime);
                             playerRetry();
-                            clearScreen();
                             break;
                         }
                     }
@@ -182,14 +180,11 @@ public class Game {
         }
     }
 
-    /// Prompts the player to retry the game after winning or losing.
+    /// Prompts the player to return to Menu.
     private void playerRetry() {
-        System.out.println(TextOutput.PLAYER_RETRY);
-        String userInput = InputHandler.getString();
-        if (userInput.isEmpty()) {
-            clearScreen();
-            run();
-        }
+        System.out.println(TextOutput.PLAYER_RETURN);
+        InputHandler.getString();
+        clearScreen();
     }
 
     /**
@@ -246,7 +241,7 @@ public class Game {
         }
 
         System.out.println();
-        System.out.println(" " + TextOutput.PLAYER_RETURN);
+        System.out.println(TextOutput.PLAYER_RETURN);
         InputHandler.getString();
         clearScreen();
     }

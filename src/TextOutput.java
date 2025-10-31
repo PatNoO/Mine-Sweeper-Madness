@@ -53,12 +53,7 @@ public class TextOutput {
                                                         """ + Color.RESET;
     public static final String PLAYER_MAKE_MOVE_INPUT = "\n" +" " + Color.BOLD + Color.WHITE_BG + Color.BLACK +
                                                         " Enter coordinate: "  + Color.RESET;
-    public static final String PLAYER_RETURN = "Press ENTER) ⏎ MENU";
-    public static final String PLAYER_RETRY = " " + Color.BOLD + Color.WHITE_BG + Color.BLACK +
-                                                " Would you like to play again? " + Color.RESET + "\n" +
-                                                "  Press ENTER) YES\n" +
-                                                "  Press ANY KEY) ⏎ MENU";
-
+    public static final String PLAYER_RETURN = " Press ENTER) ⏎ MENU";
 
     // ----------------- Menu Outputs ----------------- //
 
@@ -168,53 +163,60 @@ public class TextOutput {
         Game.clearScreen();
         System.out.println(Color.BOLD + Color.BRIGHT_WHITE + """
                 
-                 📜 HOW TO PLAY MINESWEEPER 📜
-                ------------------------------
+                  📜 HOW TO PLAY MINESWEEPER 📜
+                 ------------------------------
                 
-                🧩 GOAL:
-                - Find and clear all SAFE cells on the board.
-                  Avoid hidden mines 💣 or the game will end!
+                 🧩 GOAL:
+                 - Find and clear all SAFE cells on the board.
+                   Avoid hidden mines 💣 or the game will end!
                 
-                🕹 CONTROLS:
-                - Enter coordinates to open a cell.
-                  Example: A1, B3,..
+                 🕹 CONTROLS:
+                 - Enter coordinates to open a cell.
+                   Example: A1, B3,..
                 
-                ⛳️ FLAG:
-                - Add 'F', at the end of the coordinate to place a ⛳️ (blue background) at that cell.
-                (E.g., "A1" or "A1F")
+                 ⛳️ FLAG:
+                 - Add 'F', at the end of the coordinate to place a ⛳️ (blue background) at that cell.
+                 (E.g., "A1" or "A1F")
                 
-                💡 TIP:
-                - The number on an opened cell shows how many mines
-                  are hidden around it (in 8 directions).
+                 💡 TIP:
+                 - The number on an opened cell shows how many mines
+                   are hidden around it (in 8 directions).
                 
-                - Use logic to avoid mines and find safe paths.
+                 - Use logic to avoid mines and find safe paths.
                 
-                - You can play carefully or take risks — up to you!
-                ------------------------------""" + Color.RESET);
-        System.out.println("Press ENTER) ⇩ Continue");
+                 - You can play carefully or take risks — up to you!
+                
+                 ------------------------------
+                
+                """ + Color.RESET);
+        System.out.println(" Press ENTER) ⇩ Continue");
         InputHandler.getString();
         System.out.println(Color.BOLD + Color.BRIGHT_WHITE + """
-                🏆 WIN CONDITION:
-                - You win when all safe cells have been opened!
                 
-                ☠️ LOSE CONDITION:
-                - You lose if you open a cell that has a mine.
+                 🏆 WIN CONDITION:
+                 - You win when all safe cells have been opened!
                 
-                 Example round:
-                ------------------------------
-                Input:
-                 "A1"
-                Output:
-                 Number of nearby mines
-                 or 💣 if you hit one.
+                 ☠️ LOSE CONDITION:
+                 - You lose if you open a cell that has a mine.
                 
-                Input:
-                 "A1F"
-                Output:
-                 Marks the cell as a ⛳️ (blue background)
-                ------------------------------
+                  Example round:
+                 ------------------------------
+                
+                 Input:
+                  "A1"
+                 Output:
+                  Number of nearby mines
+                  or 💣 if you hit one.
+                
+                 Input:
+                  "A1F"
+                 Output:
+                  Marks the cell as a ⛳️ (blue background)
+                
+                 ------------------------------
+                
                 """ + Color.RESET);
-        System.out.println("Press ENTER) ⏎ MENU");
+        System.out.println(PLAYER_RETURN);
 
         InputHandler.getString();
         Game.clearScreen();
